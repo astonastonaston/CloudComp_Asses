@@ -1,0 +1,70 @@
+21/11/20 02:18:53 INFO HiBench.Dummy: Creating dummy file hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/temp/dummy with 1 slots...
+curIndex: 2839, total: 2840
+21/11/20 02:18:54 INFO HiBench.BayesData: creating bayes text data ...
+21/11/20 02:18:54 INFO HiBench.BayesData: Running Job: Create bayes data
+21/11/20 02:18:54 INFO HiBench.BayesData: Pages file hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/temp/dummy as input
+21/11/20 02:18:54 INFO HiBench.BayesData: Rankings file hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Input as output
+21/11/20 02:18:55 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/20 02:18:55 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/20 02:18:55 INFO hdfs.DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637346228901, maxDate=1637951028901, sequenceNumber=5329345, masterKeyId=676 on ha-hdfs:cuhkcluster
+21/11/20 02:18:55 INFO kms.KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/20 02:18:55 INFO kms.KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637346228971, maxDate=1637951028971, sequenceNumber=35305, masterKeyId=287))
+21/11/20 02:18:55 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637346228901, maxDate=1637951028901, sequenceNumber=5329345, masterKeyId=676)
+21/11/20 02:18:55 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637346228971, maxDate=1637951028971, sequenceNumber=35305, masterKeyId=287)
+21/11/20 02:18:55 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+21/11/20 02:18:55 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_11115
+21/11/20 02:18:55 INFO mapred.FileInputFormat: Total input files to process : 1
+21/11/20 02:18:55 INFO mapreduce.JobSubmitter: number of splits:1
+21/11/20 02:18:56 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1635647904527_11115
+21/11/20 02:18:56 INFO mapreduce.JobSubmitter: Executing with tokens: [Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637346228901, maxDate=1637951028901, sequenceNumber=5329345, masterKeyId=676), Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637346228971, maxDate=1637951028971, sequenceNumber=35305, masterKeyId=287)]
+21/11/20 02:18:56 INFO conf.Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/resource-types.xml
+21/11/20 02:18:56 INFO impl.TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/20 02:18:56 INFO impl.YarnClientImpl: Submitted application application_1635647904527_11115
+21/11/20 02:18:56 INFO mapreduce.Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_11115/
+21/11/20 02:18:56 INFO mapreduce.Job: Running job: job_1635647904527_11115
+21/11/20 02:19:08 INFO mapreduce.Job: Job job_1635647904527_11115 running in uber mode : false
+21/11/20 02:19:08 INFO mapreduce.Job:  map 0% reduce 0%
+21/11/20 02:19:22 INFO mapreduce.Job:  map 100% reduce 0%
+21/11/20 02:19:23 INFO mapreduce.Job: Job job_1635647904527_11115 completed successfully
+21/11/20 02:19:23 INFO mapreduce.Job: Counters: 33
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=249518
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=114
+		HDFS: Number of bytes written=110843705
+		HDFS: Number of read operations=7
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=39438
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=13146
+		Total vcore-milliseconds taken by all map tasks=13146
+		Total megabyte-milliseconds taken by all map tasks=40384512
+	Map-Reduce Framework
+		Map input records=1
+		Map output records=30000
+		Input split bytes=112
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=522
+		CPU time spent (ms)=19600
+		Physical memory (bytes) snapshot=464195584
+		Virtual memory (bytes) snapshot=4685709312
+		Total committed heap usage (bytes)=498597888
+		Peak Map Physical memory (bytes)=464195584
+		Peak Map Virtual memory (bytes)=4685709312
+	HiBench.Counters
+		BYTES_DATA_GENERATED=110462367
+	File Input Format Counters
+		Bytes Read=2
+	File Output Format Counters
+		Bytes Written=110843705
+21/11/20 02:19:23 INFO HiBench.BayesData: Finished Running Job: Create bayes data
+21/11/20 02:19:23 INFO HiBench.BayesData: Closing bayes data generator...

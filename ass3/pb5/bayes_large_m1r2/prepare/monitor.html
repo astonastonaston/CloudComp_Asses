@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>System monitor report of HadoopPrepareBayes</title>
+    <style TYPE="text/css">
+      .highcharts-tooltip>span {
+	background: rgba(255,255,255,0.85);
+	border: 1px solid silver;
+	border-radius: 3px;
+	box-shadow: 1px 1px 2px #888;
+	padding: 8px;
+	z-index: 2;
+      }
+    </style>
+    <script type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js'></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/data.js"></script>
+    <script src="http://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <script type='text/javascript'>
+    Object.defineProperty(Number.prototype,'fileSize',{value:function(a,b,c,d){
+	return (a=a?[1e3,'k','B']:[1024,'K','iB'],b=Math,c=b.log,
+		d=c(this)/c(a[0])|0,this/b.pow(a[0],d)).toFixed(2)
+	    +(d?(a[1]+'MGTPEZY')[--d]+a[2]:'Bytes');
+    },writable:false,enumerable:false});
+
+    function parse_events(){
+	var data = document.getElementById("csv_events").innerHTML;
+	var events=[];
+	var csv_header = [];
+	$.each(data.split('\n'), function(lineNo, line){
+	    var items = line.split(',');
+	    if (lineNo==0){
+		$.each(items, function(itemNo, item){
+		    csv_header.push(item);
+		});
+	    }else {
+		value = [];
+		$.each(items, function(itemNo, item){
+		    if (itemNo == 0){ // 0 -> timestamp
+			item = parseFloat(item);
+		    }
+//		    value[csv_header[itemNo]] = item;
+		    value.push(item);
+		});
+		events.push({color: 'red',
+			     dashStyle: 'longdashdot',
+			     value: value[0],
+			     label:{
+				 useHTML: true,
+				 text:value[1],
+				 align:'left'
+			     },
+			     width: 2});
+	    }
+	});
+	return events;
+    }
+
+function merge_options(obj1,obj2){
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
+}
+
+function gen_overall_options(suffix, title, yAxis_desc, plot_options, plot_events, chart_type){
+    var data = document.getElementById("csv_"+suffix).innerHTML;
+    var csv_header = [];
+	
+    var series=[];
+    var yaxis=0;
+    $.each(data.split('\n'), function(lineNo, line){
+	var items = line.split(',');
+	if (lineNo==0){
+	    $.each(items, function(itemNo, item){
+		if (item[0]=='|'){ // new axis
+		    item = item.substring(1);
+		    yaxis +=1;
+		}
+		csv_header.push(item);
+		series.push({name:item, yAxis: yaxis, data:[],
+			     tooltip: yAxis_desc[yaxis].tooltip
+			    })
+	    });
+	} else {
+	    $.each(items, function(itemNo, item){
+		if (itemNo>0){
+		    series[itemNo].data.push([parseFloat(items[0]), parseFloat(item)])
+		}
+	    });
+	}
+    });
+    series.splice(0,1);
+    var options = {
+	chart: merge_options({
+	    renderTo: 'container_'+suffix,
+	},
+			     chart_type),
+	title: {
+	    text: title
+	},
+	// tooltip: {
+	// 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f})<br/>',
+        // shared: true
+        // },
+	
+	
+	plotOptions: plot_options,
+	
+	xAxis: {
+	    type: 'datetime',
+	    tickmarkPlacement: 'on',
+	    labels: {
+                align: 'left',
+                x: 5,
+                format: '{value:%M:%S}'
+	    },
+	    plotLines: plot_events,
+	    title: {
+                enabled: false
+	    }
+	},
+	yAxis: yAxis_desc,
+	series: series
+    };
+    //	console.log(options.series)
+
+    var newchart = new Highcharts.Chart(options);
+}
+
+function gen_heatmap_options(suffix, title, yAxis_desc, colorAxis_desc, series_desc){
+    
+    var data = document.getElementById("csv_"+suffix).innerHTML;
+    var csv_header = [];
+	
+    var series=[];
+    var yaxis=0;
+
+    var options = {
+	chart: {
+	    renderTo: 'container_'+suffix,
+	    type: 'heatmap',
+	    margin: [60, 10, 80, 70]
+	},
+	title: {
+	    text: title
+	},
+	tooltip: {
+	    backgroundColor: null,
+	    borderWidth: 0,
+	    distance: 10,
+	    shadow: false,
+	    useHTML: true,
+	    style: {
+                padding: 0,
+                color: 'black'
+	    }
+        },
+	xAxis: {
+	    type: 'datetime',
+	    labels: {
+                align: 'left',
+                x: 5,
+                format: '{value:%M:%S}'
+	    },
+	    showLastLabel: false,
+	    tickLength: 16
+	},
+	yAxis: yAxis_desc,
+	colorAxis: merge_options({
+	    stops: [
+                [0, '#3060cf'],
+                [0.5, '#fffbbc'],
+                [0.9, '#c4463a'],
+                [1, '#c4463a']
+	    ],
+	    startOnTick: false,
+	    endOnTick: false,
+	    labels: {
+                format: '{value}%'
+	    }
+	},
+				 colorAxis_desc),
+	series: [merge_options({
+	    name : 'CPU usage',
+	    borderWidth: 1,
+	    nullColor: '#EFEFEF',
+	    colsize: 5000.0, // 1s
+	    tooltip: {
+                headerFormat: 'CPU Usage<br/>',
+                pointFormat: '{point.x%Y-%m-%d %H:%M:%S}<br/>{point.hostname}.{point.coreid}<br/><b>{point.value:%.2f} %</b>'
+	    },
+	    turboThreshold: Number.MAX_VALUE,
+	    data: []
+	}, series_desc)]
+    };
+    
+    var data =  document.getElementById('csv_'+suffix).innerHTML;
+    // Split the lines
+    var lines = data.split('\n');
+    var csv_header = [];
+    var max_value = 0;
+    var min_value = -1;
+    $.each(lines, function(lineNo, line) {
+	var items = line.split(',');
+	    
+	// header line containes categories
+	if (lineNo == 0) {
+	    $.each(items, function(itemNo, item){
+		csv_header.push(item);
+	    });
+	} else { // the rest of the lines contain data with their name in the first position
+	    var series_data = {};
+	    $.each(items, function(itemNo, item) {
+		var value;
+		if (itemNo <= 2) {
+		    value = parseFloat(item);
+		    if (itemNo == 2){
+			if (max_value< value) max_value = value;		
+			if ((min_value<0) || ( min_value>value)) min_value = value;
+		    }
+		} else {
+		    value = item;
+		}
+		series_data[csv_header[itemNo]] = value;
+	    });
+	    options.series[0].data.push(series_data);
+	}
+    }  );
+    if (!("max" in colorAxis_desc)){
+	options.colorAxis.max = max_value;
+    }
+    if (!("min" in colorAxis_desc)){
+	options.colorAxis,min = min_value;
+    }
+
+
+    var newchart = new Highcharts.Chart(options);
+}
+
+    $(function() {
+
+	/**
+	 * This plugin extends Highcharts in two ways:
+	 * - Use HTML5 canvas instead of SVG for rendering of the heatmap squares. Canvas
+	 *   outperforms SVG when it comes to thousands of single shapes.
+	 * - Add a K-D-tree to find the nearest point on mouse move. Since we no longer have SVG shapes
+	 *   to capture mouseovers, we need another way of detecting hover points for the tooltip.
+	 */
+	(function (H) {
+            var wrap = H.wrap,
+            seriesTypes = H.seriesTypes;
+	    
+            /**
+             * Get the canvas context for a series
+             */
+            H.Series.prototype.getContext = function () {
+		var canvas;
+		if (!this.ctx) {
+                    canvas = document.createElement('canvas');
+                    canvas.setAttribute('width', this.chart.plotWidth);
+                    canvas.setAttribute('height', this.chart.plotHeight);
+                    canvas.style.position = 'absolute';
+                    canvas.style.left = this.group.translateX + 'px';
+                    canvas.style.top = this.group.translateY + 'px';
+                    canvas.style.zIndex = 0;
+                    canvas.style.cursor = 'crosshair';
+                    this.chart.container.appendChild(canvas);
+                    if (canvas.getContext) {
+			this.ctx = canvas.getContext('2d');
+                    }
+		}
+		return this.ctx;
+            }
+
+            /**
+             * Wrap the drawPoints method to draw the points in canvas instead of the slower SVG,
+             * that requires one shape each point.
+             */
+            H.wrap(H.seriesTypes.heatmap.prototype, 'drawPoints', function (proceed) {
+		
+		var ctx;
+		if (this.chart.renderer.forExport) {
+                    // Run SVG shapes
+                    proceed.call(this);
+		    
+		} else {
+		    
+                    if (ctx = this.getContext()) {
+			
+			// draw the columns
+			H.each(this.points, function (point) {
+                            var plotY = point.plotY,
+                            shapeArgs;
+			    
+                            if (plotY !== undefined && !isNaN(plotY) && point.y !== null) {
+				shapeArgs = point.shapeArgs;
+				pointAttr = (point.pointAttr && point.pointAttr['']) || point.series.pointAttribs(point);
+				
+				ctx.fillStyle = pointAttr.fill;
+				ctx.fillRect(shapeArgs.x, shapeArgs.y, shapeArgs.width, shapeArgs.height);
+                            }
+			});
+			
+                    } else {
+			this.chart.showLoading("Your browser doesn't support HTML5 canvas, <br>please use a modern browser");
+			
+			// Uncomment this to provide low-level (slow) support in oldIE. It will cause script errors on
+			// charts with more than a few thousand points.
+			//proceed.call(this);
+                    }
+		}
+            });
+	}(Highcharts));
+
+
+//	var chart_cpu_heatmap = new Highcharts.Chart(options);
+	var events = parse_events();
+
+	// generate heatmaps
+	// generate cpu heatmap
+	gen_heatmap_options("cpu_heatmap", "CPU usage heatmap", 
+			    {
+				title: {
+				    text: null
+				},
+				labels: {
+				    formatter: function(){
+					return 'Core-'+this.value;
+				    }
+				},
+				minPadding: 0,
+				maxPadding: 0,
+				startOnTick: false,
+				endOnTick: false,
+				tickWidth: 1,
+				min: 0,
+			    },
+			    {min:0, max:100, labels:{format:'{value}%'}},
+			    {name : 'CPU Usage',
+			     tooltip:{
+				 headerFormat: 'CPU Usage<br/>',
+				 pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.hostname}.{point.coreid}<br/><b>{point.value:%.2f} %</b>'
+			     }});
+
+	// generate network throughputs heatmap
+	gen_heatmap_options("network_heatmap", "Network throughputs heatmap", 
+			    {
+				title: {
+				    text: null
+				},
+				labels: {
+				    formatter: function(){
+					return  'Eth-'+this.value;
+				    }
+				},
+				minPadding: 0,
+				maxPadding: 0,
+				startOnTick: false,
+				endOnTick: false,
+				tickWidth: 1,
+				min: 0,
+			    },
+			    {labels:{format:'{value}'}},
+			    {name : 'Network throughputs',
+			     tooltip:{
+				 headerFormat: 'Network throughputs<br/>',
+				 pointFormatter: function () {
+				     return Highcharts.dateFormat("%Y-%m-%d %H:%M:%S",this.x)+'<br/>'+this.hostname+"."+this.adapterid+'<br/><b>'+this.value.fileSize()+'</b>';}
+			     }}
+			    );
+
+	// generate disk io throughputs heatmap
+	gen_heatmap_options("diskio_heatmap", "Disk throughputs heatmap", 
+			    {
+				title: {
+				    text: null
+				},
+				labels: {
+				    formatter: function (){
+					return 'Disk-'+this.value;
+				    }
+				},
+				minPadding: 0,
+				maxPadding: 0,
+				startOnTick: false,
+				endOnTick: false,
+				tickWidth: 1,
+				min: 0,
+			    },
+			    {labels:{format: '{value}'}},
+			    {name : 'DiskIO throughputs',
+			     tooltip:{
+				 headerFormat: 'DiskIO throughputs<br/>',
+				 pointFormatter: function () {
+				     return Highcharts.dateFormat("%Y-%m-%d %H:%M:%S",this.x)+'<br/>'+this.hostname+"."+this.diskid+'<br/><b>'+this.value.fileSize()+'</b>';}
+			     }});
+
+	// generate memory usage heatmap
+	gen_heatmap_options("memory_heatmap", "Memory usage heatmap", 
+			    {
+				title: {
+				    text: null
+				},
+				labels: {
+				    formatter: function () {
+					return 'Node-'+this.value;
+				    }
+				},
+				minPadding: 0,
+				maxPadding: 0,
+				startOnTick: false,
+				endOnTick: false,
+				tickWidth: 1,
+				min: 0,
+			    },
+			    {labels:{formatter: function (){ return this.value.fileSize();}}},
+			    {name : 'Memory Usage',
+			     tooltip:{
+				 headerFormat: 'Memory Usage<br/>',
+				 pointFormatter: function () {
+				     return Highcharts.dateFormat("%Y-%m-%d %H:%M:%S",this.x)+'<br/>'+this.hostname+'<br/><b>'+this.value.fileSize()+'</b>';}
+			     }});
+
+	// generate proc numbers heatmap
+	gen_heatmap_options("procload_heatmap", "Process numbers heatmap", 
+			    {
+				title: {
+				    text: null
+				},
+				labels: {
+				    formatter: function () {
+					return  'Node-'+ this.value;
+				    }
+				},
+				minPadding: 0,
+				maxPadding: 0,
+				startOnTick: false,
+				endOnTick: false,
+				tickWidth: 1,
+				min: 0,
+			    },
+			    {labels:{format:'{value}'}},
+			    {name : 'Process(/Thread) numbers',
+			     tooltip:{
+				 headerFormat: 'Process numbers<br/>',
+				 pointFormatter: function () {
+				     return Highcharts.dateFormat("%Y-%m-%d %H:%M:%S",this.x)+'<br/>'+this.hostname+'<br/><b>'+this.value+'</b>';}
+			     }}
+			   );
+	
+
+	// load cpu overall
+	gen_overall_options("cpu_overall", "Summarized CPU usage",
+			    [{	// yaxis
+				title: {
+				    text: 'Percent'
+				},
+				tooltip: {
+				    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b>)<br/>',
+				},
+			    }], 
+			    {	// plot options
+				area: {
+				    stacking: 'percent',
+				    lineColor: '#ffffff',
+				    lineWidth: 1,
+				    marker: {
+					lineWidth: 1,
+					lineColor: '#ffffff'
+				    }
+				}
+			    },
+			    events,
+			    {	// chart type
+			    	type: 'area',
+			    }
+			   );
+
+	// load network overall
+	gen_overall_options("network_overall", "Summarized Network throughputs & Packet-per-seconds", 
+			    [	// yaxis
+				{
+				    title:{
+					text: "Throughput Per Second"
+				    },
+				    tooltip: {
+					pointFormatter: function () {
+					    return '<span style="color:'+this.series.color+'">'+this.series.name+'</span>: <b>' + this.y.fileSize()+'</b>)<br/>';
+					}
+				    },
+				    labels: {
+					formatter: function() {
+					    return this.value.fileSize();
+					    }
+					}
+				},
+				{
+				    title:{
+					text: "Packets Per Second"
+				    },
+				    tooltip: {
+					pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:.0f} packets</b>)<br/>',
+				    },
+				    opposite: true,
+				    reversed: true
+				},
+			    ],
+			    {},	// plot options
+			    events,
+			    {	// chart type
+			    	type: 'area',
+			    }
+			   );
+
+	// load diskio overall
+	gen_overall_options("diskio_overall", "Summarized Disk throughputs & IOPS",
+			    [	// yaxis
+				{
+				    title:{
+					text: "Throughput Per Second"
+				    },
+				    tooltip: {
+					pointFormatter: function () {
+					    return '<span style="color:'+this.series.color +'">'+this.series.name+'</span>: <b>' + this.y.fileSize()+'</b>)<br/>';
+					},
+				    },
+				    labels: {
+					formatter: function() {
+					    return this.value.fileSize();
+					}
+				    }
+				},
+				{
+				    title:{
+					text: "Operations Per Second"
+				    },
+				    tooltip: {
+					pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:.0f} IO</b>)<br/>',
+				    },
+				    opposite: true,
+				    reversed: true
+				}
+			    ],
+			    {},	// plot operations
+			    events,
+			    {	// chart type
+			    	type: 'area',
+			    }
+			   );
+
+	// load memory overall
+	gen_overall_options("memory_overall", "Summarized Memory usage",
+			    [{	// yaxis
+				title: {
+				    text: 'Percent'
+				},
+				tooltip: {
+				    pointFormatter: function () {
+					return '<span style="color:'+this.series.color+'">'+this.series.name+'</span>: <b>' + (this.y*1024).fileSize()+'</b>)<br/>';
+				    }
+				},
+			    }], 
+			    {	// plot options
+				area: {
+				    stacking: 'percent',
+				    lineColor: '#ffffff',
+				    lineWidth: 1,
+				    marker: {
+					lineWidth: 1,
+					lineColor: '#ffffff'
+				    }
+				}
+			    },
+			    events,
+			    {	// chart type
+			    	type: 'area',
+			    }
+			   );
+
+	// load procload overall
+	gen_overall_options("procload_overall", "Summarized system load",
+			    [{	// yaxis for loads
+				title: {
+				    text: 'load'
+				},
+				tooltip: {
+				    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:0.2f}</b>)<br/>',
+				},
+			    },
+			     {	// yaxis for running & total process
+				 title: {
+				     text: 'process number'
+				 },
+				 tooltip: {
+				     pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:.0f}</b>)<br/>',
+				 },
+				 opposite: true,
+			    }], 
+			    {	// plot options
+			    },
+			    events,
+			     {	// chart type
+			    }
+			   );
+    });
+</script>
+</head>
+<body>
+    <h1>Workload: HadoopPrepareBayes</h1>
+    
+    <div id="container_cpu_heatmap" style="height: 800px; max-width: 1000px; margin: 0 auto"></div>
+    <div id="container_cpu_overall" style="height: 400px; max-width: 1000px; margin: 0 auto"></div>
+    
+    <div id="container_network_heatmap" style="height: 800px; max-width: 1000px; margin: 0 auto"></div>
+    <div id="container_network_overall" style="height: 400px; max-width: 1000px; margin: 0 auto"></div>
+
+    <div id="container_diskio_heatmap" style="height: 800px; max-width: 1000px; margin: 0 auto"></div>
+    <div id="container_diskio_overall" style="height: 400px; max-width: 1000px; margin: 0 auto"></div>
+    
+    <div id="container_memory_heatmap" style="height: 400px; max-width: 1000px; margin: 0 auto"></div>
+    <div id="container_memory_overall" style="height: 400px; max-width: 1000px; margin: 0 auto"></div>
+
+    <div id="container_procload_heatmap" style="height: 400px; max-width: 1000px; margin: 0 auto"></div>
+    <div id="container_procload_overall" style="height: 400px; max-width: 1000px; margin: 0 auto"></div>
+
+    <pre id="csv_cpu_heatmap" style="display: none">x,y,value,hostname,coreid
+1637433590000,0,18.1636726547,hd4.cuhk.com,cpu22
+1637433590000,1,12.5748502994,hd4.cuhk.com,cpu23
+1637433590000,2,9.96015936255,hd4.cuhk.com,cpu20
+1637433590000,3,12.1756487026,hd4.cuhk.com,cpu21
+1637433590000,4,12.6,hd4.cuhk.com,cpu26
+1637433590000,5,10.8,hd4.cuhk.com,cpu27
+1637433590000,6,7.8,hd4.cuhk.com,cpu24
+1637433590000,7,14.2,hd4.cuhk.com,cpu25
+1637433590000,8,14.4288577154,hd4.cuhk.com,cpu28
+1637433590000,9,12.6,hd4.cuhk.com,cpu29
+1637433590000,10,15.4,hd4.cuhk.com,cpu17
+1637433590000,11,11.7764471058,hd4.cuhk.com,cpu16
+1637433590000,12,10.621242485,hd4.cuhk.com,cpu15
+1637433590000,13,44.8897795591,hd4.cuhk.com,cpu14
+1637433590000,14,11.2676056338,hd4.cuhk.com,cpu13
+1637433590000,15,10.0401606426,hd4.cuhk.com,cpu12
+1637433590000,16,18.8,hd4.cuhk.com,cpu11
+1637433590000,17,31.0,hd4.cuhk.com,cpu10
+1637433590000,18,11.377245509,hd4.cuhk.com,cpu19
+1637433590000,19,18.5628742515,hd4.cuhk.com,cpu18
+1637433590000,20,13.627254509,hd4.cuhk.com,cpu31
+1637433590000,21,12.0,hd4.cuhk.com,cpu30
+1637433590000,22,9.21843687375,hd4.cuhk.com,cpu3
+1637433590000,23,19.9195171026,hd4.cuhk.com,cpu2
+1637433590000,24,13.627254509,hd4.cuhk.com,cpu1
+1637433590000,25,15.8953722334,hd4.cuhk.com,cpu0
+1637433590000,26,14.6881287726,hd4.cuhk.com,cpu7
+1637433590000,27,22.1327967807,hd4.cuhk.com,cpu6
+1637433590000,28,27.9116465863,hd4.cuhk.com,cpu5
+1637433590000,29,18.875502008,hd4.cuhk.com,cpu4
+1637433590000,30,12.6,hd4.cuhk.com,cpu9
+1637433590000,31,11.2449799197,hd4.cuhk.com,cpu8
+1637433595000,0,0.399201596806,hd4.cuhk.com,cpu22
+1637433595000,1,0.399201596806,hd4.cuhk.com,cpu23
+1637433595000,2,3.2,hd4.cuhk.com,cpu20
+1637433595000,3,1.8,hd4.cuhk.com,cpu21
+1637433595000,4,11.8,hd4.cuhk.com,cpu26
+1637433595000,5,2.99401197605,hd4.cuhk.com,cpu27
+1637433595000,6,3.8,hd4.cuhk.com,cpu24
+1637433595000,7,12.5498007968,hd4.cuhk.com,cpu25
+1637433595000,8,0.399201596806,hd4.cuhk.com,cpu28
+1637433595000,9,2.60521042084,hd4.cuhk.com,cpu29
+1637433595000,10,9.61923847695,hd4.cuhk.com,cpu17
+1637433595000,11,1.2,hd4.cuhk.com,cpu16
+1637433595000,12,19.6787148594,hd4.cuhk.com,cpu15
+1637433595000,13,7.84708249497,hd4.cuhk.com,cpu14
+1637433595000,14,2.81690140845,hd4.cuhk.com,cpu13
+1637433595000,15,9.61923847695,hd4.cuhk.com,cpu12
+1637433595000,16,12.676056338,hd4.cuhk.com,cpu11
+1637433595000,17,15.6941649899,hd4.cuhk.com,cpu10
+1637433595000,18,10.4208416834,hd4.cuhk.com,cpu19
+1637433595000,19,3.0,hd4.cuhk.com,cpu18
+1637433595000,20,3.4,hd4.cuhk.com,cpu31
+1637433595000,21,4.8,hd4.cuhk.com,cpu30
+1637433595000,22,4.23387096774,hd4.cuhk.com,cpu3
+1637433595000,23,4.61847389558,hd4.cuhk.com,cpu2
+1637433595000,24,5.22088353414,hd4.cuhk.com,cpu1
+1637433595000,25,5.84677419355,hd4.cuhk.com,cpu0
+1637433595000,26,7.41482965932,hd4.cuhk.com,cpu7
+1637433595000,27,9.23694779116,hd4.cuhk.com,cpu6
+1637433595000,28,5.22088353414,hd4.cuhk.com,cpu5
+1637433595000,29,1.20481927711,hd4.cuhk.com,cpu4
+1637433595000,30,4.41767068273,hd4.cuhk.com,cpu9
+1637433595000,31,4.63709677419,hd4.cuhk.com,cpu8
+1637433600000,0,1.0,hd4.cuhk.com,cpu22
+1637433600000,1,0.798403193613,hd4.cuhk.com,cpu23
+1637433600000,2,0.6,hd4.cuhk.com,cpu20
+1637433600000,3,1.19521912351,hd4.cuhk.com,cpu21
+1637433600000,4,6.17529880478,hd4.cuhk.com,cpu26
+1637433600000,5,5.58882235529,hd4.cuhk.com,cpu27
+1637433600000,6,0.59880239521,hd4.cuhk.com,cpu24
+1637433600000,7,9.2555331992,hd4.cuhk.com,cpu25
+1637433600000,8,1.8,hd4.cuhk.com,cpu28
+1637433600000,9,2.99401197605,hd4.cuhk.com,cpu29
+1637433600000,10,6.1876247505,hd4.cuhk.com,cpu17
+1637433600000,11,1.99600798403,hd4.cuhk.com,cpu16
+1637433600000,12,20.6827309237,hd4.cuhk.com,cpu15
+1637433600000,13,8.01603206413,hd4.cuhk.com,cpu14
+1637433600000,14,19.7211155378,hd4.cuhk.com,cpu13
+1637433600000,15,10.0200400802,hd4.cuhk.com,cpu12
+1637433600000,16,16.0642570281,hd4.cuhk.com,cpu11
+1637433600000,17,12.4497991968,hd4.cuhk.com,cpu10
+1637433600000,18,2.39043824701,hd4.cuhk.com,cpu19
+1637433600000,19,6.58682634731,hd4.cuhk.com,cpu18
+1637433600000,20,2.6,hd4.cuhk.com,cpu31
+1637433600000,21,7.21442885772,hd4.cuhk.com,cpu30
+1637433600000,22,10.4417670683,hd4.cuhk.com,cpu3
+1637433600000,23,8.38323353293,hd4.cuhk.com,cpu2
+1637433600000,24,8.41683366733,hd4.cuhk.com,cpu1
+1637433600000,25,10.685483871,hd4.cuhk.com,cpu0
+1637433600000,26,10.5788423154,hd4.cuhk.com,cpu7
+1637433600000,27,7.8,hd4.cuhk.com,cpu6
+1637433600000,28,23.9520958084,hd4.cuhk.com,cpu5
+1637433600000,29,11.0220440882,hd4.cuhk.com,cpu4
+1637433600000,30,8.43373493976,hd4.cuhk.com,cpu9
+1637433600000,31,53.0938123752,hd4.cuhk.com,cpu8
+1637433605000,0,2.39520958084,hd4.cuhk.com,cpu22
+1637433605000,1,1.0,hd4.cuhk.com,cpu23
+1637433605000,2,3.2,hd4.cuhk.com,cpu20
+1637433605000,3,0.6,hd4.cuhk.com,cpu21
+1637433605000,4,8.41683366733,hd4.cuhk.com,cpu26
+1637433605000,5,11.2,hd4.cuhk.com,cpu27
+1637433605000,6,9.63855421687,hd4.cuhk.com,cpu24
+1637433605000,7,7.81563126253,hd4.cuhk.com,cpu25
+1637433605000,8,1.2,hd4.cuhk.com,cpu28
+1637433605000,9,1.19760479042,hd4.cuhk.com,cpu29
+1637433605000,10,3.99201596806,hd4.cuhk.com,cpu17
+1637433605000,11,28.0876494024,hd4.cuhk.com,cpu16
+1637433605000,12,15.2304609218,hd4.cuhk.com,cpu15
+1637433605000,13,10.621242485,hd4.cuhk.com,cpu14
+1637433605000,14,19.2,hd4.cuhk.com,cpu13
+1637433605000,15,19.6,hd4.cuhk.com,cpu12
+1637433605000,16,14.0,hd4.cuhk.com,cpu11
+1637433605000,17,23.4468937876,hd4.cuhk.com,cpu10
+1637433605000,18,8.8,hd4.cuhk.com,cpu19
+1637433605000,19,1.39720558882,hd4.cuhk.com,cpu18
+1637433605000,20,4.19161676647,hd4.cuhk.com,cpu31
+1637433605000,21,9.21843687375,hd4.cuhk.com,cpu30
+1637433605000,22,15.4308617234,hd4.cuhk.com,cpu3
+1637433605000,23,17.4698795181,hd4.cuhk.com,cpu2
+1637433605000,24,31.6633266533,hd4.cuhk.com,cpu1
+1637433605000,25,11.5384615385,hd4.cuhk.com,cpu0
+1637433605000,26,8.43373493976,hd4.cuhk.com,cpu7
+1637433605000,27,23.6,hd4.cuhk.com,cpu6
+1637433605000,28,13.2530120482,hd4.cuhk.com,cpu5
+1637433605000,29,10.2,hd4.cuhk.com,cpu4
+1637433605000,30,20.8416833667,hd4.cuhk.com,cpu9
+1637433605000,31,10.46277666,hd4.cuhk.com,cpu8
+1637433610000,0,10.1796407186,hd4.cuhk.com,cpu22
+1637433610000,1,11.0,hd4.cuhk.com,cpu23
+1637433610000,2,12.375249501,hd4.cuhk.com,cpu20
+1637433610000,3,11.9760479042,hd4.cuhk.com,cpu21
+1637433610000,4,7.2,hd4.cuhk.com,cpu26
+1637433610000,5,6.81362725451,hd4.cuhk.com,cpu27
+1637433610000,6,9.81963927856,hd4.cuhk.com,cpu24
+1637433610000,7,24.4,hd4.cuhk.com,cpu25
+1637433610000,8,5.41082164329,hd4.cuhk.com,cpu28
+1637433610000,9,12.0,hd4.cuhk.com,cpu29
+1637433610000,10,9.18163672655,hd4.cuhk.com,cpu17
+1637433610000,11,8.01603206413,hd4.cuhk.com,cpu16
+1637433610000,12,13.0784708249,hd4.cuhk.com,cpu15
+1637433610000,13,28.4860557769,hd4.cuhk.com,cpu14
+1637433610000,14,21.8875502008,hd4.cuhk.com,cpu13
+1637433610000,15,46.1847389558,hd4.cuhk.com,cpu12
+1637433610000,16,22.5548902196,hd4.cuhk.com,cpu11
+1637433610000,17,19.4779116466,hd4.cuhk.com,cpu10
+1637433610000,18,9.58083832335,hd4.cuhk.com,cpu19
+1637433610000,19,10.0,hd4.cuhk.com,cpu18
+1637433610000,20,12.8256513026,hd4.cuhk.com,cpu31
+1637433610000,21,8.8,hd4.cuhk.com,cpu30
+1637433610000,22,11.8236472946,hd4.cuhk.com,cpu3
+1637433610000,23,19.0380761523,hd4.cuhk.com,cpu2
+1637433610000,24,26.0,hd4.cuhk.com,cpu1
+1637433610000,25,14.9193548387,hd4.cuhk.com,cpu0
+1637433610000,26,11.8473895582,hd4.cuhk.com,cpu7
+1637433610000,27,13.4268537074,hd4.cuhk.com,cpu6
+1637433610000,28,11.623246493,hd4.cuhk.com,cpu5
+1637433610000,29,12.6506024096,hd4.cuhk.com,cpu4
+1637433610000,30,19.6392785571,hd4.cuhk.com,cpu9
+1637433610000,31,22.9376257545,hd4.cuhk.com,cpu8
+1637433615000,0,6.58682634731,hd4.cuhk.com,cpu22
+1637433615000,1,17.8356713427,hd4.cuhk.com,cpu23
+1637433615000,2,6.0,hd4.cuhk.com,cpu20
+1637433615000,3,13.2264529058,hd4.cuhk.com,cpu21
+1637433615000,4,8.83534136546,hd4.cuhk.com,cpu26
+1637433615000,5,28.6,hd4.cuhk.com,cpu27
+1637433615000,6,24.0,hd4.cuhk.com,cpu24
+1637433615000,7,19.4388777555,hd4.cuhk.com,cpu25
+1637433615000,8,9.0,hd4.cuhk.com,cpu28
+1637433615000,9,7.21442885772,hd4.cuhk.com,cpu29
+1637433615000,10,11.4,hd4.cuhk.com,cpu17
+1637433615000,11,11.4457831325,hd4.cuhk.com,cpu16
+1637433615000,12,25.3012048193,hd4.cuhk.com,cpu15
+1637433615000,13,15.6941649899,hd4.cuhk.com,cpu14
+1637433615000,14,31.124497992,hd4.cuhk.com,cpu13
+1637433615000,15,23.2931726908,hd4.cuhk.com,cpu12
+1637433615000,16,39.8,hd4.cuhk.com,cpu11
+1637433615000,17,27.9116465863,hd4.cuhk.com,cpu10
+1637433615000,18,8.56573705179,hd4.cuhk.com,cpu19
+1637433615000,19,11.4228456914,hd4.cuhk.com,cpu18
+1637433615000,20,13.0,hd4.cuhk.com,cpu31
+1637433615000,21,49.6015936255,hd4.cuhk.com,cpu30
+1637433615000,22,21.0420841683,hd4.cuhk.com,cpu3
+1637433615000,23,15.2,hd4.cuhk.com,cpu2
+1637433615000,24,23.8955823293,hd4.cuhk.com,cpu1
+1637433615000,25,37.1717171717,hd4.cuhk.com,cpu0
+1637433615000,26,17.4698795181,hd4.cuhk.com,cpu7
+1637433615000,27,27.254509018,hd4.cuhk.com,cpu6
+1637433615000,28,21.3279678068,hd4.cuhk.com,cpu5
+1637433615000,29,22.4899598394,hd4.cuhk.com,cpu4
+1637433615000,30,18.3467741935,hd4.cuhk.com,cpu9
+1637433615000,31,26.7068273092,hd4.cuhk.com,cpu8
+1637433620000,0,5.6,hd4.cuhk.com,cpu22
+1637433620000,1,5.4,hd4.cuhk.com,cpu23
+1637433620000,2,12.6,hd4.cuhk.com,cpu20
+1637433620000,3,13.6,hd4.cuhk.com,cpu21
+1637433620000,4,28.4,hd4.cuhk.com,cpu26
+1637433620000,5,11.0663983903,hd4.cuhk.com,cpu27
+1637433620000,6,9.23694779116,hd4.cuhk.com,cpu24
+1637433620000,7,15.4,hd4.cuhk.com,cpu25
+1637433620000,8,12.8256513026,hd4.cuhk.com,cpu28
+1637433620000,9,8.66935483871,hd4.cuhk.com,cpu29
+1637433620000,10,31.9361277445,hd4.cuhk.com,cpu17
+1637433620000,11,11.8,hd4.cuhk.com,cpu16
+1637433620000,12,27.6767676768,hd4.cuhk.com,cpu15
+1637433620000,13,29.9798792757,hd4.cuhk.com,cpu14
+1637433620000,14,22.4899598394,hd4.cuhk.com,cpu13
+1637433620000,15,37.0221327968,hd4.cuhk.com,cpu12
+1637433620000,16,43.9759036145,hd4.cuhk.com,cpu11
+1637433620000,17,23.185483871,hd4.cuhk.com,cpu10
+1637433620000,18,8.4,hd4.cuhk.com,cpu19
+1637433620000,19,18.4738955823,hd4.cuhk.com,cpu18
+1637433620000,20,17.4698795181,hd4.cuhk.com,cpu31
+1637433620000,21,15.0,hd4.cuhk.com,cpu30
+1637433620000,22,17.5050301811,hd4.cuhk.com,cpu3
+1637433620000,23,22.5806451613,hd4.cuhk.com,cpu2
+1637433620000,24,21.0420841683,hd4.cuhk.com,cpu1
+1637433620000,25,18.2186234818,hd4.cuhk.com,cpu0
+1637433620000,26,38.3534136546,hd4.cuhk.com,cpu7
+1637433620000,27,16.1290322581,hd4.cuhk.com,cpu6
+1637433620000,28,20.0803212851,hd4.cuhk.com,cpu5
+1637433620000,29,20.0,hd4.cuhk.com,cpu4
+1637433620000,30,19.7183098592,hd4.cuhk.com,cpu9
+1637433620000,31,23.4468937876,hd4.cuhk.com,cpu8</pre>
+    <pre id="csv_cpu_overall" style="display: none">x,idle,user,system,iowait,others
+1637433590000,84.3669816634,14.0622066462,1.48945490957,0.0688403529633,0.0125164278115
+1637433595000,93.9794511966,4.66107004135,1.32188948753,0.0,0.037589274527
+1637433600000,90.7471084714,7.85245389184,1.08158799625,0.29384182557,0.0250078149422
+1637433605000,88.4913685264,10.3202401801,1.01325994496,0.125093820365,0.0500375281461
+1637433610000,84.8547458052,12.8975707488,2.21637866266,0.0,0.0313047833709
+1637433615000,80.0275741054,17.7790311462,2.06805790562,0.0,0.125336842765
+1637433620000,80.3712529788,17.6909569798,1.73084159037,0.0940674777374,0.112880973285</pre>
+    <pre id="csv_network_heatmap" style="display: none">x,y,value,hostname,adapterid
+1637433590000,0,96.0,hd4.cuhk.com,ens13f1.recv
+1637433590000,1,0.0,hd4.cuhk.com,ens13f1.send
+1637433590000,2,26692.8,hd4.cuhk.com,bond0.recv
+1637433590000,3,52723.2,hd4.cuhk.com,bond0.send
+1637433590000,4,11535.2,hd4.cuhk.com,ens13f0.recv
+1637433590000,5,28245.8,hd4.cuhk.com,ens13f0.send
+1637433590000,6,15157.6,hd4.cuhk.com,enp216s0f1.recv
+1637433590000,7,24477.4,hd4.cuhk.com,enp216s0f1.send
+1637433595000,0,96.0,hd4.cuhk.com,ens13f1.recv
+1637433595000,1,0.0,hd4.cuhk.com,ens13f1.send
+1637433595000,2,16561244.8,hd4.cuhk.com,bond0.recv
+1637433595000,3,101809.8,hd4.cuhk.com,bond0.send
+1637433595000,4,664724.4,hd4.cuhk.com,ens13f0.recv
+1637433595000,5,39970.6,hd4.cuhk.com,ens13f0.send
+1637433595000,6,15896520.4,hd4.cuhk.com,enp216s0f1.recv
+1637433595000,7,61839.2,hd4.cuhk.com,enp216s0f1.send
+1637433600000,0,24.0,hd4.cuhk.com,ens13f1.recv
+1637433600000,1,0.0,hd4.cuhk.com,ens13f1.send
+1637433600000,2,5904239.2,hd4.cuhk.com,bond0.recv
+1637433600000,3,46320202.2,hd4.cuhk.com,bond0.send
+1637433600000,4,5850134.6,hd4.cuhk.com,ens13f0.recv
+1637433600000,5,30412772.4,hd4.cuhk.com,ens13f0.send
+1637433600000,6,54104.6,hd4.cuhk.com,enp216s0f1.recv
+1637433600000,7,15907429.8,hd4.cuhk.com,enp216s0f1.send
+1637433605000,0,120.0,hd4.cuhk.com,ens13f1.recv
+1637433605000,1,0.0,hd4.cuhk.com,ens13f1.send
+1637433605000,2,24830467.4,hd4.cuhk.com,bond0.recv
+1637433605000,3,169351.8,hd4.cuhk.com,bond0.send
+1637433605000,4,22480169.4,hd4.cuhk.com,ens13f0.recv
+1637433605000,5,33050.0,hd4.cuhk.com,ens13f0.send
+1637433605000,6,2350298.0,hd4.cuhk.com,enp216s0f1.recv
+1637433605000,7,136301.8,hd4.cuhk.com,enp216s0f1.send
+1637433610000,0,216.0,hd4.cuhk.com,ens13f1.recv
+1637433610000,1,0.0,hd4.cuhk.com,ens13f1.send
+1637433610000,2,12358382.6,hd4.cuhk.com,bond0.recv
+1637433610000,3,239499.4,hd4.cuhk.com,bond0.send
+1637433610000,4,57663.0,hd4.cuhk.com,ens13f0.recv
+1637433610000,5,106745.8,hd4.cuhk.com,ens13f0.send
+1637433610000,6,12300719.6,hd4.cuhk.com,enp216s0f1.recv
+1637433610000,7,132753.6,hd4.cuhk.com,enp216s0f1.send
+1637433615000,0,96.0,hd4.cuhk.com,ens13f1.recv
+1637433615000,1,0.0,hd4.cuhk.com,ens13f1.send
+1637433615000,2,30504782.8,hd4.cuhk.com,bond0.recv
+1637433615000,3,24931425.2,hd4.cuhk.com,bond0.send
+1637433615000,4,13059.8,hd4.cuhk.com,ens13f0.recv
+1637433615000,5,24854146.2,hd4.cuhk.com,ens13f0.send
+1637433615000,6,30491723.0,hd4.cuhk.com,enp216s0f1.recv
+1637433615000,7,77279.0,hd4.cuhk.com,enp216s0f1.send
+1637433620000,0,0.0,hd4.cuhk.com,ens13f1.recv
+1637433620000,1,0.0,hd4.cuhk.com,ens13f1.send
+1637433620000,2,22254705.2,hd4.cuhk.com,bond0.recv
+1637433620000,3,14211679.0,hd4.cuhk.com,bond0.send
+1637433620000,4,12274.8,hd4.cuhk.com,ens13f0.recv
+1637433620000,5,14035524.2,hd4.cuhk.com,ens13f0.send
+1637433620000,6,22242430.4,hd4.cuhk.com,enp216s0f1.recv
+1637433620000,7,176154.8,hd4.cuhk.com,enp216s0f1.send</pre>
+    <pre id="csv_network_overall" style="display: none">x,recv_bytes,send_bytes,|recv_packets,send_packets,errors
+1637433590000,53481.6,105446.4,166.4,178.8,0.0
+1637433595000,33122585.6,203619.6,22103.2,1397.6,0.0
+1637433600000,11808502.4,92640404.4,9090.4,61932.4,0.0
+1637433605000,49661054.8,338703.6,33172.8,2156.0,0.0
+1637433610000,24716981.2,478998.8,16634.8,1317.6,0.0
+1637433615000,61009661.6,49862850.4,41618.8,35870.8,0.0
+1637433620000,44509410.4,28423358.0,30516.0,20969.6,0.0</pre>
+    <pre id="csv_diskio_heatmap" style="display: none">x,y,value,hostname,diskid
+1637433590000,0,0.0,hd4.cuhk.com,sdi
+1637433590000,1,4096.0,hd4.cuhk.com,sdh
+1637433590000,2,5734.4,hd4.cuhk.com,sdk
+1637433590000,3,0.0,hd4.cuhk.com,sdj
+1637433590000,4,2457.6,hd4.cuhk.com,sdl
+1637433590000,5,262963.2,hd4.cuhk.com,sda
+1637433590000,6,11651481.6,hd4.cuhk.com,sde
+1637433590000,7,7372.8,hd4.cuhk.com,sdc
+1637433590000,8,0.0,hd4.cuhk.com,sdb
+1637433590000,9,0.0,hd4.cuhk.com,dm-1
+1637433590000,10,262963.2,hd4.cuhk.com,dm-0
+1637433590000,11,0.0,hd4.cuhk.com,sdg
+1637433590000,12,7372.8,hd4.cuhk.com,sdd
+1637433590000,13,0.0,hd4.cuhk.com,sdf
+1637433595000,0,0.0,hd4.cuhk.com,sdi
+1637433595000,1,0.0,hd4.cuhk.com,sdh
+1637433595000,2,0.0,hd4.cuhk.com,sdk
+1637433595000,3,0.0,hd4.cuhk.com,sdj
+1637433595000,4,2457.6,hd4.cuhk.com,sdl
+1637433595000,5,38502.4,hd4.cuhk.com,sda
+1637433595000,6,0.0,hd4.cuhk.com,sde
+1637433595000,7,0.0,hd4.cuhk.com,sdc
+1637433595000,8,0.0,hd4.cuhk.com,sdb
+1637433595000,9,0.0,hd4.cuhk.com,dm-1
+1637433595000,10,38502.4,hd4.cuhk.com,dm-0
+1637433595000,11,0.0,hd4.cuhk.com,sdg
+1637433595000,12,0.0,hd4.cuhk.com,sdd
+1637433595000,13,0.0,hd4.cuhk.com,sdf
+1637433600000,0,49971.2,hd4.cuhk.com,sdi
+1637433600000,1,8192.0,hd4.cuhk.com,sdh
+1637433600000,2,12111872.0,hd4.cuhk.com,sdk
+1637433600000,3,0.0,hd4.cuhk.com,sdj
+1637433600000,4,2457.6,hd4.cuhk.com,sdl
+1637433600000,5,22937.6,hd4.cuhk.com,sda
+1637433600000,6,29053747.2,hd4.cuhk.com,sde
+1637433600000,7,43417.6,hd4.cuhk.com,sdc
+1637433600000,8,0.0,hd4.cuhk.com,sdb
+1637433600000,9,6553.6,hd4.cuhk.com,dm-1
+1637433600000,10,16384.0,hd4.cuhk.com,dm-0
+1637433600000,11,0.0,hd4.cuhk.com,sdg
+1637433600000,12,0.0,hd4.cuhk.com,sdd
+1637433600000,13,0.0,hd4.cuhk.com,sdf
+1637433605000,0,0.0,hd4.cuhk.com,sdi
+1637433605000,1,0.0,hd4.cuhk.com,sdh
+1637433605000,2,43417.6,hd4.cuhk.com,sdk
+1637433605000,3,0.0,hd4.cuhk.com,sdj
+1637433605000,4,2457.6,hd4.cuhk.com,sdl
+1637433605000,5,35225.6,hd4.cuhk.com,sda
+1637433605000,6,0.0,hd4.cuhk.com,sde
+1637433605000,7,2457.6,hd4.cuhk.com,sdc
+1637433605000,8,1638.4,hd4.cuhk.com,sdb
+1637433605000,9,0.0,hd4.cuhk.com,dm-1
+1637433605000,10,35225.6,hd4.cuhk.com,dm-0
+1637433605000,11,0.0,hd4.cuhk.com,sdg
+1637433605000,12,1638.4,hd4.cuhk.com,sdd
+1637433605000,13,14889779.2,hd4.cuhk.com,sdf
+1637433610000,0,0.0,hd4.cuhk.com,sdi
+1637433610000,1,27033.6,hd4.cuhk.com,sdh
+1637433610000,2,0.0,hd4.cuhk.com,sdk
+1637433610000,3,0.0,hd4.cuhk.com,sdj
+1637433610000,4,4096.0,hd4.cuhk.com,sdl
+1637433610000,5,293273.6,hd4.cuhk.com,sda
+1637433610000,6,0.0,hd4.cuhk.com,sde
+1637433610000,7,0.0,hd4.cuhk.com,sdc
+1637433610000,8,2457.6,hd4.cuhk.com,sdb
+1637433610000,9,0.0,hd4.cuhk.com,dm-1
+1637433610000,10,293273.6,hd4.cuhk.com,dm-0
+1637433610000,11,2240512.0,hd4.cuhk.com,sdg
+1637433610000,12,10649.6,hd4.cuhk.com,sdd
+1637433610000,13,785612.8,hd4.cuhk.com,sdf
+1637433615000,0,38502.4,hd4.cuhk.com,sdi
+1637433615000,1,0.0,hd4.cuhk.com,sdh
+1637433615000,2,9646899.2,hd4.cuhk.com,sdk
+1637433615000,3,34406.4,hd4.cuhk.com,sdj
+1637433615000,4,1638.4,hd4.cuhk.com,sdl
+1637433615000,5,7372.8,hd4.cuhk.com,sda
+1637433615000,6,0.0,hd4.cuhk.com,sde
+1637433615000,7,0.0,hd4.cuhk.com,sdc
+1637433615000,8,71270.4,hd4.cuhk.com,sdb
+1637433615000,9,0.0,hd4.cuhk.com,dm-1
+1637433615000,10,7372.8,hd4.cuhk.com,dm-0
+1637433615000,11,52428.8,hd4.cuhk.com,sdg
+1637433615000,12,0.0,hd4.cuhk.com,sdd
+1637433615000,13,63078.4,hd4.cuhk.com,sdf
+1637433620000,0,0.0,hd4.cuhk.com,sdi
+1637433620000,1,16482304.0,hd4.cuhk.com,sdh
+1637433620000,2,25395.2,hd4.cuhk.com,sdk
+1637433620000,3,0.0,hd4.cuhk.com,sdj
+1637433620000,4,2457.6,hd4.cuhk.com,sdl
+1637433620000,5,263782.4,hd4.cuhk.com,sda
+1637433620000,6,40140.8,hd4.cuhk.com,sde
+1637433620000,7,40960.0,hd4.cuhk.com,sdc
+1637433620000,8,2275737.6,hd4.cuhk.com,sdb
+1637433620000,9,0.0,hd4.cuhk.com,dm-1
+1637433620000,10,263782.4,hd4.cuhk.com,dm-0
+1637433620000,11,0.0,hd4.cuhk.com,sdg
+1637433620000,12,33587.2,hd4.cuhk.com,sdd
+1637433620000,13,819.2,hd4.cuhk.com,sdf</pre>
+    <pre id="csv_diskio_overall" style="display: none">x,read_bytes,write_bytes,|read_io,write_io
+1637433590000,0.0,12204441.6,0.0,83.0
+1637433595000,0.0,79462.4,0.0,8.4
+1637433600000,13107.2,41302425.6,1.8,163.6
+1637433605000,0.0,15011840.0,0.0,65.2
+1637433610000,0.0,3656908.8,0.0,64.2
+1637433615000,0.0,9922969.6,0.0,66.6
+1637433620000,0.0,19428966.4,0.0,126.4</pre>
+    <pre id="csv_memory_heatmap" style="display: none">x,y,value,hostname
+1637433585000,0,170145296000,hd4.cuhk.com
+1637433590000,0,169168660000,hd4.cuhk.com
+1637433595000,0,168059656000,hd4.cuhk.com
+1637433600000,0,168245404000,hd4.cuhk.com
+1637433605000,0,168782416000,hd4.cuhk.com
+1637433610000,0,169365416000,hd4.cuhk.com
+1637433615000,0,168957560000,hd4.cuhk.com
+1637433620000,0,169064980000,hd4.cuhk.com</pre>
+    <pre id="csv_memory_overall" style="display: none">x,free,buffer_cache,used
+1637433585000,356642284,108131572,62013724
+1637433590000,357618920,107905876,61262784
+1637433595000,358727924,107982712,60076944
+1637433600000,358542176,108085844,60159560
+1637433605000,358005164,108201740,60580676
+1637433610000,357422164,108333456,61031960
+1637433615000,357830020,108142784,60814776
+1637433620000,357722600,108313736,60751244</pre>
+    <pre id="csv_procload_heatmap" style="display: none">x,y,value,hostname
+1637433585000,0,8223,hd4.cuhk.com
+1637433590000,0,8173,hd4.cuhk.com
+1637433595000,0,8221,hd4.cuhk.com
+1637433600000,0,8222,hd4.cuhk.com
+1637433605000,0,8291,hd4.cuhk.com
+1637433610000,0,8407,hd4.cuhk.com
+1637433615000,0,8298,hd4.cuhk.com
+1637433620000,0,8304,hd4.cuhk.com</pre>
+    <pre id="csv_procload_overall" style="display: none">x,load5,load10,load15,|running,procs
+1637433585000,2.21,2.22,2.81,5,8223
+1637433590000,3.07,2.4,2.86,4,8173
+1637433595000,2.91,2.38,2.85,3,8221
+1637433600000,2.91,2.39,2.85,6,8222
+1637433605000,2.76,2.36,2.84,6,8291
+1637433610000,3.1,2.44,2.87,3,8407
+1637433615000,3.25,2.48,2.88,8,8298
+1637433620000,3.31,2.51,2.88,11,8304</pre>
+    <pre id="csv_events" style="display: none">x,event
+1637433598000,Start Job 1635647904527_12556
+1637433624000,Finsih Job 1635647904527_12556</pre>
+
+</body>
+</html>
+

@@ -1,0 +1,301 @@
+20/11/07 14:07:00 INFO SparkContext: Running Spark version 2.3.1.3.0.1.0-187
+20/11/07 14:07:00 INFO SparkContext: Submitted application: ScalaTeraSort
+20/11/07 14:07:00 INFO SecurityManager: Changing view acls to: root,team14
+20/11/07 14:07:00 INFO SecurityManager: Changing modify acls to: root,team14
+20/11/07 14:07:00 INFO SecurityManager: Changing view acls groups to:
+20/11/07 14:07:00 INFO SecurityManager: Changing modify acls groups to:
+20/11/07 14:07:00 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root, team14); groups with view permissions: Set(); users  with modify permissions: Set(root, team14); groups with modify permissions: Set()
+20/11/07 14:07:00 INFO Utils: Successfully started service 'sparkDriver' on port 36182.
+20/11/07 14:07:00 INFO SparkEnv: Registering MapOutputTracker
+20/11/07 14:07:00 INFO SparkEnv: Registering BlockManagerMaster
+20/11/07 14:07:00 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+20/11/07 14:07:00 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+20/11/07 14:07:00 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-3a4fd95b-c8c7-41b6-8e7a-8704b26bd11b
+20/11/07 14:07:00 INFO MemoryStore: MemoryStore started with capacity 8.4 GB
+20/11/07 14:07:00 INFO SparkEnv: Registering OutputCommitCoordinator
+20/11/07 14:07:00 INFO log: Logging initialized @1580ms
+20/11/07 14:07:00 INFO Server: jetty-9.3.z-SNAPSHOT, build timestamp: 2018-06-06T01:11:56+08:00, git hash: 84205aa28f11a4f31f2a3b86d1bba2cc8ab69827
+20/11/07 14:07:00 INFO Server: Started @1649ms
+20/11/07 14:07:01 INFO AbstractConnector: Started ServerConnector@67af833b{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+20/11/07 14:07:01 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@7646731d{/jobs,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@69adf72c{/jobs/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@797501a{/jobs/job,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@51650883{/jobs/job/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@6c4f9535{/stages,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@5bd1ceca{/stages/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@30c31dd7{/stages/stage,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@c1fca1e{/stages/stage/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@241a53ef{/stages/pool,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@344344fa{/stages/pool/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@2db2cd5{/storage,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@70e659aa{/storage/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@615f972{/storage/rdd,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@285f09de{/storage/rdd/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@73393584{/environment,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@31500940{/environment/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@1827a871{/executors,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@48e64352{/executors/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@7249dadf{/executors/threadDump,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@4362d7df{/executors/threadDump/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@66238be2{/static,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@345e5a17{/,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@5ea502e0{/api,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@77b7ffa4{/jobs/job/kill,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@5ed190be{/stages/stage/kill,null,AVAILABLE,@Spark}
+20/11/07 14:07:01 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://team14:4040
+20/11/07 14:07:01 INFO SparkContext: Added JAR file:/home/team14/HiBench3/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar at spark://team14:36182/jars/sparkbench-assembly-8.0-SNAPSHOT-dist.jar with timestamp 1604729221052
+20/11/07 14:07:01 INFO Client: Requesting a new application from cluster with 4 NodeManagers
+20/11/07 14:07:02 INFO Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/resource-types.xml
+20/11/07 14:07:02 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (405504 MB per container)
+20/11/07 14:07:02 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+20/11/07 14:07:02 INFO Client: Setting up container launch context for our AM
+20/11/07 14:07:02 INFO Client: Setting up the launch environment for our AM container
+20/11/07 14:07:02 INFO Client: Preparing resources for our AM container
+20/11/07 14:07:02 INFO HadoopFSDelegationTokenProvider: getting token for: DFS[DFSClient[clientName=DFSClient_NONMAPREDUCE_761744571_1, ugi=team14@BIGDATA (auth:KERBEROS)]]
+20/11/07 14:07:02 INFO DFSClient: Created token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604729311911, maxDate=1605334111911, sequenceNumber=2022582, masterKeyId=298 on ha-hdfs:cuhkcluster
+20/11/07 14:07:02 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+20/11/07 14:07:02 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604729311991, maxDate=1605334111991, sequenceNumber=49285, masterKeyId=69))
+20/11/07 14:07:03 INFO Client: Use hdfs cache file as spark.yarn.archive for HDP, hdfsCacheFile:hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-yarn-archive.tar.gz
+20/11/07 14:07:03 INFO Client: Source and destination file systems are the same. Not copying hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-yarn-archive.tar.gz
+20/11/07 14:07:03 INFO Client: Distribute hdfs cache file as spark.sql.hive.metastore.jars for HDP, hdfsCacheFile:hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-hive-archive.tar.gz
+20/11/07 14:07:03 INFO Client: Source and destination file systems are the same. Not copying hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-hive-archive.tar.gz
+20/11/07 14:07:03 INFO Client: Uploading resource file:/tmp/spark-db2009b0-d91e-4777-9308-f751652e50e5/__spark_conf__1477213349445153471.zip -> hdfs://cuhkcluster/user/team14/.sparkStaging/application_1604458194964_12805/__spark_conf__.zip
+20/11/07 14:07:03 INFO SecurityManager: Changing view acls to: root,team14
+20/11/07 14:07:03 INFO SecurityManager: Changing modify acls to: root,team14
+20/11/07 14:07:03 INFO SecurityManager: Changing view acls groups to:
+20/11/07 14:07:03 INFO SecurityManager: Changing modify acls groups to:
+20/11/07 14:07:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root, team14); groups with view permissions: Set(); users  with modify permissions: Set(root, team14); groups with modify permissions: Set()
+20/11/07 14:07:03 INFO Client: Submitting application application_1604458194964_12805 to ResourceManager
+20/11/07 14:07:04 INFO YarnClientImpl: Submitted application application_1604458194964_12805
+20/11/07 14:07:04 INFO SchedulerExtensionServices: Starting Yarn extension services with app application_1604458194964_12805 and attemptId None
+20/11/07 14:07:05 INFO Client: Application report for application_1604458194964_12805 (state: ACCEPTED)
+20/11/07 14:07:05 INFO Client:
+	 client token: Token { kind: YARN_CLIENT_TOKEN, service:  }
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: team14
+	 start time: 1604729313647
+	 final status: UNDEFINED
+	 tracking URL: http://master1.cuhk.com:8088/proxy/application_1604458194964_12805/
+	 user: team14
+20/11/07 14:07:06 INFO Client: Application report for application_1604458194964_12805 (state: ACCEPTED)
+20/11/07 14:07:07 INFO Client: Application report for application_1604458194964_12805 (state: ACCEPTED)
+20/11/07 14:07:08 INFO Client: Application report for application_1604458194964_12805 (state: ACCEPTED)
+20/11/07 14:07:09 INFO Client: Application report for application_1604458194964_12805 (state: ACCEPTED)
+20/11/07 14:07:10 INFO Client: Application report for application_1604458194964_12805 (state: ACCEPTED)
+20/11/07 14:07:10 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> master1.cuhk.com,master2.cuhk.com, PROXY_URI_BASES -> http://master1.cuhk.com:8088/proxy/application_1604458194964_12805,http://master2.cuhk.com:8088/proxy/application_1604458194964_12805, RM_HA_URLS -> master1.cuhk.com:8088,master2.cuhk.com:8088), /proxy/application_1604458194964_12805
+20/11/07 14:07:10 INFO JettyUtils: Adding filter org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter to /jobs, /jobs/json, /jobs/job, /jobs/job/json, /stages, /stages/json, /stages/stage, /stages/stage/json, /stages/pool, /stages/pool/json, /storage, /storage/json, /storage/rdd, /storage/rdd/json, /environment, /environment/json, /executors, /executors/json, /executors/threadDump, /executors/threadDump/json, /static, /, /api, /jobs/job/kill, /stages/stage/kill.
+20/11/07 14:07:10 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+20/11/07 14:07:11 INFO Client: Application report for application_1604458194964_12805 (state: RUNNING)
+20/11/07 14:07:11 INFO Client:
+	 client token: Token { kind: YARN_CLIENT_TOKEN, service:  }
+	 diagnostics: N/A
+	 ApplicationMaster host: 10.26.10.207
+	 ApplicationMaster RPC port: 0
+	 queue: team14
+	 start time: 1604729313647
+	 final status: UNDEFINED
+	 tracking URL: http://master1.cuhk.com:8088/proxy/application_1604458194964_12805/
+	 user: team14
+20/11/07 14:07:11 INFO YarnClientSchedulerBackend: Application application_1604458194964_12805 has started running.
+20/11/07 14:07:11 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33139.
+20/11/07 14:07:11 INFO NettyBlockTransferService: Server created on team14:33139
+20/11/07 14:07:11 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+20/11/07 14:07:11 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, team14, 33139, None)
+20/11/07 14:07:11 INFO BlockManagerMasterEndpoint: Registering block manager team14:33139 with 8.4 GB RAM, BlockManagerId(driver, team14, 33139, None)
+20/11/07 14:07:11 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, team14, 33139, None)
+20/11/07 14:07:11 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, team14, 33139, None)
+20/11/07 14:07:11 INFO JettyUtils: Adding filter org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter to /metrics/json.
+20/11/07 14:07:11 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@24a04257{/metrics/json,null,AVAILABLE,@Spark}
+20/11/07 14:07:15 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.26.10.207:30289) with ID 2
+20/11/07 14:07:15 INFO BlockManagerMasterEndpoint: Registering block manager hd4.cuhk.com:7378 with 8.4 GB RAM, BlockManagerId(2, hd4.cuhk.com, 7378, None)
+20/11/07 14:07:20 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.26.10.205:31742) with ID 1
+20/11/07 14:07:20 INFO BlockManagerMasterEndpoint: Registering block manager hd2.cuhk.com:11627 with 8.4 GB RAM, BlockManagerId(1, hd2.cuhk.com, 11627, None)
+20/11/07 14:07:31 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000(ms)
+20/11/07 14:07:31 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 381.7 KB, free 8.4 GB)
+20/11/07 14:07:31 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 35.5 KB, free 8.4 GB)
+20/11/07 14:07:31 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on team14:33139 (size: 35.5 KB, free: 8.4 GB)
+20/11/07 14:07:31 INFO SparkContext: Created broadcast 0 from newAPIHadoopFile at ScalaTeraSort.scala:49
+20/11/07 14:07:31 INFO DFSClient: Created token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604729341324, maxDate=1605334141324, sequenceNumber=2022593, masterKeyId=298 on ha-hdfs:cuhkcluster
+20/11/07 14:07:31 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+20/11/07 14:07:31 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604729341337, maxDate=1605334141337, sequenceNumber=49291, masterKeyId=69))
+20/11/07 14:07:31 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604729341324, maxDate=1605334141324, sequenceNumber=2022593, masterKeyId=298)
+20/11/07 14:07:31 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604729341337, maxDate=1605334141337, sequenceNumber=49291, masterKeyId=69)
+20/11/07 14:07:31 INFO FileInputFormat: Total input files to process : 2
+Spent 60ms computing base-splits.
+Spent 3ms computing TeraScheduler splits.
+20/11/07 14:07:31 INFO SparkContext: Starting job: BaseRangePartitioner at ScalaTeraSort.scala:56
+20/11/07 14:07:31 INFO DAGScheduler: Got job 0 (BaseRangePartitioner at ScalaTeraSort.scala:56) with 12 output partitions
+20/11/07 14:07:31 INFO DAGScheduler: Final stage: ResultStage 0 (BaseRangePartitioner at ScalaTeraSort.scala:56)
+20/11/07 14:07:31 INFO DAGScheduler: Parents of final stage: List()
+20/11/07 14:07:31 INFO DAGScheduler: Missing parents: List()
+20/11/07 14:07:31 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[4] at BaseRangePartitioner at ScalaTeraSort.scala:56), which has no missing parents
+20/11/07 14:07:31 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 3.5 KB, free 8.4 GB)
+20/11/07 14:07:31 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 2.0 KB, free 8.4 GB)
+20/11/07 14:07:31 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on team14:33139 (size: 2.0 KB, free: 8.4 GB)
+20/11/07 14:07:31 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1039
+20/11/07 14:07:31 INFO DAGScheduler: Submitting 12 missing tasks from ResultStage 0 (MapPartitionsRDD[4] at BaseRangePartitioner at ScalaTeraSort.scala:56) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+20/11/07 14:07:31 INFO YarnScheduler: Adding task set 0.0 with 12 tasks
+20/11/07 14:07:31 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 0, hd4.cuhk.com, executor 2, partition 3, NODE_LOCAL, 8069 bytes)
+20/11/07 14:07:31 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 1, hd2.cuhk.com, executor 1, partition 4, NODE_LOCAL, 8069 bytes)
+20/11/07 14:07:31 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 2, hd4.cuhk.com, executor 2, partition 8, NODE_LOCAL, 8069 bytes)
+20/11/07 14:07:31 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 3, hd2.cuhk.com, executor 1, partition 5, NODE_LOCAL, 8069 bytes)
+20/11/07 14:07:31 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 4, hd4.cuhk.com, executor 2, partition 9, NODE_LOCAL, 8069 bytes)
+20/11/07 14:07:31 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 5, hd2.cuhk.com, executor 1, partition 10, NODE_LOCAL, 8069 bytes)
+20/11/07 14:07:31 INFO TaskSetManager: Starting task 11.0 in stage 0.0 (TID 6, hd4.cuhk.com, executor 2, partition 11, NODE_LOCAL, 8069 bytes)
+20/11/07 14:07:32 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on hd2.cuhk.com:11627 (size: 2.0 KB, free: 8.4 GB)
+20/11/07 14:07:32 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on hd4.cuhk.com:7378 (size: 2.0 KB, free: 8.4 GB)
+20/11/07 14:07:33 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on hd2.cuhk.com:11627 (size: 35.5 KB, free: 8.4 GB)
+20/11/07 14:07:33 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on hd4.cuhk.com:7378 (size: 35.5 KB, free: 8.4 GB)
+20/11/07 14:07:35 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 7, hd2.cuhk.com, executor 1, partition 0, RACK_LOCAL, 8069 bytes)
+20/11/07 14:07:35 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 8, hd2.cuhk.com, executor 1, partition 1, RACK_LOCAL, 8069 bytes)
+20/11/07 14:07:35 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 9, hd2.cuhk.com, executor 1, partition 2, RACK_LOCAL, 8069 bytes)
+20/11/07 14:07:35 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 2) in 3812 ms on hd4.cuhk.com (executor 2) (1/12)
+20/11/07 14:07:35 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 1) in 3819 ms on hd2.cuhk.com (executor 1) (2/12)
+20/11/07 14:07:35 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 3) in 3819 ms on hd2.cuhk.com (executor 1) (3/12)
+20/11/07 14:07:35 INFO TaskSetManager: Finished task 11.0 in stage 0.0 (TID 6) in 3819 ms on hd4.cuhk.com (executor 2) (4/12)
+20/11/07 14:07:35 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 4) in 3836 ms on hd4.cuhk.com (executor 2) (5/12)
+20/11/07 14:07:35 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 0) in 3871 ms on hd4.cuhk.com (executor 2) (6/12)
+20/11/07 14:07:35 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 10, hd2.cuhk.com, executor 1, partition 6, RACK_LOCAL, 8069 bytes)
+20/11/07 14:07:35 INFO TaskSetManager: Finished task 10.0 in stage 0.0 (TID 5) in 3850 ms on hd2.cuhk.com (executor 1) (7/12)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 11, hd2.cuhk.com, executor 1, partition 7, RACK_LOCAL, 8069 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 7) in 1015 ms on hd2.cuhk.com (executor 1) (8/12)
+20/11/07 14:07:36 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 9) in 791 ms on hd2.cuhk.com (executor 1) (9/12)
+20/11/07 14:07:36 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 10) in 790 ms on hd2.cuhk.com (executor 1) (10/12)
+20/11/07 14:07:36 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 8) in 853 ms on hd2.cuhk.com (executor 1) (11/12)
+20/11/07 14:07:36 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 11) in 590 ms on hd2.cuhk.com (executor 1) (12/12)
+20/11/07 14:07:36 INFO YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool
+20/11/07 14:07:36 INFO DAGScheduler: ResultStage 0 (BaseRangePartitioner at ScalaTeraSort.scala:56) finished in 5.026 s
+20/11/07 14:07:36 INFO DAGScheduler: Job 0 finished: BaseRangePartitioner at ScalaTeraSort.scala:56, took 5.093026 s
+20/11/07 14:07:36 INFO DFSClient: Created token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604729346562, maxDate=1605334146562, sequenceNumber=2022595, masterKeyId=298 on ha-hdfs:cuhkcluster
+20/11/07 14:07:36 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+20/11/07 14:07:36 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604729346580, maxDate=1605334146580, sequenceNumber=49292, masterKeyId=69))
+20/11/07 14:07:36 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604729346562, maxDate=1605334146562, sequenceNumber=2022595, masterKeyId=298)
+20/11/07 14:07:36 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604729346580, maxDate=1605334146580, sequenceNumber=49292, masterKeyId=69)
+20/11/07 14:07:36 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+20/11/07 14:07:36 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+20/11/07 14:07:36 INFO SparkContext: Starting job: runJob at SparkHadoopWriter.scala:78
+20/11/07 14:07:36 INFO DAGScheduler: Registering RDD 1 (map at ScalaTeraSort.scala:49)
+20/11/07 14:07:36 INFO DAGScheduler: Got job 1 (runJob at SparkHadoopWriter.scala:78) with 10 output partitions
+20/11/07 14:07:36 INFO DAGScheduler: Final stage: ResultStage 2 (runJob at SparkHadoopWriter.scala:78)
+20/11/07 14:07:36 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+20/11/07 14:07:36 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 1)
+20/11/07 14:07:36 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[1] at map at ScalaTeraSort.scala:49), which has no missing parents
+20/11/07 14:07:36 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 4.3 KB, free 8.4 GB)
+20/11/07 14:07:36 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 2.6 KB, free 8.4 GB)
+20/11/07 14:07:36 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on team14:33139 (size: 2.6 KB, free: 8.4 GB)
+20/11/07 14:07:36 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1039
+20/11/07 14:07:36 INFO DAGScheduler: Submitting 24 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[1] at map at ScalaTeraSort.scala:49) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+20/11/07 14:07:36 INFO YarnScheduler: Adding task set 1.0 with 24 tasks
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 6.0 in stage 1.0 (TID 12, hd4.cuhk.com, executor 2, partition 6, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 13, hd2.cuhk.com, executor 1, partition 1, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 7.0 in stage 1.0 (TID 14, hd4.cuhk.com, executor 2, partition 7, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 15, hd2.cuhk.com, executor 1, partition 3, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 9.0 in stage 1.0 (TID 16, hd4.cuhk.com, executor 2, partition 9, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 8.0 in stage 1.0 (TID 17, hd2.cuhk.com, executor 1, partition 8, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 11.0 in stage 1.0 (TID 18, hd4.cuhk.com, executor 2, partition 11, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO TaskSetManager: Starting task 10.0 in stage 1.0 (TID 19, hd2.cuhk.com, executor 1, partition 10, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:36 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on hd2.cuhk.com:11627 (size: 2.6 KB, free: 8.4 GB)
+20/11/07 14:07:36 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on hd4.cuhk.com:7378 (size: 2.6 KB, free: 8.4 GB)
+20/11/07 14:07:39 INFO TaskSetManager: Starting task 20.0 in stage 1.0 (TID 20, hd2.cuhk.com, executor 1, partition 20, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:39 INFO TaskSetManager: Finished task 10.0 in stage 1.0 (TID 19) in 2467 ms on hd2.cuhk.com (executor 1) (1/24)
+20/11/07 14:07:39 INFO TaskSetManager: Starting task 21.0 in stage 1.0 (TID 21, hd2.cuhk.com, executor 1, partition 21, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:39 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 13) in 2489 ms on hd2.cuhk.com (executor 1) (2/24)
+20/11/07 14:07:39 INFO TaskSetManager: Starting task 22.0 in stage 1.0 (TID 22, hd2.cuhk.com, executor 1, partition 22, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:39 INFO TaskSetManager: Finished task 8.0 in stage 1.0 (TID 17) in 2515 ms on hd2.cuhk.com (executor 1) (3/24)
+20/11/07 14:07:39 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 15) in 2582 ms on hd2.cuhk.com (executor 1) (4/24)
+20/11/07 14:07:39 INFO TaskSetManager: Starting task 16.0 in stage 1.0 (TID 23, hd4.cuhk.com, executor 2, partition 16, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:39 INFO TaskSetManager: Finished task 11.0 in stage 1.0 (TID 18) in 2968 ms on hd4.cuhk.com (executor 2) (5/24)
+20/11/07 14:07:39 INFO TaskSetManager: Starting task 17.0 in stage 1.0 (TID 24, hd4.cuhk.com, executor 2, partition 17, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:39 INFO TaskSetManager: Finished task 9.0 in stage 1.0 (TID 16) in 2981 ms on hd4.cuhk.com (executor 2) (6/24)
+20/11/07 14:07:39 INFO TaskSetManager: Starting task 18.0 in stage 1.0 (TID 25, hd4.cuhk.com, executor 2, partition 18, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:39 INFO TaskSetManager: Finished task 6.0 in stage 1.0 (TID 12) in 3082 ms on hd4.cuhk.com (executor 2) (7/24)
+20/11/07 14:07:40 INFO TaskSetManager: Starting task 19.0 in stage 1.0 (TID 26, hd4.cuhk.com, executor 2, partition 19, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:40 INFO TaskSetManager: Finished task 7.0 in stage 1.0 (TID 14) in 3559 ms on hd4.cuhk.com (executor 2) (8/24)
+20/11/07 14:07:41 INFO TaskSetManager: Finished task 22.0 in stage 1.0 (TID 22) in 1941 ms on hd2.cuhk.com (executor 1) (9/24)
+20/11/07 14:07:41 INFO TaskSetManager: Finished task 21.0 in stage 1.0 (TID 21) in 1969 ms on hd2.cuhk.com (executor 1) (10/24)
+20/11/07 14:07:41 INFO TaskSetManager: Finished task 20.0 in stage 1.0 (TID 20) in 2071 ms on hd2.cuhk.com (executor 1) (11/24)
+20/11/07 14:07:42 INFO TaskSetManager: Starting task 23.0 in stage 1.0 (TID 27, hd4.cuhk.com, executor 2, partition 23, NODE_LOCAL, 7961 bytes)
+20/11/07 14:07:42 INFO TaskSetManager: Finished task 16.0 in stage 1.0 (TID 23) in 2932 ms on hd4.cuhk.com (executor 2) (12/24)
+20/11/07 14:07:42 INFO TaskSetManager: Finished task 18.0 in stage 1.0 (TID 25) in 2907 ms on hd4.cuhk.com (executor 2) (13/24)
+20/11/07 14:07:43 INFO TaskSetManager: Finished task 17.0 in stage 1.0 (TID 24) in 3207 ms on hd4.cuhk.com (executor 2) (14/24)
+20/11/07 14:07:43 INFO TaskSetManager: Finished task 19.0 in stage 1.0 (TID 26) in 2880 ms on hd4.cuhk.com (executor 2) (15/24)
+20/11/07 14:07:44 INFO TaskSetManager: Finished task 23.0 in stage 1.0 (TID 27) in 2088 ms on hd4.cuhk.com (executor 2) (16/24)
+20/11/07 14:07:46 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 28, hd2.cuhk.com, executor 1, partition 0, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:46 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 29, hd2.cuhk.com, executor 1, partition 2, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:46 INFO TaskSetManager: Starting task 4.0 in stage 1.0 (TID 30, hd2.cuhk.com, executor 1, partition 4, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:46 INFO TaskSetManager: Starting task 5.0 in stage 1.0 (TID 31, hd2.cuhk.com, executor 1, partition 5, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:47 INFO TaskSetManager: Starting task 12.0 in stage 1.0 (TID 32, hd2.cuhk.com, executor 1, partition 12, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:47 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 29) in 1785 ms on hd2.cuhk.com (executor 1) (17/24)
+20/11/07 14:07:47 INFO TaskSetManager: Starting task 13.0 in stage 1.0 (TID 33, hd2.cuhk.com, executor 1, partition 13, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:47 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 28) in 1875 ms on hd2.cuhk.com (executor 1) (18/24)
+20/11/07 14:07:47 INFO TaskSetManager: Starting task 14.0 in stage 1.0 (TID 34, hd2.cuhk.com, executor 1, partition 14, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:47 INFO TaskSetManager: Finished task 4.0 in stage 1.0 (TID 30) in 1924 ms on hd2.cuhk.com (executor 1) (19/24)
+20/11/07 14:07:48 INFO TaskSetManager: Starting task 15.0 in stage 1.0 (TID 35, hd2.cuhk.com, executor 1, partition 15, RACK_LOCAL, 7961 bytes)
+20/11/07 14:07:48 INFO TaskSetManager: Finished task 5.0 in stage 1.0 (TID 31) in 1965 ms on hd2.cuhk.com (executor 1) (20/24)
+20/11/07 14:07:49 INFO TaskSetManager: Finished task 12.0 in stage 1.0 (TID 32) in 1890 ms on hd2.cuhk.com (executor 1) (21/24)
+20/11/07 14:07:49 INFO TaskSetManager: Finished task 13.0 in stage 1.0 (TID 33) in 1954 ms on hd2.cuhk.com (executor 1) (22/24)
+20/11/07 14:07:50 INFO TaskSetManager: Finished task 15.0 in stage 1.0 (TID 35) in 1983 ms on hd2.cuhk.com (executor 1) (23/24)
+20/11/07 14:07:50 INFO TaskSetManager: Finished task 14.0 in stage 1.0 (TID 34) in 2156 ms on hd2.cuhk.com (executor 1) (24/24)
+20/11/07 14:07:50 INFO YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool
+20/11/07 14:07:50 INFO DAGScheduler: ShuffleMapStage 1 (map at ScalaTeraSort.scala:49) finished in 13.324 s
+20/11/07 14:07:50 INFO DAGScheduler: looking for newly runnable stages
+20/11/07 14:07:50 INFO DAGScheduler: running: Set()
+20/11/07 14:07:50 INFO DAGScheduler: waiting: Set(ResultStage 2)
+20/11/07 14:07:50 INFO DAGScheduler: failed: Set()
+20/11/07 14:07:50 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[6] at map at ScalaTeraSort.scala:58), which has no missing parents
+20/11/07 14:07:50 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 102.5 KB, free 8.4 GB)
+20/11/07 14:07:50 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 39.1 KB, free 8.4 GB)
+20/11/07 14:07:50 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on team14:33139 (size: 39.1 KB, free: 8.4 GB)
+20/11/07 14:07:50 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1039
+20/11/07 14:07:50 INFO DAGScheduler: Submitting 10 missing tasks from ResultStage 2 (MapPartitionsRDD[6] at map at ScalaTeraSort.scala:58) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+20/11/07 14:07:50 INFO YarnScheduler: Adding task set 2.0 with 10 tasks
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 36, hd2.cuhk.com, executor 1, partition 0, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 37, hd4.cuhk.com, executor 2, partition 1, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 38, hd2.cuhk.com, executor 1, partition 2, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 39, hd4.cuhk.com, executor 2, partition 3, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 4.0 in stage 2.0 (TID 40, hd2.cuhk.com, executor 1, partition 4, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 5.0 in stage 2.0 (TID 41, hd4.cuhk.com, executor 2, partition 5, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 6.0 in stage 2.0 (TID 42, hd2.cuhk.com, executor 1, partition 6, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO TaskSetManager: Starting task 7.0 in stage 2.0 (TID 43, hd4.cuhk.com, executor 2, partition 7, NODE_LOCAL, 7661 bytes)
+20/11/07 14:07:50 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on hd2.cuhk.com:11627 (size: 39.1 KB, free: 8.4 GB)
+20/11/07 14:07:50 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on hd4.cuhk.com:7378 (size: 39.1 KB, free: 8.4 GB)
+20/11/07 14:07:50 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.26.10.205:31742
+20/11/07 14:07:50 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.26.10.207:30289
+20/11/07 14:08:10 INFO TaskSetManager: Starting task 8.0 in stage 2.0 (TID 44, hd4.cuhk.com, executor 2, partition 8, NODE_LOCAL, 7661 bytes)
+20/11/07 14:08:10 INFO TaskSetManager: Finished task 7.0 in stage 2.0 (TID 43) in 20615 ms on hd4.cuhk.com (executor 2) (1/10)
+20/11/07 14:08:13 INFO TaskSetManager: Starting task 9.0 in stage 2.0 (TID 45, hd4.cuhk.com, executor 2, partition 9, NODE_LOCAL, 7661 bytes)
+20/11/07 14:08:13 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 39) in 22878 ms on hd4.cuhk.com (executor 2) (2/10)
+20/11/07 14:08:13 INFO TaskSetManager: Finished task 5.0 in stage 2.0 (TID 41) in 23473 ms on hd4.cuhk.com (executor 2) (3/10)
+20/11/07 14:08:14 INFO TaskSetManager: Finished task 4.0 in stage 2.0 (TID 40) in 24690 ms on hd2.cuhk.com (executor 1) (4/10)
+20/11/07 14:08:15 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 37) in 25369 ms on hd4.cuhk.com (executor 2) (5/10)
+20/11/07 14:08:15 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 36) in 25641 ms on hd2.cuhk.com (executor 1) (6/10)
+20/11/07 14:08:16 INFO TaskSetManager: Finished task 6.0 in stage 2.0 (TID 42) in 26702 ms on hd2.cuhk.com (executor 1) (7/10)
+20/11/07 14:08:17 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 38) in 27378 ms on hd2.cuhk.com (executor 1) (8/10)
+20/11/07 14:08:26 INFO TaskSetManager: Finished task 8.0 in stage 2.0 (TID 44) in 15342 ms on hd4.cuhk.com (executor 2) (9/10)
+20/11/07 14:08:33 INFO TaskSetManager: Finished task 9.0 in stage 2.0 (TID 45) in 20839 ms on hd4.cuhk.com (executor 2) (10/10)
+20/11/07 14:08:33 INFO YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool
+20/11/07 14:08:33 INFO DAGScheduler: ResultStage 2 (runJob at SparkHadoopWriter.scala:78) finished in 43.740 s
+20/11/07 14:08:33 INFO DAGScheduler: Job 1 finished: runJob at SparkHadoopWriter.scala:78, took 57.104854 s
+20/11/07 14:08:33 INFO SparkHadoopWriter: Job job_20201107140736_0006 committed.
+20/11/07 14:08:33 INFO AbstractConnector: Stopped Spark@67af833b{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+20/11/07 14:08:33 INFO SparkUI: Stopped Spark web UI at http://team14:4040
+20/11/07 14:08:33 INFO YarnClientSchedulerBackend: Interrupting monitor thread
+20/11/07 14:08:34 INFO YarnClientSchedulerBackend: Shutting down all executors
+20/11/07 14:08:34 INFO YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+20/11/07 14:08:34 INFO SchedulerExtensionServices: Stopping SchedulerExtensionServices
+(serviceOption=None,
+ services=List(),
+ started=false)
+20/11/07 14:08:34 INFO YarnClientSchedulerBackend: Stopped
+20/11/07 14:08:34 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+20/11/07 14:08:34 INFO MemoryStore: MemoryStore cleared
+20/11/07 14:08:34 INFO BlockManager: BlockManager stopped
+20/11/07 14:08:34 INFO BlockManagerMaster: BlockManagerMaster stopped
+20/11/07 14:08:34 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+20/11/07 14:08:34 INFO SparkContext: Successfully stopped SparkContext
+20/11/07 14:08:34 INFO ShutdownHookManager: Shutdown hook called
+20/11/07 14:08:34 INFO ShutdownHookManager: Deleting directory /tmp/spark-85174f2a-f9aa-4242-815e-62bff5655976
+20/11/07 14:08:34 INFO ShutdownHookManager: Deleting directory /tmp/spark-db2009b0-d91e-4777-9308-f751652e50e5

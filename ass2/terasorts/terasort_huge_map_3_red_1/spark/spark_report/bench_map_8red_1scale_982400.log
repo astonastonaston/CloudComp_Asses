@@ -1,0 +1,247 @@
+20/11/04 20:43:36 INFO SparkContext: Running Spark version 2.3.1.3.0.1.0-187
+20/11/04 20:43:36 INFO SparkContext: Submitted application: ScalaTeraSort
+20/11/04 20:43:36 INFO SecurityManager: Changing view acls to: root,team14
+20/11/04 20:43:36 INFO SecurityManager: Changing modify acls to: root,team14
+20/11/04 20:43:36 INFO SecurityManager: Changing view acls groups to:
+20/11/04 20:43:36 INFO SecurityManager: Changing modify acls groups to:
+20/11/04 20:43:36 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root, team14); groups with view permissions: Set(); users  with modify permissions: Set(root, team14); groups with modify permissions: Set()
+20/11/04 20:43:36 INFO Utils: Successfully started service 'sparkDriver' on port 34032.
+20/11/04 20:43:36 INFO SparkEnv: Registering MapOutputTracker
+20/11/04 20:43:36 INFO SparkEnv: Registering BlockManagerMaster
+20/11/04 20:43:36 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+20/11/04 20:43:36 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+20/11/04 20:43:36 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-8d0984de-c16b-48c6-a671-32cc42614c96
+20/11/04 20:43:36 INFO MemoryStore: MemoryStore started with capacity 4.1 GB
+20/11/04 20:43:36 INFO SparkEnv: Registering OutputCommitCoordinator
+20/11/04 20:43:36 INFO log: Logging initialized @1452ms
+20/11/04 20:43:36 INFO Server: jetty-9.3.z-SNAPSHOT, build timestamp: 2018-06-06T01:11:56+08:00, git hash: 84205aa28f11a4f31f2a3b86d1bba2cc8ab69827
+20/11/04 20:43:36 INFO Server: Started @1517ms
+20/11/04 20:43:36 INFO AbstractConnector: Started ServerConnector@67af833b{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+20/11/04 20:43:36 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@7646731d{/jobs,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@69adf72c{/jobs/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@797501a{/jobs/job,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@51650883{/jobs/job/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@6c4f9535{/stages,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@5bd1ceca{/stages/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@30c31dd7{/stages/stage,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@c1fca1e{/stages/stage/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@241a53ef{/stages/pool,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@344344fa{/stages/pool/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@2db2cd5{/storage,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@70e659aa{/storage/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@615f972{/storage/rdd,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@285f09de{/storage/rdd/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@73393584{/environment,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@31500940{/environment/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@1827a871{/executors,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@48e64352{/executors/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@7249dadf{/executors/threadDump,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@4362d7df{/executors/threadDump/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@66238be2{/static,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@345e5a17{/,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@5ea502e0{/api,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@77b7ffa4{/jobs/job/kill,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@5ed190be{/stages/stage/kill,null,AVAILABLE,@Spark}
+20/11/04 20:43:36 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://team14:4040
+20/11/04 20:43:36 INFO SparkContext: Added JAR file:/home/team14/HiBench3/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar at spark://team14:34032/jars/sparkbench-assembly-8.0-SNAPSHOT-dist.jar with timestamp 1604493816969
+20/11/04 20:43:37 INFO Client: Requesting a new application from cluster with 4 NodeManagers
+20/11/04 20:43:37 INFO Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/resource-types.xml
+20/11/04 20:43:37 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (405504 MB per container)
+20/11/04 20:43:37 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+20/11/04 20:43:37 INFO Client: Setting up container launch context for our AM
+20/11/04 20:43:37 INFO Client: Setting up the launch environment for our AM container
+20/11/04 20:43:37 INFO Client: Preparing resources for our AM container
+20/11/04 20:43:37 INFO HadoopFSDelegationTokenProvider: getting token for: DFS[DFSClient[clientName=DFSClient_NONMAPREDUCE_-1404965029_1, ugi=team14@BIGDATA (auth:KERBEROS)]]
+20/11/04 20:43:37 INFO DFSClient: Created token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604493907035, maxDate=1605098707035, sequenceNumber=1982753, masterKeyId=295 on ha-hdfs:cuhkcluster
+20/11/04 20:43:37 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+20/11/04 20:43:38 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604493907100, maxDate=1605098707100, sequenceNumber=32992, masterKeyId=67))
+20/11/04 20:43:39 INFO Client: Use hdfs cache file as spark.yarn.archive for HDP, hdfsCacheFile:hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-yarn-archive.tar.gz
+20/11/04 20:43:39 INFO Client: Source and destination file systems are the same. Not copying hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-yarn-archive.tar.gz
+20/11/04 20:43:39 INFO Client: Distribute hdfs cache file as spark.sql.hive.metastore.jars for HDP, hdfsCacheFile:hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-hive-archive.tar.gz
+20/11/04 20:43:39 INFO Client: Source and destination file systems are the same. Not copying hdfs://cuhkcluster/hdp/apps/3.0.1.0-187/spark2/spark2-hdp-hive-archive.tar.gz
+20/11/04 20:43:39 INFO Client: Uploading resource file:/tmp/spark-4eb8f040-117d-4a8b-82a8-ae1c6e3126c0/__spark_conf__6567755782839537386.zip -> hdfs://cuhkcluster/user/team14/.sparkStaging/application_1604458194964_1361/__spark_conf__.zip
+20/11/04 20:43:39 INFO SecurityManager: Changing view acls to: root,team14
+20/11/04 20:43:39 INFO SecurityManager: Changing modify acls to: root,team14
+20/11/04 20:43:39 INFO SecurityManager: Changing view acls groups to:
+20/11/04 20:43:39 INFO SecurityManager: Changing modify acls groups to:
+20/11/04 20:43:39 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root, team14); groups with view permissions: Set(); users  with modify permissions: Set(root, team14); groups with modify permissions: Set()
+20/11/04 20:43:39 INFO Client: Submitting application application_1604458194964_1361 to ResourceManager
+20/11/04 20:43:39 INFO YarnClientImpl: Submitted application application_1604458194964_1361
+20/11/04 20:43:39 INFO SchedulerExtensionServices: Starting Yarn extension services with app application_1604458194964_1361 and attemptId None
+20/11/04 20:43:40 INFO Client: Application report for application_1604458194964_1361 (state: ACCEPTED)
+20/11/04 20:43:40 INFO Client:
+	 client token: Token { kind: YARN_CLIENT_TOKEN, service:  }
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: team14
+	 start time: 1604493908668
+	 final status: UNDEFINED
+	 tracking URL: http://master1.cuhk.com:8088/proxy/application_1604458194964_1361/
+	 user: team14
+20/11/04 20:43:41 INFO Client: Application report for application_1604458194964_1361 (state: ACCEPTED)
+20/11/04 20:43:42 INFO Client: Application report for application_1604458194964_1361 (state: ACCEPTED)
+20/11/04 20:43:43 INFO Client: Application report for application_1604458194964_1361 (state: ACCEPTED)
+20/11/04 20:43:44 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> master1.cuhk.com,master2.cuhk.com, PROXY_URI_BASES -> http://master1.cuhk.com:8088/proxy/application_1604458194964_1361,http://master2.cuhk.com:8088/proxy/application_1604458194964_1361, RM_HA_URLS -> master1.cuhk.com:8088,master2.cuhk.com:8088), /proxy/application_1604458194964_1361
+20/11/04 20:43:44 INFO JettyUtils: Adding filter org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter to /jobs, /jobs/json, /jobs/job, /jobs/job/json, /stages, /stages/json, /stages/stage, /stages/stage/json, /stages/pool, /stages/pool/json, /storage, /storage/json, /storage/rdd, /storage/rdd/json, /environment, /environment/json, /executors, /executors/json, /executors/threadDump, /executors/threadDump/json, /static, /, /api, /jobs/job/kill, /stages/stage/kill.
+20/11/04 20:43:44 INFO Client: Application report for application_1604458194964_1361 (state: RUNNING)
+20/11/04 20:43:44 INFO Client:
+	 client token: Token { kind: YARN_CLIENT_TOKEN, service:  }
+	 diagnostics: N/A
+	 ApplicationMaster host: 10.26.10.206
+	 ApplicationMaster RPC port: 0
+	 queue: team14
+	 start time: 1604493908668
+	 final status: UNDEFINED
+	 tracking URL: http://master1.cuhk.com:8088/proxy/application_1604458194964_1361/
+	 user: team14
+20/11/04 20:43:44 INFO YarnClientSchedulerBackend: Application application_1604458194964_1361 has started running.
+20/11/04 20:43:44 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35587.
+20/11/04 20:43:44 INFO NettyBlockTransferService: Server created on team14:35587
+20/11/04 20:43:44 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+20/11/04 20:43:44 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, team14, 35587, None)
+20/11/04 20:43:44 INFO BlockManagerMasterEndpoint: Registering block manager team14:35587 with 4.1 GB RAM, BlockManagerId(driver, team14, 35587, None)
+20/11/04 20:43:44 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, team14, 35587, None)
+20/11/04 20:43:44 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, team14, 35587, None)
+20/11/04 20:43:44 INFO JettyUtils: Adding filter org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter to /metrics/json.
+20/11/04 20:43:44 INFO ContextHandler: Started o.s.j.s.ServletContextHandler@24a04257{/metrics/json,null,AVAILABLE,@Spark}
+20/11/04 20:43:44 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+20/11/04 20:43:48 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.26.10.206:17554) with ID 2
+20/11/04 20:43:48 INFO BlockManagerMasterEndpoint: Registering block manager hd3.cuhk.com:28936 with 4.1 GB RAM, BlockManagerId(2, hd3.cuhk.com, 28936, None)
+20/11/04 20:43:50 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.26.10.207:46774) with ID 1
+20/11/04 20:43:50 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.8
+20/11/04 20:43:50 INFO BlockManagerMasterEndpoint: Registering block manager hd4.cuhk.com:30131 with 4.1 GB RAM, BlockManagerId(1, hd4.cuhk.com, 30131, None)
+20/11/04 20:43:50 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 381.7 KB, free 4.1 GB)
+20/11/04 20:43:50 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 35.5 KB, free 4.1 GB)
+20/11/04 20:43:50 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on team14:35587 (size: 35.5 KB, free: 4.1 GB)
+20/11/04 20:43:50 INFO SparkContext: Created broadcast 0 from newAPIHadoopFile at ScalaTeraSort.scala:49
+20/11/04 20:43:50 INFO DFSClient: Created token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604493920065, maxDate=1605098720065, sequenceNumber=1982754, masterKeyId=295 on ha-hdfs:cuhkcluster
+20/11/04 20:43:50 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+20/11/04 20:43:50 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604493920089, maxDate=1605098720089, sequenceNumber=32993, masterKeyId=67))
+20/11/04 20:43:50 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604493920065, maxDate=1605098720065, sequenceNumber=1982754, masterKeyId=295)
+20/11/04 20:43:50 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604493920089, maxDate=1605098720089, sequenceNumber=32993, masterKeyId=67)
+20/11/04 20:43:50 INFO FileInputFormat: Total input files to process : 2
+Spent 86ms computing base-splits.
+Spent 5ms computing TeraScheduler splits.
+20/11/04 20:43:51 INFO SparkContext: Starting job: BaseRangePartitioner at ScalaTeraSort.scala:56
+20/11/04 20:43:51 INFO DAGScheduler: Got job 0 (BaseRangePartitioner at ScalaTeraSort.scala:56) with 2 output partitions
+20/11/04 20:43:51 INFO DAGScheduler: Final stage: ResultStage 0 (BaseRangePartitioner at ScalaTeraSort.scala:56)
+20/11/04 20:43:51 INFO DAGScheduler: Parents of final stage: List()
+20/11/04 20:43:51 INFO DAGScheduler: Missing parents: List()
+20/11/04 20:43:51 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[4] at BaseRangePartitioner at ScalaTeraSort.scala:56), which has no missing parents
+20/11/04 20:43:51 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 3.5 KB, free 4.1 GB)
+20/11/04 20:43:51 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 2.0 KB, free 4.1 GB)
+20/11/04 20:43:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on team14:35587 (size: 2.0 KB, free: 4.1 GB)
+20/11/04 20:43:51 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1039
+20/11/04 20:43:51 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (MapPartitionsRDD[4] at BaseRangePartitioner at ScalaTeraSort.scala:56) (first 15 tasks are for partitions Vector(0, 1))
+20/11/04 20:43:51 INFO YarnScheduler: Adding task set 0.0 with 2 tasks
+20/11/04 20:43:51 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, hd4.cuhk.com, executor 1, partition 0, NODE_LOCAL, 8068 bytes)
+20/11/04 20:43:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on hd4.cuhk.com:30131 (size: 2.0 KB, free: 4.1 GB)
+20/11/04 20:43:52 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on hd4.cuhk.com:30131 (size: 35.5 KB, free: 4.1 GB)
+20/11/04 20:43:53 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2365 ms on hd4.cuhk.com (executor 1) (1/2)
+20/11/04 20:43:54 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1, hd3.cuhk.com, executor 2, partition 1, RACK_LOCAL, 8068 bytes)
+20/11/04 20:43:55 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on hd3.cuhk.com:28936 (size: 2.0 KB, free: 4.1 GB)
+20/11/04 20:43:55 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on hd3.cuhk.com:28936 (size: 35.5 KB, free: 4.1 GB)
+20/11/04 20:43:56 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 2142 ms on hd3.cuhk.com (executor 2) (2/2)
+20/11/04 20:43:56 INFO YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool
+20/11/04 20:43:56 INFO DAGScheduler: ResultStage 0 (BaseRangePartitioner at ScalaTeraSort.scala:56) finished in 5.800 s
+20/11/04 20:43:56 INFO DAGScheduler: Job 0 finished: BaseRangePartitioner at ScalaTeraSort.scala:56, took 5.880520 s
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 0
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 16
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 4
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 11
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 19
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 18
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 17
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 24
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 2
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 13
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 1
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 9
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 7
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 15
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 22
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 21
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 6
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 20
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 14
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 3
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 5
+20/11/04 20:43:57 INFO DFSClient: Created token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604493926294, maxDate=1605098726294, sequenceNumber=1982756, masterKeyId=295 on ha-hdfs:cuhkcluster
+20/11/04 20:43:57 INFO BlockManagerInfo: Removed broadcast_1_piece0 on team14:35587 in memory (size: 2.0 KB, free: 4.1 GB)
+20/11/04 20:43:57 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+20/11/04 20:43:57 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604493926312, maxDate=1605098726312, sequenceNumber=32995, masterKeyId=67))
+20/11/04 20:43:57 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team14: HDFS_DELEGATION_TOKEN owner=team14@BIGDATA, renewer=yarn, realUser=, issueDate=1604493926294, maxDate=1605098726294, sequenceNumber=1982756, masterKeyId=295)
+20/11/04 20:43:57 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team14, renewer=yarn, realUser=, issueDate=1604493926312, maxDate=1605098726312, sequenceNumber=32995, masterKeyId=67)
+20/11/04 20:43:57 INFO BlockManagerInfo: Removed broadcast_1_piece0 on hd3.cuhk.com:28936 in memory (size: 2.0 KB, free: 4.1 GB)
+20/11/04 20:43:57 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+20/11/04 20:43:57 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+20/11/04 20:43:57 INFO BlockManagerInfo: Removed broadcast_1_piece0 on hd4.cuhk.com:30131 in memory (size: 2.0 KB, free: 4.1 GB)
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 8
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 12
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 10
+20/11/04 20:43:57 INFO ContextCleaner: Cleaned accumulator 23
+20/11/04 20:43:57 INFO SparkContext: Starting job: runJob at SparkHadoopWriter.scala:78
+20/11/04 20:43:57 INFO DAGScheduler: Registering RDD 1 (map at ScalaTeraSort.scala:49)
+20/11/04 20:43:57 INFO DAGScheduler: Got job 1 (runJob at SparkHadoopWriter.scala:78) with 2 output partitions
+20/11/04 20:43:57 INFO DAGScheduler: Final stage: ResultStage 2 (runJob at SparkHadoopWriter.scala:78)
+20/11/04 20:43:57 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+20/11/04 20:43:57 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 1)
+20/11/04 20:43:57 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[1] at map at ScalaTeraSort.scala:49), which has no missing parents
+20/11/04 20:43:57 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 4.1 KB, free 4.1 GB)
+20/11/04 20:43:57 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 2.5 KB, free 4.1 GB)
+20/11/04 20:43:57 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on team14:35587 (size: 2.5 KB, free: 4.1 GB)
+20/11/04 20:43:57 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1039
+20/11/04 20:43:57 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[1] at map at ScalaTeraSort.scala:49) (first 15 tasks are for partitions Vector(0, 1))
+20/11/04 20:43:57 INFO YarnScheduler: Adding task set 1.0 with 2 tasks
+20/11/04 20:43:57 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 2, hd4.cuhk.com, executor 1, partition 0, NODE_LOCAL, 7960 bytes)
+20/11/04 20:43:57 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on hd4.cuhk.com:30131 (size: 2.5 KB, free: 4.1 GB)
+20/11/04 20:43:57 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 2) in 630 ms on hd4.cuhk.com (executor 1) (1/2)
+20/11/04 20:44:00 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 3, hd3.cuhk.com, executor 2, partition 1, RACK_LOCAL, 7960 bytes)
+20/11/04 20:44:00 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on hd3.cuhk.com:28936 (size: 2.5 KB, free: 4.1 GB)
+20/11/04 20:44:01 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 3) in 599 ms on hd3.cuhk.com (executor 2) (2/2)
+20/11/04 20:44:01 INFO YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool
+20/11/04 20:44:01 INFO DAGScheduler: ShuffleMapStage 1 (map at ScalaTeraSort.scala:49) finished in 4.152 s
+20/11/04 20:44:01 INFO DAGScheduler: looking for newly runnable stages
+20/11/04 20:44:01 INFO DAGScheduler: running: Set()
+20/11/04 20:44:01 INFO DAGScheduler: waiting: Set(ResultStage 2)
+20/11/04 20:44:01 INFO DAGScheduler: failed: Set()
+20/11/04 20:44:01 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[6] at map at ScalaTeraSort.scala:58), which has no missing parents
+20/11/04 20:44:01 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 102.3 KB, free 4.1 GB)
+20/11/04 20:44:01 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 39.0 KB, free 4.1 GB)
+20/11/04 20:44:01 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on team14:35587 (size: 39.0 KB, free: 4.1 GB)
+20/11/04 20:44:01 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1039
+20/11/04 20:44:01 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 2 (MapPartitionsRDD[6] at map at ScalaTeraSort.scala:58) (first 15 tasks are for partitions Vector(0, 1))
+20/11/04 20:44:01 INFO YarnScheduler: Adding task set 2.0 with 2 tasks
+20/11/04 20:44:01 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 4, hd4.cuhk.com, executor 1, partition 0, NODE_LOCAL, 7660 bytes)
+20/11/04 20:44:01 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 5, hd3.cuhk.com, executor 2, partition 1, NODE_LOCAL, 7660 bytes)
+20/11/04 20:44:01 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on hd4.cuhk.com:30131 (size: 39.0 KB, free: 4.1 GB)
+20/11/04 20:44:01 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on hd3.cuhk.com:28936 (size: 39.0 KB, free: 4.1 GB)
+20/11/04 20:44:01 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.26.10.206:17554
+20/11/04 20:44:01 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.26.10.207:46774
+20/11/04 20:44:02 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 4) in 1313 ms on hd4.cuhk.com (executor 1) (1/2)
+20/11/04 20:44:02 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 5) in 1333 ms on hd3.cuhk.com (executor 2) (2/2)
+20/11/04 20:44:02 INFO YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool
+20/11/04 20:44:02 INFO DAGScheduler: ResultStage 2 (runJob at SparkHadoopWriter.scala:78) finished in 1.360 s
+20/11/04 20:44:02 INFO DAGScheduler: Job 1 finished: runJob at SparkHadoopWriter.scala:78, took 5.546800 s
+20/11/04 20:44:02 INFO SparkHadoopWriter: Job job_20201104204357_0006 committed.
+20/11/04 20:44:02 INFO AbstractConnector: Stopped Spark@67af833b{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+20/11/04 20:44:02 INFO SparkUI: Stopped Spark web UI at http://team14:4040
+20/11/04 20:44:02 INFO YarnClientSchedulerBackend: Interrupting monitor thread
+20/11/04 20:44:02 INFO YarnClientSchedulerBackend: Shutting down all executors
+20/11/04 20:44:02 INFO YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+20/11/04 20:44:02 INFO SchedulerExtensionServices: Stopping SchedulerExtensionServices
+(serviceOption=None,
+ services=List(),
+ started=false)
+20/11/04 20:44:02 INFO YarnClientSchedulerBackend: Stopped
+20/11/04 20:44:02 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+20/11/04 20:44:02 INFO MemoryStore: MemoryStore cleared
+20/11/04 20:44:02 INFO BlockManager: BlockManager stopped
+20/11/04 20:44:02 INFO BlockManagerMaster: BlockManagerMaster stopped
+20/11/04 20:44:02 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+20/11/04 20:44:02 INFO SparkContext: Successfully stopped SparkContext
+20/11/04 20:44:02 INFO ShutdownHookManager: Shutdown hook called
+20/11/04 20:44:02 INFO ShutdownHookManager: Deleting directory /tmp/spark-4eb8f040-117d-4a8b-82a8-ae1c6e3126c0
+20/11/04 20:44:02 INFO ShutdownHookManager: Deleting directory /tmp/spark-62a9e68f-4d03-4a97-a2c8-e0c50fc94306

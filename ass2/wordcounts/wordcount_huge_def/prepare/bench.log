@@ -1,0 +1,68 @@
+21/10/17 18:45:40 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+Running 4 maps.
+Job started: Sun Oct 17 18:45:41 CST 2021
+21/10/17 18:45:41 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/10/17 18:45:41 INFO hdfs.DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1634467808020, maxDate=1635072608020, sequenceNumber=5008138, masterKeyId=643 on ha-hdfs:cuhkcluster
+21/10/17 18:45:41 INFO kms.KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/10/17 18:45:41 INFO kms.KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1634467808117, maxDate=1635072608117, sequenceNumber=1760, masterKeyId=254))
+21/10/17 18:45:41 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1634467808020, maxDate=1635072608020, sequenceNumber=5008138, masterKeyId=643)
+21/10/17 18:45:41 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1634467808117, maxDate=1635072608117, sequenceNumber=1760, masterKeyId=254)
+21/10/17 18:45:41 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1633939588974_1034
+21/10/17 18:45:42 INFO mapreduce.JobSubmitter: number of splits:4
+21/10/17 18:45:42 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1633939588974_1034
+21/10/17 18:45:42 INFO mapreduce.JobSubmitter: Executing with tokens: [Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1634467808020, maxDate=1635072608020, sequenceNumber=5008138, masterKeyId=643), Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1634467808117, maxDate=1635072608117, sequenceNumber=1760, masterKeyId=254)]
+21/10/17 18:45:42 INFO conf.Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/resource-types.xml
+21/10/17 18:45:42 INFO impl.TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/10/17 18:45:43 INFO impl.YarnClientImpl: Submitted application application_1633939588974_1034
+21/10/17 18:45:43 INFO mapreduce.Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1633939588974_1034/
+21/10/17 18:45:43 INFO mapreduce.Job: Running job: job_1633939588974_1034
+21/10/17 18:45:51 INFO mapreduce.Job: Job job_1633939588974_1034 running in uber mode : false
+21/10/17 18:45:51 INFO mapreduce.Job:  map 0% reduce 0%
+21/10/17 18:47:32 INFO mapreduce.Job:  map 25% reduce 0%
+21/10/17 18:47:37 INFO mapreduce.Job:  map 50% reduce 0%
+21/10/17 18:47:39 INFO mapreduce.Job:  map 75% reduce 0%
+21/10/17 18:47:43 INFO mapreduce.Job:  map 100% reduce 0%
+21/10/17 18:47:43 INFO mapreduce.Job: Job job_1633939588974_1034 completed successfully
+21/10/17 18:47:43 INFO mapreduce.Job: Counters: 34
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=986563
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=552
+		HDFS: Number of bytes written=32583067283
+		HDFS: Number of read operations=24
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=8
+	Job Counters
+		Launched map tasks=4
+		Other local map tasks=4
+		Total time spent by all maps in occupied slots (ms)=1256553
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=418851
+		Total vcore-milliseconds taken by all map tasks=418851
+		Total megabyte-milliseconds taken by all map tasks=1286710272
+	Map-Reduce Framework
+		Map input records=4
+		Map output records=48830154
+		Input split bytes=552
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=6264
+		CPU time spent (ms)=527380
+		Physical memory (bytes) snapshot=1873141760
+		Virtual memory (bytes) snapshot=18753093632
+		Total committed heap usage (bytes)=2363490304
+		Peak Map Physical memory (bytes)=477208576
+		Peak Map Virtual memory (bytes)=4697260032
+	org.apache.hadoop.examples.RandomTextWriter$Counters
+		BYTES_WRITTEN=32000000721
+		RECORDS_WRITTEN=48830154
+	File Input Format Counters
+		Bytes Read=0
+	File Output Format Counters
+		Bytes Written=32583067283
+Job ended: Sun Oct 17 18:47:43 CST 2021
+The job took 121 seconds.

@@ -1,0 +1,161 @@
+21/10/28 23:46:36 INFO HiBench.PagerankData: Generating pageRank data files...
+21/10/28 23:46:36 INFO HiBench.PagerankData: Initializing PageRank data generator...
+curIndex: 1663, total: 1664
+21/10/28 23:46:37 INFO HiBench.Dummy: Creating dummy file hdfs://cuhkcluster/dataspace/team12/HiBench/Pagerank/temp/dummy with 1 slots...
+21/10/28 23:46:38 INFO HiBench.PagerankData: Creating PageRank nodes...
+21/10/28 23:46:38 INFO HiBench.PagerankData: Running Job: Create pagerank nodes
+21/10/28 23:46:38 INFO HiBench.PagerankData: Dummy file hdfs://cuhkcluster/dataspace/team12/HiBench/Pagerank/temp/dummy as input
+21/10/28 23:46:38 INFO HiBench.PagerankData: Vertices file hdfs://cuhkcluster/dataspace/team12/HiBench/Pagerank/Input/vertices as output
+21/10/28 23:46:38 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/10/28 23:46:38 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/10/28 23:46:38 INFO hdfs.DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1635436291866, maxDate=1636041091866, sequenceNumber=5119709, masterKeyId=654 on ha-hdfs:cuhkcluster
+21/10/28 23:46:38 INFO kms.KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/10/28 23:46:38 INFO kms.KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1635436291930, maxDate=1636041091930, sequenceNumber=16481, masterKeyId=265))
+21/10/28 23:46:38 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1635436291866, maxDate=1636041091866, sequenceNumber=5119709, masterKeyId=654)
+21/10/28 23:46:38 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1635436291930, maxDate=1636041091930, sequenceNumber=16481, masterKeyId=265)
+21/10/28 23:46:39 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+21/10/28 23:46:39 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1633939588974_15429
+21/10/28 23:46:39 INFO mapred.FileInputFormat: Total input files to process : 1
+21/10/28 23:46:39 INFO mapreduce.JobSubmitter: number of splits:1
+21/10/28 23:46:39 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1633939588974_15429
+21/10/28 23:46:39 INFO mapreduce.JobSubmitter: Executing with tokens: [Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1635436291866, maxDate=1636041091866, sequenceNumber=5119709, masterKeyId=654), Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1635436291930, maxDate=1636041091930, sequenceNumber=16481, masterKeyId=265)]
+21/10/28 23:46:39 INFO conf.Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/resource-types.xml
+21/10/28 23:46:39 INFO impl.TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/10/28 23:46:40 INFO impl.YarnClientImpl: Submitted application application_1633939588974_15429
+21/10/28 23:46:40 INFO mapreduce.Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1633939588974_15429/
+21/10/28 23:46:40 INFO mapreduce.Job: Running job: job_1633939588974_15429
+21/10/28 23:46:50 INFO mapreduce.Job: Job job_1633939588974_15429 running in uber mode : false
+21/10/28 23:46:50 INFO mapreduce.Job:  map 0% reduce 0%
+21/10/28 23:47:00 INFO mapreduce.Job:  map 100% reduce 0%
+21/10/28 23:47:05 INFO mapreduce.Job:  map 100% reduce 33%
+21/10/28 23:47:10 INFO mapreduce.Job:  map 100% reduce 67%
+21/10/28 23:47:11 INFO mapreduce.Job:  map 100% reduce 100%
+21/10/28 23:47:11 INFO mapreduce.Job: Job job_1633939588974_15429 completed successfully
+21/10/28 23:47:12 INFO mapreduce.Job: Counters: 53
+	File System Counters
+		FILE: Number of bytes read=28
+		FILE: Number of bytes written=992963
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=117
+		HDFS: Number of bytes written=2
+		HDFS: Number of read operations=18
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=6
+	Job Counters
+		Launched map tasks=1
+		Launched reduce tasks=3
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=24921
+		Total time spent by all reduces in occupied slots (ms)=103758
+		Total time spent by all map tasks (ms)=8307
+		Total time spent by all reduce tasks (ms)=17293
+		Total vcore-milliseconds taken by all map tasks=8307
+		Total vcore-milliseconds taken by all reduce tasks=17293
+		Total megabyte-milliseconds taken by all map tasks=25519104
+		Total megabyte-milliseconds taken by all reduce tasks=106248192
+	Map-Reduce Framework
+		Map input records=1
+		Map output records=1
+		Map output bytes=8
+		Map output materialized bytes=28
+		Input split bytes=115
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=1
+		Reduce shuffle bytes=28
+		Reduce input records=0
+		Reduce output records=1
+		Spilled Records=2
+		Shuffled Maps =3
+		Failed Shuffles=0
+		Merged Map outputs=3
+		GC time elapsed (ms)=258
+		CPU time spent (ms)=6280
+		Physical memory (bytes) snapshot=3144159232
+		Virtual memory (bytes) snapshot=26825805824
+		Total committed heap usage (bytes)=3918004224
+		Peak Map Physical memory (bytes)=2124513280
+		Peak Map Virtual memory (bytes)=4678152192
+		Peak Reduce Physical memory (bytes)=341352448
+		Peak Reduce Virtual memory (bytes)=7384203264
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters
+		Bytes Read=2
+	File Output Format Counters
+		Bytes Written=2
+21/10/28 23:47:12 INFO HiBench.PagerankData: Finished Running Job: Create pagerank nodes
+21/10/28 23:47:12 INFO HiBench.PagerankData: Creating PageRank links
+21/10/28 23:47:12 INFO HiBench.PagerankData: Running Job: Create pagerank links
+21/10/28 23:47:12 INFO HiBench.PagerankData: Dummy file hdfs://cuhkcluster/dataspace/team12/HiBench/Pagerank/temp/dummy as input
+21/10/28 23:47:12 INFO HiBench.PagerankData: Edges file hdfs://cuhkcluster/dataspace/team12/HiBench/Pagerank/Input/edges as output
+21/10/28 23:47:12 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/10/28 23:47:12 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/10/28 23:47:12 INFO hdfs.DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1635436325335, maxDate=1636041125335, sequenceNumber=5119712, masterKeyId=654 on ha-hdfs:cuhkcluster
+21/10/28 23:47:12 INFO kms.KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/10/28 23:47:12 INFO kms.KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1635436325348, maxDate=1636041125348, sequenceNumber=16483, masterKeyId=265))
+21/10/28 23:47:12 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1635436325335, maxDate=1636041125335, sequenceNumber=5119712, masterKeyId=654)
+21/10/28 23:47:12 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1635436325348, maxDate=1636041125348, sequenceNumber=16483, masterKeyId=265)
+21/10/28 23:47:12 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+21/10/28 23:47:12 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1633939588974_15431
+21/10/28 23:47:12 INFO mapred.FileInputFormat: Total input files to process : 1
+21/10/28 23:47:12 INFO mapreduce.JobSubmitter: number of splits:1
+21/10/28 23:47:12 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1633939588974_15431
+21/10/28 23:47:12 INFO mapreduce.JobSubmitter: Executing with tokens: [Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1635436325335, maxDate=1636041125335, sequenceNumber=5119712, masterKeyId=654), Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1635436325348, maxDate=1636041125348, sequenceNumber=16483, masterKeyId=265)]
+21/10/28 23:47:12 INFO impl.TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/10/28 23:47:12 INFO impl.YarnClientImpl: Submitted application application_1633939588974_15431
+21/10/28 23:47:12 INFO mapreduce.Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1633939588974_15431/
+21/10/28 23:47:12 INFO mapreduce.Job: Running job: job_1633939588974_15431
+21/10/28 23:47:23 INFO mapreduce.Job: Job job_1633939588974_15431 running in uber mode : false
+21/10/28 23:47:23 INFO mapreduce.Job:  map 0% reduce 0%
+21/10/28 23:47:38 INFO mapreduce.Job:  map 100% reduce 0%
+21/10/28 23:48:38 INFO mapreduce.Job: Job job_1633939588974_15431 completed successfully
+21/10/28 23:48:38 INFO mapreduce.Job: Counters: 33
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=247909
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=117
+		HDFS: Number of bytes written=1142543734
+		HDFS: Number of read operations=7
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=218052
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=72684
+		Total vcore-milliseconds taken by all map tasks=72684
+		Total megabyte-milliseconds taken by all map tasks=223285248
+	Map-Reduce Framework
+		Map input records=1
+		Map output records=79047457
+		Input split bytes=115
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=624
+		CPU time spent (ms)=79840
+		Physical memory (bytes) snapshot=452943872
+		Virtual memory (bytes) snapshot=4685668352
+		Total committed heap usage (bytes)=591921152
+		Peak Map Physical memory (bytes)=452943872
+		Peak Map Virtual memory (bytes)=4685668352
+	HiBench.Counters
+		BYTES_DATA_GENERATED=1107412800
+	File Input Format Counters
+		Bytes Read=2
+	File Output Format Counters
+		Bytes Written=1142543734
+21/10/28 23:48:38 INFO HiBench.PagerankData: Finished Running Job: Create pagerank links
+21/10/28 23:48:38 INFO HiBench.PagerankData: Closing pagerank data generator...

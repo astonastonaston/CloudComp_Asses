@@ -1,0 +1,216 @@
+# Source: /home/team14/HiBench3/conf/hadoop.conf
+HADOOP_CONF_DIR=/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop
+HADOOP_EXECUTABLE=/usr/hdp/3.0.1.0-187/hadoop/bin/hadoop
+HADOOP_HOME=/usr/hdp/3.0.1.0-187/hadoop
+HADOOP_RELEASE=apache
+HDFS_MASTER=hdfs://cuhkcluster
+
+# Source: /home/team14/HiBench3/conf/hibench.conf
+BAYES_INPUT=Input
+COMMON_JAR=/home/team14/HiBench3/common/target/hibench-common-8.0-SNAPSHOT-jar-with-dependencies.jar
+DATATOOLS=/home/team14/HiBench3/autogen/target/autogen-8.0-SNAPSHOT-jar-with-dependencies.jar
+DATA_HDFS=hdfs://cuhkcluster/dataspace/team14/HiBench
+HIBENCH_CONF=/home/team14/HiBench3/conf
+HIBENCH_REPORT=/home/team14/HiBench3/report
+HIBENCH_REPORT_NAME=hibench.report
+HIVEBENCH_TEMPLATE=/home/team14/HiBench3/hadoopbench/sql/hive_template
+HIVE_HOME=/home/team14/HiBench3/hadoopbench/sql/target/apache-hive-3.0.0-bin
+HIVE_INPUT=Input
+HIVE_RELEASE=apache-hive-3.0.0-bin
+MAHOUT_HOME=/home/team14/HiBench3/hadoopbench/mahout/target/apache-mahout-distribution-0.11.0
+MAHOUT_RELEASE=apache-mahout-distribution-0.11.0
+METRICE_READER_SAMPLE_NUM=5000000
+METRICS_READER_OUTPUT_DIR=/home/team14/HiBench3/report/
+METRICS_READER_THREAD_NUM=20
+NUM_MAPS=4
+NUM_REDS=4
+NUTCH_DIR=/home/team14/HiBench3/hadoopbench/nutchindexing/
+NUTCH_HOME=/home/team14/HiBench3/hadoopbench/nutchindexing/target/nutch-1.2
+NUTCH_INPUT=Input
+REPORT_COLUMN_FORMATS="%-12s %-10s %-8s %-20s %-20s %-20s %-20s\n"
+SPARKBENCH_JAR=/home/team14/HiBench3/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+STREAMBENCH_FLINK_JAR=/home/team14/HiBench3/flinkbench/streaming/target/flinkbench-streaming-8.0-SNAPSHOT-jar-with-dependencies.jar
+STREAMBENCH_GEARPUMP_JAR=/home/team14/HiBench3/gearpumpbench/streaming/target/gearpumpbench-streaming-8.0-SNAPSHOT-jar-with-dependencies.jar
+STREAMBENCH_STORM_JAR=/home/team14/HiBench3/stormbench/streaming/target/stormbench-streaming-8.0-SNAPSHOT.jar
+STREAMING_CONSUMER_GROUP=HiBench
+STREAMING_DATA1_DIR=hdfs://cuhkcluster/dataspace/team14/HiBench/Streaming/Seed
+STREAMING_DATA1_LENGTH=200
+STREAMING_DATA1_NAME=Seed
+STREAMING_DATA2_CLUSTER_DIR=hdfs://cuhkcluster/dataspace/team14/HiBench/Streaming/Kmeans/Cluster
+STREAMING_DATA2_SAMPLE_DIR=hdfs://cuhkcluster/dataspace/team14/HiBench/Streaming/Kmeans/Samples
+STREAMING_DATA_DIR=hdfs://cuhkcluster/dataspace/team14/HiBench/Streaming
+STREAMING_KAFKA_HOME=/PATH/TO/YOUR/KAFKA/HOME
+STREAMING_PARTITIONS=20
+STREAMING_ZKADDR=
+
+# Source: /home/team14/HiBench3/conf/spark.conf
+SPARK_HOME=/usr/hdp/3.0.1.0-187/spark2
+SPARK_MASTER=yarn
+SPARK_YARN_DRIVER_MEMORY=32g
+SPARK_YARN_EXECUTOR_MEMORY=4g
+YARN_EXECUTOR_CORES=2
+YARN_NUM_EXECUTORS=1
+
+# Source: /home/team14/HiBench3/conf/workloads/micro/terasort.conf
+DATASIZE=32000000
+INPUT_HDFS=hdfs://cuhkcluster/dataspace/team14/HiBench/Terasort/Input
+OUTPUT_HDFS=hdfs://cuhkcluster/dataspace/team14/HiBench/Terasort/Output
+
+# Source: Inferred by /usr/hdp/3.0.1.0-187/hadoop/../hadoop-mapreduce/hadoop-mapreduce-examples.jar
+HADOOP_EXAMPLES_JAR=/usr/hdp/3.0.1.0-187/hadoop/../hadoop-mapreduce/hadoop-mapreduce-examples.jar
+
+# Source: Inferred from relative path of dirname(/home/team14/HiBench3/bin/functions/load_config.py)/../../
+HIBENCH_HOME=/home/team14/HiBench3
+
+# Source: None
+BAYES_BASE_HDFS=
+BLOCK=
+CACHE_IN_MEMORY=
+CLASSES=
+COMPUTEU_SVD=
+DATA_GEN_JAR=
+DEGREE=
+DIMENSIONS=
+DIMENSIONS_GMM=
+DISABLE_KRYO=
+DISABLE_OUTPUT=
+DOC_LEN_MAX_LDA=
+DOC_LEN_MIN_LDA=
+EDGES=
+ELASTICNET_PARAM_LINEAR=
+FEATURE_SUBSET_STRATEGY_RF=
+FLINK_HOME=
+GEARPUMP_HOME=
+HIBENCH_FLINK_MASTER=
+HIVE_BASE_HDFS=
+IMPLICITPREFS_ALS=
+IMPURITY_RF=
+INPUT_CLUSTER=
+INPUT_CLUSTER_GMM=
+INPUT_SAMPLE=
+INPUT_SAMPLE_GMM=
+K=
+KYRO_ALS=
+K_GMM=
+K_STORAGE_LEVEL=
+LAMBDA_ALS=
+LEARNING_RATE_GBT=
+LEARNING_RATE_XGBOOST=
+MAP_SLEEP_TIME=
+MAXRESULTSIZE_LDA=
+MAXRESULTSIZE_SVD=
+MAX_BINS_GBT=
+MAX_BINS_RF=
+MAX_BINS_XGBOOST=
+MAX_DEPTH_GBT=
+MAX_DEPTH_RF=
+MAX_DEPTH_XGBOOST=
+MAX_ITERATION=
+MAX_ITERATION_GMM=
+MAX_OUT_EDGES=
+MAX_RESULT_SIZE_PCA=
+MODEL=
+MODEL_INPUT=
+NGRAMS=
+NUM_CLASSES_GBT=
+NUM_CLASSES_RF=
+NUM_CLASSES_XGBOOST=
+NUM_DOCUMENTS_LDA=
+NUM_EXAMPLES_GBT=
+NUM_EXAMPLES_LINEAR=
+NUM_EXAMPLES_LR=
+NUM_EXAMPLES_PCA=
+NUM_EXAMPLES_RF=
+NUM_EXAMPLES_SVD=
+NUM_EXAMPLES_SVM=
+NUM_EXAMPLES_XGBOOST=
+NUM_FEATURES_GBT=
+NUM_FEATURES_LINEAR=
+NUM_FEATURES_LR=
+NUM_FEATURES_PCA=
+NUM_FEATURES_RF=
+NUM_FEATURES_SVD=
+NUM_FEATURES_SVM=
+NUM_FEATURES_XGBOOST=
+NUM_ITERATIONS=
+NUM_ITERATIONS_ALS=
+NUM_ITERATIONS_GBT=
+NUM_ITERATIONS_LDA=
+NUM_ITERATIONS_LINEAR=
+NUM_ITERATIONS_SVM=
+NUM_ITERATIONS_XGBOOST=
+NUM_OF_CLUSTERS=
+NUM_OF_CLUSTERS_GMM=
+NUM_OF_SAMPLES=
+NUM_OF_SAMPLES_GMM=
+NUM_PARTITION=
+NUM_PRODUCTS_ALS=
+NUM_RECOMMENDS_ALS=
+NUM_SINGULAR_VALUES_SVD=
+NUM_TOPICS_LDA=
+NUM_TREES_RF=
+NUM_USERS_ALS=
+NUM_VOCABULARY_LDA=
+NUTCH_BASE_HDFS=
+OPTIMIZER_LDA=
+PAGERANK_BASE_HDFS=
+PAGERANK_INPUT=
+PAGES=
+PCA_K=
+PEGASUS_JAR=
+PRODUCTBLOCKS_ALS=
+RANK_ALS=
+RD_FILE_SIZE=
+RD_NUM_OF_FILES=
+RED_SLEEP_TIME=
+REGPARAM_SVM=
+REG_PARAM_LINEAR=
+SAMPLES_PER_INPUTFILE=
+SAMPLES_PER_INPUTFILE_GMM=
+SPARK_EXAMPLES_JAR=
+SPARSITY_ALS=
+STEPSIZE_SVM=
+STORAGE_LEVEL=
+STORAGE_LEVEL_GMM=
+STREAMBENCH_FLINK_PARALLELISM=
+STREAMBENCH_GEARPUMP_EXECUTORS=
+STREAMBENCH_SPARK_JAR=
+STREAMING_TESTCASE=
+STREAMING_TOPIC_NAME=
+TOL_LINEAR=
+USERBLOCKS_ALS=
+USERVISITS=
+WT_FILE_SIZE=
+WT_NUM_OF_FILES=
+
+# Source: Parsed from /usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/yarn-site.xml
+MASTERS='master1.cuhk.com'
+
+# Source: Probed by configuration file:'/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/mapred-site.xml'
+MAP_JAVA_OPTS='-Xmx2457m'
+RED_JAVA_OPTS='-Xmx4915m'
+
+# Source: Probed by parsing results from: ( /usr/hdp/3.0.1.0-187/hadoop/bin/yarn node -list 2> /dev/null | grep RUNNING )
+SLAVES='hd1.cuhk.com hd2.cuhk.com hd4.cuhk.com hd3.cuhk.com'
+
+# Source: Refer to `hibench.hadoop.examples.test.jar` according to the evidence of `hibench.hadoop.release`
+HADOOP_SLEEP_JAR=/usr/hdp/3.0.1.0-187/hadoop/../hadoop-mapreduce/hadoop-mapreduce-client-jobclient-tests.jar
+
+# Source: Use default mapper name
+MAP_CONFIG_NAME=mapreduce.job.maps
+
+# Source: Use default reducer name
+REDUCER_CONFIG_NAME=mapreduce.job.reduces
+
+# Source: probed from os environment of JAVA_HOME
+JAVA_BIN=/usr/jdk64/java/bin/java
+
+#Source: add for internal usage
+SPARKBENCH_PROPERTIES_FILES=/home/team14/HiBench3/report/terasort/spark/conf/sparkbench/sparkbench.conf
+SPARK_PROP_CONF=/home/team14/HiBench3/report/terasort/spark/conf/sparkbench/spark.conf
+WORKLOAD_RESULT_FOLDER=/home/team14/HiBench3/report/terasort/spark/conf/..
+HIBENCH_WORKLOAD_CONF=/home/team14/HiBench3/report/terasort/spark/conf/terasort.conf
+export HADOOP_EXECUTABLE
+export HADOOP_CONF_DIR
+# Type         Date       Time     Input_data_size      Duration(s)          Throughput(bytes/s)  Throughput/node     
+# ScalaSparkTerasort 2020-11-07 15:59:47 3200000000           326.004              9815830              2453957             

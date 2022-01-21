@@ -1,0 +1,14 @@
+java.lang.ClassNotFoundException: org.apache.spark.examples.SparkPageRank
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.apache.spark.util.Utils$.classForName(Utils.scala:239)
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:861)
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:198)
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:228)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:137)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+21/10/17 19:44:00 INFO ShutdownHookManager: Shutdown hook called
+21/10/17 19:44:00 INFO ShutdownHookManager: Deleting directory /tmp/spark-7fa2a8a0-43fd-409d-972f-24c467949ad8

@@ -1,0 +1,158 @@
+21/10/20 15:58:00 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/10/20 15:58:00 INFO hdfs.DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1634716953539, maxDate=1635321753539, sequenceNumber=5035014, masterKeyId=645 on ha-hdfs:cuhkcluster
+21/10/20 15:58:00 INFO kms.KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/10/20 15:58:00 INFO kms.KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1634716953617, maxDate=1635321753617, sequenceNumber=3720, masterKeyId=256))
+21/10/20 15:58:00 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1634716953539, maxDate=1635321753539, sequenceNumber=5035014, masterKeyId=645)
+21/10/20 15:58:00 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1634716953617, maxDate=1635321753617, sequenceNumber=3720, masterKeyId=256)
+21/10/20 15:58:00 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1633939588974_2973
+21/10/20 15:58:00 INFO terasort.TeraGen: Generating 320000000 using 1
+21/10/20 15:58:00 INFO mapreduce.JobSubmitter: number of splits:1
+21/10/20 15:58:01 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1633939588974_2973
+21/10/20 15:58:01 INFO mapreduce.JobSubmitter: Executing with tokens: [Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1634716953539, maxDate=1635321753539, sequenceNumber=5035014, masterKeyId=645), Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1634716953617, maxDate=1635321753617, sequenceNumber=3720, masterKeyId=256)]
+21/10/20 15:58:01 INFO conf.Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/resource-types.xml
+21/10/20 15:58:01 INFO impl.TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/10/20 15:58:01 INFO impl.YarnClientImpl: Submitted application application_1633939588974_2973
+21/10/20 15:58:01 INFO mapreduce.Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1633939588974_2973/
+21/10/20 15:58:01 INFO mapreduce.Job: Running job: job_1633939588974_2973
+21/10/20 15:58:09 INFO mapreduce.Job: Job job_1633939588974_2973 running in uber mode : false
+21/10/20 15:58:09 INFO mapreduce.Job:  map 0% reduce 0%
+21/10/20 15:58:21 INFO mapreduce.Job:  map 2% reduce 0%
+21/10/20 15:58:24 INFO mapreduce.Job:  map 3% reduce 0%
+21/10/20 15:58:27 INFO mapreduce.Job:  map 4% reduce 0%
+21/10/20 15:58:30 INFO mapreduce.Job:  map 5% reduce 0%
+21/10/20 15:58:33 INFO mapreduce.Job:  map 6% reduce 0%
+21/10/20 15:58:37 INFO mapreduce.Job:  map 7% reduce 0%
+21/10/20 15:58:40 INFO mapreduce.Job:  map 8% reduce 0%
+21/10/20 15:58:46 INFO mapreduce.Job:  map 9% reduce 0%
+21/10/20 15:58:49 INFO mapreduce.Job:  map 10% reduce 0%
+21/10/20 15:58:52 INFO mapreduce.Job:  map 11% reduce 0%
+21/10/20 15:58:55 INFO mapreduce.Job:  map 12% reduce 0%
+21/10/20 15:58:58 INFO mapreduce.Job:  map 13% reduce 0%
+21/10/20 15:59:01 INFO mapreduce.Job:  map 14% reduce 0%
+21/10/20 15:59:04 INFO mapreduce.Job:  map 15% reduce 0%
+21/10/20 15:59:07 INFO mapreduce.Job:  map 16% reduce 0%
+21/10/20 15:59:10 INFO mapreduce.Job:  map 17% reduce 0%
+21/10/20 15:59:13 INFO mapreduce.Job:  map 18% reduce 0%
+21/10/20 15:59:16 INFO mapreduce.Job:  map 19% reduce 0%
+21/10/20 15:59:19 INFO mapreduce.Job:  map 20% reduce 0%
+21/10/20 15:59:22 INFO mapreduce.Job:  map 21% reduce 0%
+21/10/20 15:59:25 INFO mapreduce.Job:  map 22% reduce 0%
+21/10/20 15:59:28 INFO mapreduce.Job:  map 23% reduce 0%
+21/10/20 15:59:31 INFO mapreduce.Job:  map 24% reduce 0%
+21/10/20 15:59:34 INFO mapreduce.Job:  map 25% reduce 0%
+21/10/20 15:59:37 INFO mapreduce.Job:  map 26% reduce 0%
+21/10/20 15:59:43 INFO mapreduce.Job:  map 27% reduce 0%
+21/10/20 15:59:46 INFO mapreduce.Job:  map 28% reduce 0%
+21/10/20 15:59:49 INFO mapreduce.Job:  map 29% reduce 0%
+21/10/20 15:59:52 INFO mapreduce.Job:  map 30% reduce 0%
+21/10/20 15:59:55 INFO mapreduce.Job:  map 31% reduce 0%
+21/10/20 15:59:58 INFO mapreduce.Job:  map 32% reduce 0%
+21/10/20 16:00:01 INFO mapreduce.Job:  map 33% reduce 0%
+21/10/20 16:00:04 INFO mapreduce.Job:  map 34% reduce 0%
+21/10/20 16:00:07 INFO mapreduce.Job:  map 35% reduce 0%
+21/10/20 16:00:10 INFO mapreduce.Job:  map 36% reduce 0%
+21/10/20 16:00:13 INFO mapreduce.Job:  map 37% reduce 0%
+21/10/20 16:00:17 INFO mapreduce.Job:  map 38% reduce 0%
+21/10/20 16:00:20 INFO mapreduce.Job:  map 39% reduce 0%
+21/10/20 16:00:23 INFO mapreduce.Job:  map 40% reduce 0%
+21/10/20 16:00:29 INFO mapreduce.Job:  map 41% reduce 0%
+21/10/20 16:00:32 INFO mapreduce.Job:  map 42% reduce 0%
+21/10/20 16:00:35 INFO mapreduce.Job:  map 43% reduce 0%
+21/10/20 16:00:38 INFO mapreduce.Job:  map 44% reduce 0%
+21/10/20 16:00:41 INFO mapreduce.Job:  map 45% reduce 0%
+21/10/20 16:00:44 INFO mapreduce.Job:  map 46% reduce 0%
+21/10/20 16:00:47 INFO mapreduce.Job:  map 47% reduce 0%
+21/10/20 16:00:50 INFO mapreduce.Job:  map 48% reduce 0%
+21/10/20 16:00:53 INFO mapreduce.Job:  map 49% reduce 0%
+21/10/20 16:00:56 INFO mapreduce.Job:  map 50% reduce 0%
+21/10/20 16:00:59 INFO mapreduce.Job:  map 51% reduce 0%
+21/10/20 16:01:02 INFO mapreduce.Job:  map 52% reduce 0%
+21/10/20 16:01:05 INFO mapreduce.Job:  map 53% reduce 0%
+21/10/20 16:01:08 INFO mapreduce.Job:  map 54% reduce 0%
+21/10/20 16:01:11 INFO mapreduce.Job:  map 55% reduce 0%
+21/10/20 16:01:14 INFO mapreduce.Job:  map 56% reduce 0%
+21/10/20 16:01:17 INFO mapreduce.Job:  map 57% reduce 0%
+21/10/20 16:01:20 INFO mapreduce.Job:  map 58% reduce 0%
+21/10/20 16:01:23 INFO mapreduce.Job:  map 59% reduce 0%
+21/10/20 16:01:26 INFO mapreduce.Job:  map 60% reduce 0%
+21/10/20 16:01:32 INFO mapreduce.Job:  map 61% reduce 0%
+21/10/20 16:01:35 INFO mapreduce.Job:  map 62% reduce 0%
+21/10/20 16:01:38 INFO mapreduce.Job:  map 63% reduce 0%
+21/10/20 16:01:41 INFO mapreduce.Job:  map 64% reduce 0%
+21/10/20 16:01:44 INFO mapreduce.Job:  map 65% reduce 0%
+21/10/20 16:01:47 INFO mapreduce.Job:  map 66% reduce 0%
+21/10/20 16:01:50 INFO mapreduce.Job:  map 67% reduce 0%
+21/10/20 16:01:54 INFO mapreduce.Job:  map 68% reduce 0%
+21/10/20 16:01:57 INFO mapreduce.Job:  map 69% reduce 0%
+21/10/20 16:02:00 INFO mapreduce.Job:  map 70% reduce 0%
+21/10/20 16:02:03 INFO mapreduce.Job:  map 71% reduce 0%
+21/10/20 16:02:06 INFO mapreduce.Job:  map 72% reduce 0%
+21/10/20 16:02:09 INFO mapreduce.Job:  map 73% reduce 0%
+21/10/20 16:02:12 INFO mapreduce.Job:  map 74% reduce 0%
+21/10/20 16:02:15 INFO mapreduce.Job:  map 75% reduce 0%
+21/10/20 16:02:18 INFO mapreduce.Job:  map 76% reduce 0%
+21/10/20 16:02:21 INFO mapreduce.Job:  map 77% reduce 0%
+21/10/20 16:02:24 INFO mapreduce.Job:  map 78% reduce 0%
+21/10/20 16:02:27 INFO mapreduce.Job:  map 79% reduce 0%
+21/10/20 16:02:33 INFO mapreduce.Job:  map 80% reduce 0%
+21/10/20 16:02:36 INFO mapreduce.Job:  map 81% reduce 0%
+21/10/20 16:02:39 INFO mapreduce.Job:  map 82% reduce 0%
+21/10/20 16:02:42 INFO mapreduce.Job:  map 83% reduce 0%
+21/10/20 16:02:45 INFO mapreduce.Job:  map 84% reduce 0%
+21/10/20 16:02:48 INFO mapreduce.Job:  map 85% reduce 0%
+21/10/20 16:02:51 INFO mapreduce.Job:  map 86% reduce 0%
+21/10/20 16:02:54 INFO mapreduce.Job:  map 87% reduce 0%
+21/10/20 16:02:57 INFO mapreduce.Job:  map 88% reduce 0%
+21/10/20 16:03:00 INFO mapreduce.Job:  map 89% reduce 0%
+21/10/20 16:03:03 INFO mapreduce.Job:  map 90% reduce 0%
+21/10/20 16:03:06 INFO mapreduce.Job:  map 91% reduce 0%
+21/10/20 16:03:12 INFO mapreduce.Job:  map 92% reduce 0%
+21/10/20 16:03:15 INFO mapreduce.Job:  map 93% reduce 0%
+21/10/20 16:03:18 INFO mapreduce.Job:  map 94% reduce 0%
+21/10/20 16:03:22 INFO mapreduce.Job:  map 95% reduce 0%
+21/10/20 16:03:25 INFO mapreduce.Job:  map 96% reduce 0%
+21/10/20 16:03:28 INFO mapreduce.Job:  map 97% reduce 0%
+21/10/20 16:03:31 INFO mapreduce.Job:  map 98% reduce 0%
+21/10/20 16:03:34 INFO mapreduce.Job:  map 99% reduce 0%
+21/10/20 16:03:37 INFO mapreduce.Job:  map 100% reduce 0%
+21/10/20 16:03:38 INFO mapreduce.Job: Job job_1633939588974_2973 completed successfully
+21/10/20 16:03:38 INFO mapreduce.Job: Counters: 33
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=247324
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=83
+		HDFS: Number of bytes written=32000000000
+		HDFS: Number of read operations=6
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=979368
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=326456
+		Total vcore-milliseconds taken by all map tasks=326456
+		Total megabyte-milliseconds taken by all map tasks=1002872832
+	Map-Reduce Framework
+		Map input records=320000000
+		Map output records=320000000
+		Input split bytes=83
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=2290
+		CPU time spent (ms)=393780
+		Physical memory (bytes) snapshot=440344576
+		Virtual memory (bytes) snapshot=4703391744
+		Total committed heap usage (bytes)=487063552
+		Peak Map Physical memory (bytes)=474980352
+		Peak Map Virtual memory (bytes)=4712534016
+	org.apache.hadoop.examples.terasort.TeraGen$Counters
+		CHECKSUM=687227047683995320
+	File Input Format Counters
+		Bytes Read=0
+	File Output Format Counters
+		Bytes Written=32000000000

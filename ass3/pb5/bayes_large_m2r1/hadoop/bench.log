@@ -1,0 +1,187 @@
+MAHOUT_LOCAL is not set; adding HADOOP_CONF_DIR to classpath.
+Running on hadoop, using /usr/hdp/3.0.1.0-187/hadoop/bin/hadoop and HADOOP_CONF_DIR=/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop
+MAHOUT-JOB: /home/account0/HiBench3/hadoopbench/mahout/target/apache-mahout-distribution-0.11.0/mahout-examples-0.11.0-job.jar
+21/11/21 02:25:33 WARN MahoutDriver: No trainnb.props found on classpath, will use command-line arguments only
+21/11/21 02:25:33 INFO AbstractJob: Command line arguments: {--alphaI=[1.0], --endPhase=[2147483647], --input=[hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/vectors/tfidf-vectors], --labelIndex=[hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/labelindex], --output=[hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/model], --overwrite=null, --startPhase=[0], --tempDir=[hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/temp]}
+21/11/21 02:25:36 INFO deprecation: mapred.input.dir is deprecated. Instead, use mapreduce.input.fileinputformat.inputdir
+21/11/21 02:25:36 INFO deprecation: mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
+21/11/21 02:25:36 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+21/11/21 02:25:37 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/21 02:25:37 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637433031172, maxDate=1638037831172, sequenceNumber=5339454, masterKeyId=677 on ha-hdfs:cuhkcluster
+21/11/21 02:25:37 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/21 02:25:37 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637433031224, maxDate=1638037831224, sequenceNumber=36733, masterKeyId=288))
+21/11/21 02:25:37 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637433031172, maxDate=1638037831172, sequenceNumber=5339454, masterKeyId=677)
+21/11/21 02:25:37 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637433031224, maxDate=1638037831224, sequenceNumber=36733, masterKeyId=288)
+21/11/21 02:25:37 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_12543
+21/11/21 02:25:37 INFO FileInputFormat: Total input files to process : 1
+21/11/21 02:25:37 INFO JobSubmitter: number of splits:1
+21/11/21 02:25:37 INFO deprecation: yarn.resourcemanager.zk-num-retries is deprecated. Instead, use hadoop.zk.num-retries
+21/11/21 02:25:37 INFO deprecation: yarn.resourcemanager.zk-address is deprecated. Instead, use hadoop.zk.address
+21/11/21 02:25:37 INFO deprecation: yarn.resourcemanager.zk-timeout-ms is deprecated. Instead, use hadoop.zk.timeout-ms
+21/11/21 02:25:37 INFO deprecation: yarn.resourcemanager.zk-acl is deprecated. Instead, use hadoop.zk.acl
+21/11/21 02:25:37 INFO deprecation: yarn.resourcemanager.zk-retry-interval-ms is deprecated. Instead, use hadoop.zk.retry-interval-ms
+21/11/21 02:25:37 INFO deprecation: yarn.resourcemanager.display.per-user-apps is deprecated. Instead, use yarn.webapp.filter-entity-list-by-user
+21/11/21 02:25:37 INFO deprecation: yarn.resourcemanager.system-metrics-publisher.enabled is deprecated. Instead, use yarn.system-metrics-publisher.enabled
+21/11/21 02:25:38 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_12543
+21/11/21 02:25:38 INFO JobSubmitter: Executing with tokens: [Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637433031172, maxDate=1638037831172, sequenceNumber=5339454, masterKeyId=677), Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637433031224, maxDate=1638037831224, sequenceNumber=36733, masterKeyId=288)]
+21/11/21 02:25:38 INFO Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/conf/resource-types.xml
+21/11/21 02:25:38 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/21 02:25:38 INFO YarnClientImpl: Submitted application application_1635647904527_12543
+21/11/21 02:25:38 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_12543/
+21/11/21 02:25:38 INFO Job: Running job: job_1635647904527_12543
+21/11/21 02:25:47 INFO Job: Job job_1635647904527_12543 running in uber mode : false
+21/11/21 02:25:47 INFO Job:  map 0% reduce 0%
+21/11/21 02:26:02 INFO Job:  map 67% reduce 0%
+21/11/21 02:26:11 INFO Job:  map 100% reduce 0%
+21/11/21 02:26:22 INFO Job:  map 100% reduce 58%
+21/11/21 02:26:28 INFO Job:  map 100% reduce 100%
+21/11/21 02:26:28 INFO Job: Job job_1635647904527_12543 completed successfully
+21/11/21 02:26:28 INFO Job: Counters: 53
+	File System Counters
+		FILE: Number of bytes read=55732335
+		FILE: Number of bytes written=111960007
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=133776945
+		HDFS: Number of bytes written=133776306
+		HDFS: Number of read operations=9
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=63540
+		Total time spent by all reduces in occupied slots (ms)=86610
+		Total time spent by all map tasks (ms)=21180
+		Total time spent by all reduce tasks (ms)=14435
+		Total vcore-milliseconds taken by all map tasks=21180
+		Total vcore-milliseconds taken by all reduce tasks=14435
+		Total megabyte-milliseconds taken by all map tasks=65064960
+		Total megabyte-milliseconds taken by all reduce tasks=88688640
+	Map-Reduce Framework
+		Map input records=100
+		Map output records=100
+		Map output bytes=133773429
+		Map output materialized bytes=55730252
+		Input split bytes=156
+		Combine input records=100
+		Combine output records=100
+		Reduce input groups=100
+		Reduce shuffle bytes=55730252
+		Reduce input records=100
+		Reduce output records=100
+		Spilled Records=200
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=1274
+		CPU time spent (ms)=56440
+		Physical memory (bytes) snapshot=3773509632
+		Virtual memory (bytes) snapshot=12077772800
+		Total committed heap usage (bytes)=4131913728
+		Peak Map Physical memory (bytes)=2335604736
+		Peak Map Virtual memory (bytes)=4681596928
+		Peak Reduce Physical memory (bytes)=1437904896
+		Peak Reduce Virtual memory (bytes)=7396175872
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters
+		Bytes Read=133776789
+	File Output Format Counters
+		Bytes Written=133776306
+21/11/21 02:26:28 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/21 02:26:28 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637433082524, maxDate=1638037882524, sequenceNumber=5339462, masterKeyId=677 on ha-hdfs:cuhkcluster
+21/11/21 02:26:28 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/21 02:26:28 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637433082537, maxDate=1638037882537, sequenceNumber=36736, masterKeyId=288))
+21/11/21 02:26:28 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637433082524, maxDate=1638037882524, sequenceNumber=5339462, masterKeyId=677)
+21/11/21 02:26:28 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637433082537, maxDate=1638037882537, sequenceNumber=36736, masterKeyId=288)
+21/11/21 02:26:28 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_12546
+21/11/21 02:26:28 INFO FileInputFormat: Total input files to process : 1
+21/11/21 02:26:28 INFO JobSubmitter: number of splits:1
+21/11/21 02:26:28 INFO deprecation: yarn.resourcemanager.zk-num-retries is deprecated. Instead, use hadoop.zk.num-retries
+21/11/21 02:26:28 INFO deprecation: yarn.resourcemanager.zk-address is deprecated. Instead, use hadoop.zk.address
+21/11/21 02:26:28 INFO deprecation: yarn.resourcemanager.zk-timeout-ms is deprecated. Instead, use hadoop.zk.timeout-ms
+21/11/21 02:26:28 INFO deprecation: yarn.resourcemanager.zk-acl is deprecated. Instead, use hadoop.zk.acl
+21/11/21 02:26:28 INFO deprecation: yarn.resourcemanager.zk-retry-interval-ms is deprecated. Instead, use hadoop.zk.retry-interval-ms
+21/11/21 02:26:28 INFO deprecation: yarn.resourcemanager.display.per-user-apps is deprecated. Instead, use yarn.webapp.filter-entity-list-by-user
+21/11/21 02:26:28 INFO deprecation: yarn.resourcemanager.system-metrics-publisher.enabled is deprecated. Instead, use yarn.system-metrics-publisher.enabled
+21/11/21 02:26:28 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_12546
+21/11/21 02:26:28 INFO JobSubmitter: Executing with tokens: [Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1637433082524, maxDate=1638037882524, sequenceNumber=5339462, masterKeyId=677), Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1637433082537, maxDate=1638037882537, sequenceNumber=36736, masterKeyId=288)]
+21/11/21 02:26:28 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/21 02:26:29 INFO YarnClientImpl: Submitted application application_1635647904527_12546
+21/11/21 02:26:29 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_12546/
+21/11/21 02:26:29 INFO Job: Running job: job_1635647904527_12546
+21/11/21 02:26:38 INFO Job: Job job_1635647904527_12546 running in uber mode : false
+21/11/21 02:26:38 INFO Job:  map 0% reduce 0%
+21/11/21 02:26:52 INFO Job:  map 58% reduce 0%
+21/11/21 02:26:56 INFO Job:  map 100% reduce 0%
+21/11/21 02:27:03 INFO Job:  map 100% reduce 100%
+21/11/21 02:27:03 INFO Job: Job job_1635647904527_12546 completed successfully
+21/11/21 02:27:03 INFO Job: Counters: 53
+	File System Counters
+		FILE: Number of bytes read=6841814
+		FILE: Number of bytes written=14183455
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=133776464
+		HDFS: Number of bytes written=16425881
+		HDFS: Number of read operations=9
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=46023
+		Total time spent by all reduces in occupied slots (ms)=28278
+		Total time spent by all map tasks (ms)=15341
+		Total time spent by all reduce tasks (ms)=4713
+		Total vcore-milliseconds taken by all map tasks=15341
+		Total vcore-milliseconds taken by all reduce tasks=4713
+		Total megabyte-milliseconds taken by all map tasks=47127552
+		Total megabyte-milliseconds taken by all reduce tasks=28956672
+	Map-Reduce Framework
+		Map input records=100
+		Map output records=2
+		Map output bytes=16425755
+		Map output materialized bytes=6841806
+		Input split bytes=158
+		Combine input records=2
+		Combine output records=2
+		Reduce input groups=2
+		Reduce shuffle bytes=6841806
+		Reduce input records=2
+		Reduce output records=2
+		Spilled Records=4
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=1760
+		CPU time spent (ms)=46500
+		Physical memory (bytes) snapshot=2400874496
+		Virtual memory (bytes) snapshot=12073353216
+		Total committed heap usage (bytes)=2340945920
+		Peak Map Physical memory (bytes)=2456465408
+		Peak Map Virtual memory (bytes)=4687548416
+		Peak Reduce Physical memory (bytes)=688390144
+		Peak Reduce Virtual memory (bytes)=7385804800
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters
+		Bytes Read=133776306
+	File Output Format Counters
+		Bytes Written=16425881
+21/11/21 02:27:08 INFO MahoutDriver: Program took 95118 ms (Minutes: 1.5853)

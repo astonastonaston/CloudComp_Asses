@@ -1,0 +1,1181 @@
+Script started on Sat 27 Nov 2021 06:29:02 PM CST
+]0;account0@team12:~/HiBench3[?1034h[account0@team12 HiBench3]$ ./wanpao.sh[2Pscript -sman script /home/account0/HiBench3/bin/workloads/ml/bayes/hadoop/run.sh
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clssh /home/account0/HiBench3/bin/workloads/ml/bayes/hadoop/run.sh > nw.log
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12P/home/account0/HiBench3/bin/workloads/ml/bayes/hadoop/run.sh
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckinit team12lsls
+[0m[38;5;27mautogen[0m  [38;5;27mcommon[0m  [38;5;27mdocker[0m  [38;5;27mflinkbench[0m     [38;5;27mhadoopbench[0m  new.log          pom.xml    [38;5;27mreport[0m      [38;5;27mstormbench[0m  [38;5;34mwanpao.sh[0m               wdcnt_gigan_res_02.txt  wdcnt_gigan_res.txt
+[38;5;27mbin[0m      [38;5;27mconf[0m    [38;5;27mdocs[0m    [38;5;27mgearpumpbench[0m  LICENSE.txt  output_mir3.txt  README.md  [38;5;27msparkbench[0m  [38;5;27mtravis[0m      wdcnt_gigan_res_01.txt  wdcnt_gigan_res_03.txt
+]0;account0@team12:~/HiBench3[account0@team12 HiBench3]$ ./wanpao.sh
+patching args=
+Parsing conf: /home/account0/HiBench3/conf/hadoop.conf
+Parsing conf: /home/account0/HiBench3/conf/hibench.conf
+Parsing conf: /home/account0/HiBench3/conf/spark.conf
+Parsing conf: /home/account0/HiBench3/conf/workloads/ml/bayes.conf
+probe sleep jar: /usr/hdp/3.0.1.0-187/hadoop/../hadoop-mapreduce/hadoop-mapreduce-client-jobclient-tests.jar
+[1;32mstart [0m[4;32mHadoopPrepareBayes[0m [1;32mbench[0m
+[1;36mhdfs rm -r: [0;36m/usr/hdp/3.0.1.0-187/hadoop/bin/hadoop --config /usr/hdp/3.0.1.0-187/hadoop/etc/hadoop fs -rm -r -skipTrash hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Input[0m
+Deleted hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Input
+
+[1;32mSubmit MapReduce Job: [0;32m/usr/hdp/3.0.1.0-187/hadoop/bin/hadoop --config /usr/hdp/3.0.1.0-187/hadoop/etc/hadoop jar /home/account0/HiBench3/autogen/target/autogen-8.0-SNAPSHOT-jar-with-dependencies.jar HiBench.DataGen -t bayes -b hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes -n Input -m 1 -r 3 -p 100000 -class 100 -o sequence[0m
+The authenticity of host 'hd3.cuhk.com (10.26.10.206)' can't be established.
+ECDSA key fingerprint is SHA256:r4emF6r+V84xl2/wOm5urcaEFnUIAwk2cG9KyrouPsg.
+ECDSA key fingerprint is MD5:e4:4b:e8:e9:08:14:e5:b8:96:76:88:a4:a5:3b:70:c8.
+Are you sure you want to continue connecting (yes/no)? The authenticity of host 'hd1.cuhk.com (10.26.10.204)' can't be established.
+ECDSA key fingerprint is SHA256:RbBY0yMHk9NShfIBRZFxHNXJwChAjX/SQoWiyBKFjR8.
+ECDSA key fingerprint is MD5:a7:64:d6:db:33:ed:16:e9:db:05:2e:4a:f8:74:48:da.
+Are you sure you want to continue connecting (yes/no)? The authenticity of host 'hd2.cuhk.com (10.26.10.205)' can't be established.
+ECDSA key fingerprint is SHA256:zgQnlPMHjn3SJJg9DWaRRGoMPpaeXxydX2T+l9a8ebg.
+ECDSA key fingerprint is MD5:32:1f:ff:40:dd:9b:a3:c3:a3:b4:65:3a:10:6d:fd:d1.
+Are you sure you want to continue connecting (yes/no)? 21/11/27 18:30:06 INFO HiBench.Dummy: Creating dummy file hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/temp/dummy with 1 slots...
+curIndex: 7311, total: 7312
+21/11/27 18:30:07 INFO HiBench.BayesData: creating bayes text data ...
+21/11/27 18:30:07 INFO HiBench.BayesData: Running Job: Create bayes data
+21/11/27 18:30:07 INFO HiBench.BayesData: Pages file hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/temp/dummy as input
+21/11/27 18:30:07 INFO HiBench.BayesData: Rankings file hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Input as output
+21/11/27 18:30:07 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:30:07 INFO client.AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:30:07 INFO hdfs.DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009304408, maxDate=163861...
+21/11/27 18:30:07 INFO kms.KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:30:08 INFO kms.KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=...
+21/11/27 18:30:08 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATI...
+21/11/27 18:30:08 INFO security.TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, is...
+21/11/27 18:30:08 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRu...
+21/11/27 18:30:08 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20703
+21/11/27 18:30:08 INFO mapred.FileInputFormat: Total input files to process : 1
+21/11/27 18:30:08 INFO mapreduce.JobSubmitter: number of splits:1
+21/11/27 18:30:09 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1635647904527_20703
+21/11/27 18:30:09 INFO mapreduce.JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_T...
+21/11/27 18:30:09 INFO conf.Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop/resource-types.xml
+21/11/27 18:30:09 INFO impl.TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:30:09 INFO impl.YarnClientImpl: Submitted application application_1635647904527_20703
+21/11/27 18:30:09 INFO mapreduce.Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20703/
+21/11/27 18:30:09 INFO mapreduce.Job: Running job: job_1635647904527_20703
+21/11/27 18:30:19 INFO mapreduce.Job: Job job_1635647904527_20703 running in uber mode : false
+[43m[44m21/11/27 18:30:19 INFO mapreduce.Job:  map 0% reduce 0%                                                                                                                          [0m
+[43m21/11/27 18:30:34 INFO mapreduce.Job:  map 100% reduce 0%                               [44m                                                                                         [0m
+21/11/27 18:30:45 INFO mapreduce.Job: Job job_1635647904527_20703 completed successfully
+21/11/27 18:30:45 INFO mapreduce.Job: Counters: 33
+        File System Counters
+         FILE: Number of bytes read=0
+         FILE: Number of bytes written=249520
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=114
+         HDFS: Number of bytes written=373685276
+         HDFS: Number of read operations=7
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=2
+        Job Counters
+         Launched map tasks=1
+         Other local map tasks=1
+         Total time spent by all maps in occupied slots (ms)=67662
+         Total time spent by all reduces in occupied slots (ms)=0
+         Total time spent by all map tasks (ms)=22554
+         Total vcore-milliseconds taken by all map tasks=22554
+         Total megabyte-milliseconds taken by all map tasks=69285888
+        Map-Reduce Framework
+         Map input records=1
+         Map output records=100000
+         Input split bytes=112
+         Spilled Records=0
+         Failed Shuffles=0
+         Merged Map outputs=0
+         GC time elapsed (ms)=580
+         CPU time spent (ms)=31950
+         Physical memory (bytes) snapshot=476102656
+         Virtual memory (bytes) snapshot=4682174464
+         Total committed heap usage (bytes)=558891008
+         Peak Map Physical memory (bytes)=490168320
+         Peak Map Virtual memory (bytes)=4682174464
+        HiBench.Counters
+         BYTES_DATA_GENERATED=372413578
+        File Input Format Counters
+         Bytes Read=2
+        File Output Format Counters
+         Bytes Written=373685276
+21/11/27 18:30:45 INFO HiBench.BayesData: Finished Running Job: Create bayes data
+21/11/27 18:30:45 INFO HiBench.BayesData: Closing bayes data generator...
+
+[1;32mfinish [0m[4;32mHadoopPrepareBayes[0m [1;32mbench[0m
+NOW START RUNNING!!!!!\n
+patching args=
+Parsing conf: /home/account0/HiBench3/conf/hadoop.conf
+Parsing conf: /home/account0/HiBench3/conf/hibench.conf
+Parsing conf: /home/account0/HiBench3/conf/spark.conf
+Parsing conf: /home/account0/HiBench3/conf/workloads/ml/bayes.conf
+probe sleep jar: /usr/hdp/3.0.1.0-187/hadoop/../hadoop-mapreduce/hadoop-mapreduce-client-jobclient-tests.jar
+[1;32mstart [0m[4;32mHadoopBayes[0m [1;32mbench[0m
+[1;36mExport env: [0;36mHADOOP_EXECUTABLE[1;36m=[0;36m/usr/hdp/3.0.1.0-187/hadoop/bin/hadoop[0m
+[1;36mExport env: [0;36mHADOOP_HOME[1;36m=[0;36m/usr/hdp/3.0.1.0-187/hadoop[0m
+[1;36mExport env: [0;36mHADOOP_CONF_DIR[1;36m=[0;36m/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop[0m
+[1;36mhdfs rm -r: [0;36m/usr/hdp/3.0.1.0-187/hadoop/bin/hadoop --config /usr/hdp/3.0.1.0-187/hadoop/etc/hadoop fs -rm -r -skipTrash hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output[0m
+Deleted hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output
+
+[1;35mhdfs du -s: [0;35m/usr/hdp/3.0.1.0-187/hadoop/bin/hadoop --config /usr/hdp/3.0.1.0-187/hadoop/etc/hadoop fs -du -s hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Input[0m
+MAHOUT_LOCAL is not set; adding HADOOP_CONF_DIR to classpath.
+The authenticity of host 'hd1.cuhk.com (10.26.10.204)' can't be established.
+ECDSA key fingerprint is SHA256:RbBY0yMHk9NShfIBRZFxHNXJwChAjX/SQoWiyBKFjR8.
+ECDSA key fingerprint is MD5:a7:64:d6:db:33:ed:16:e9:db:05:2e:4a:f8:74:48:da.
+Are you sure you want to continue connecting (yes/no)? The authenticity of host 'hd3.cuhk.com (10.26.10.206)' can't be established.
+ECDSA key fingerprint is SHA256:r4emF6r+V84xl2/wOm5urcaEFnUIAwk2cG9KyrouPsg.
+ECDSA key fingerprint is MD5:e4:4b:e8:e9:08:14:e5:b8:96:76:88:a4:a5:3b:70:c8.
+Are you sure you want to continue connecting (yes/no)? The authenticity of host 'hd2.cuhk.com (10.26.10.205)' can't be established.
+ECDSA key fingerprint is SHA256:zgQnlPMHjn3SJJg9DWaRRGoMPpaeXxydX2T+l9a8ebg.
+ECDSA key fingerprint is MD5:32:1f:ff:40:dd:9b:a3:c3:a3:b4:65:3a:10:6d:fd:d1.
+Are you sure you want to continue connecting (yes/no)? Running on hadoop, using /usr/hdp/3.0.1.0-187/hadoop/bin/hadoop and HADOOP_CONF_DIR=/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop
+MAHOUT-JOB: /home/account0/HiBench3/hadoopbench/mahout/target/apache-mahout-distribution-0.11.0/mahout-examples-0.11.0-job.jar
+21/11/27 18:30:57 INFO SparseVectorsFromSequenceFiles: Maximum n-gram size is: 2
+21/11/27 18:30:57 INFO SparseVectorsFromSequenceFiles: Minimum LLR value: 1.0
+21/11/27 18:30:57 INFO SparseVectorsFromSequenceFiles: Number of reduce tasks: 3
+21/11/27 18:30:57 INFO SparseVectorsFromSequenceFiles: Tokenizing documents in hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Input
+21/11/27 18:30:58 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:30:59 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009355535, maxDate=16386141555...
+21/11/27 18:30:59 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:30:59 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:30:59 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:30:59 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:30:59 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20705
+21/11/27 18:30:59 INFO FileInputFormat: Total input files to process : 1
+21/11/27 18:30:59 INFO JobSubmitter: number of splits:3
+21/11/27 18:30:59 INFO deprecation: yarn.resourcemanager.zk-num-retries is deprecated. Instead, use hadoop.zk.num-retries
+21/11/27 18:30:59 INFO deprecation: yarn.resourcemanager.zk-address is deprecated. Instead, use hadoop.zk.address
+21/11/27 18:30:59 INFO deprecation: yarn.resourcemanager.zk-timeout-ms is deprecated. Instead, use hadoop.zk.timeout-ms
+21/11/27 18:30:59 INFO deprecation: yarn.resourcemanager.zk-acl is deprecated. Instead, use hadoop.zk.acl
+21/11/27 18:30:59 INFO deprecation: yarn.resourcemanager.zk-retry-interval-ms is deprecated. Instead, use hadoop.zk.retry-interval-ms
+21/11/27 18:30:59 INFO deprecation: yarn.resourcemanager.display.per-user-apps is deprecated. Instead, use yarn.webapp.filter-entity-list-by-user
+21/11/27 18:30:59 INFO deprecation: yarn.resourcemanager.system-metrics-publisher.enabled is deprecated. Instead, use yarn.system-metrics-publisher.enabled
+21/11/27 18:30:59 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20705
+21/11/27 18:30:59 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:31:00 INFO Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/conf/resource-types.xml
+21/11/27 18:31:00 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:31:00 INFO YarnClientImpl: Submitted application application_1635647904527_20705
+21/11/27 18:31:00 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20705/
+21/11/27 18:31:00 INFO Job: Running job: job_1635647904527_20705
+21/11/27 18:31:09 INFO Job: Job job_1635647904527_20705 running in uber mode : false
+[43m[44m21/11/27 18:31:09 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:31:23 INFO Job:  map 87% reduce 0%                              [44m                                                                                                     [0m
+[43m21/11/27 18:31:25 INFO Job:  map 93% reduce 0%                                    [44m                                                                                               [0m
+[43m21/11/27 18:31:26 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+21/11/27 18:31:26 INFO Job: Job job_1635647904527_20705 completed successfully
+21/11/27 18:31:26 INFO Job: Counters: 32
+        File System Counters
+         FILE: Number of bytes read=0
+         FILE: Number of bytes written=743939
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=373753479
+         HDFS: Number of bytes written=370224242
+         HDFS: Number of read operations=24
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=6
+        Job Counters
+         Launched map tasks=3
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=118263
+         Total time spent by all reduces in occupied slots (ms)=0
+         Total time spent by all map tasks (ms)=39421
+         Total vcore-milliseconds taken by all map tasks=39421
+         Total megabyte-milliseconds taken by all map tasks=121101312
+        Map-Reduce Framework
+         Map input records=100000
+         Map output records=100000
+         Input split bytes=393
+         Spilled Records=0
+         Failed Shuffles=0
+         Merged Map outputs=0
+         GC time elapsed (ms)=532
+         CPU time spent (ms)=44490
+         Physical memory (bytes) snapshot=1343725568
+         Virtual memory (bytes) snapshot=14066995200
+         Total committed heap usage (bytes)=1499463680
+         Peak Map Physical memory (bytes)=459554816
+         Peak Map Virtual memory (bytes)=4692488192
+        File Input Format Counters
+         Bytes Read=373753086
+        File Output Format Counters
+         Bytes Written=370224242
+21/11/27 18:31:26 INFO SparseVectorsFromSequenceFiles: Creating Term Frequency Vectors
+21/11/27 18:31:26 INFO DictionaryVectorizer: Creating dictionary from hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/vectors/tokenized-documents and saving at hdfs...
+21/11/27 18:31:26 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:31:26 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009382823, maxDate=16386141828...
+21/11/27 18:31:26 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:31:26 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:31:26 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:31:26 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:31:26 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20706
+21/11/27 18:31:26 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:31:26 INFO JobSubmitter: number of splits:3
+21/11/27 18:31:26 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20706
+21/11/27 18:31:26 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:31:26 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:31:27 INFO YarnClientImpl: Submitted application application_1635647904527_20706
+21/11/27 18:31:27 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20706/
+21/11/27 18:31:27 INFO Job: Running job: job_1635647904527_20706
+21/11/27 18:31:37 INFO Job: Job job_1635647904527_20706 running in uber mode : false
+[43m[44m21/11/27 18:31:37 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m2[44m1/11/27 18:31:50 INFO Job:  map 2% reduce 0%                                                                                                                                    [0m
+[43m21/11[44m/27 18:31:51 INFO Job:  map 6% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 [44m18:31:54 INFO Job:  map 11% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:31[44m:57 INFO Job:  map 16% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:00 [44mINFO Job:  map 21% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:03 INFO[44m Job:  map 25% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:06 INFO J[44mob:  map 28% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:09 INFO Job[44m:  map 30% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:12 INFO Job: [44m map 32% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:15 INFO Job:  [44mmap 33% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:16 INFO Job:  m[44map 34% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:19 INFO Job:  m[44map 35% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:22 INFO Job:  ma[44mp 36% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:32:25 INFO Job:  map[44m 37% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:33:40 INFO Job:  map 3[44m9% reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:33:43 INFO Job:  map 41%[44m reduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:33:46 INFO Job:  map 43% r[44meduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:33:47 INFO Job:  map 45% re[44mduce 0%                                                                                                                                   [0m
+[43m21/11/27 18:33:49 INFO Job:  map 47% redu[44mce 0%                                                                                                                                   [0m
+[43m21/11/27 18:33:50 INFO Job:  map 49% reduce[44m 0%                                                                                                                                   [0m
+[43m21/11/27 18:33:53 INFO Job:  map 53% reduce 0%[44m                                                                                                                                   [0m
+[43m21/11/27 18:33:56 INFO Job:  map 56% reduce 0%   [44m                                                                                                                                [0m
+[43m21/11/27 18:33:59 INFO Job:  map 58% reduce 0%     [44m                                                                                                                              [0m
+[43m21/11/27 18:34:02 INFO Job:  map 60% reduce 0%       [44m                                                                                                                            [0m
+[43m21/11/27 18:34:08 INFO Job:  map 61% reduce 0%       [44m                                                                                                                            [0m
+[43m21/11/27 18:35:25 INFO Job:  map 62% reduce 0%        [44m                                                                                                                           [0m
+[43m21/11/27 18:35:28 INFO Job:  map 63% reduce 0%         [44m                                                                                                                          [0m
+[43m21/11/27 18:35:32 INFO Job:  map 65% reduce 0%           [44m                                                                                                                        [0m
+[43m21/11/27 18:35:35 INFO Job:  map 66% reduce 0%            [44m                                                                                                                       [0m
+[43m21/11/27 18:35:38 INFO Job:  map 67% reduce 0%             [44m                                                                                                                      [0m
+[43m21/11/27 18:35:47 INFO Job:  map 69% reduce 0%               [44m                                                                                                                    [0m
+[43m21/11/27 18:35:50 INFO Job:  map 70% reduce 0%               [44m                                                                                                                    [0m
+[43m21/11/27 18:35:53 INFO Job:  map 72% reduce 0%                 [44m                                                                                                                  [0m
+[43m21/11/27 18:35:56 INFO Job:  map 74% reduce 0%                   [44m                                                                                                                [0m
+[43m21/11/27 18:35:59 INFO Job:  map 76% reduce 0%                     [44m                                                                                                              [0m
+[43m21/11/27 18:36:02 INFO Job:  map 78% reduce 0%                       [44m                                                                                                            [0m
+[43m21/11/27 18:36:13 INFO Job:  map 78% reduce 4%                          [44m                                                                                                         [0m
+[43m21/11/27 18:36:16 INFO Job:  map 78% reduce 7%                             [44m                                                                                                      [0m
+[43m21/11/27 18:36:17 INFO Job:  map 78% reduce 11%                               [44m                                                                                                   [0m
+[43m21/11/27 18:36:44 INFO Job:  map 79% reduce 11%                                [44m                                                                                                  [0m
+[43m21/11/27 18:36:47 INFO Job:  map 81% reduce 11%                                  [44m                                                                                                [0m
+[43m21/11/27 18:36:50 INFO Job:  map 82% reduce 11%                                   [44m                                                                                               [0m
+[43m21/11/27 18:36:53 INFO Job:  map 85% reduce 11%                                     [44m                                                                                             [0m
+[43m21/11/27 18:36:56 INFO Job:  map 87% reduce 11%                                       [44m                                                                                           [0m
+[43m21/11/27 18:36:57 INFO Job:  map 88% reduce 11%                                        [44m                                                                                          [0m
+[43m21/11/27 18:36:59 INFO Job:  map 90% reduce 11%                                          [44m                                                                                        [0m
+[43m21/11/27 18:37:00 INFO Job:  map 91% reduce 11%                                           [44m                                                                                       [0m
+[43m21/11/27 18:37:02 INFO Job:  map 93% reduce 11%                                             [44m                                                                                     [0m
+[43m21/11/27 18:37:03 INFO Job:  map 95% reduce 11%                                              [44m                                                                                    [0m
+[43m21/11/27 18:37:04 INFO Job:  map 95% reduce 19%                                                     [44m                                                                             [0m
+[43m21/11/27 18:37:06 INFO Job:  map 96% reduce 22%                                                         [44m                                                                         [0m
+[43m21/11/27 18:37:09 INFO Job:  map 98% reduce 22%                                                           [44m                                                                       [0m
+[43m21/11/27 18:37:12 INFO Job:  map 99% reduce 22%                                                            [44m                                                                      [0m
+[43m21/11/27 18:37:14 INFO Job:  map 100% reduce 22%                                                           [44m                                                                      [0m
+[43m21/11/27 18:37:16 INFO Job:  map 100% reduce 32%                                                                    [44m                                                             [0m
+[43m21/11/27 18:37:17 INFO Job:  map 100% reduce 37%                                                                         [44m                                                        [0m
+[43m21/11/27 18:37:19 INFO Job:  map 100% reduce 44%                                                                               [44m                                                  [0m
+[43m21/11/27 18:37:20 INFO Job:  map 100% reduce 48%                                                                                  [44m                                               [0m
+[43m21/11/27 18:37:22 INFO Job:  map 100% reduce 51%                                                                                     [44m                                            [0m
+[43m21/11/27 18:37:23 INFO Job:  map 100% reduce 59%                                                                                            [44m                                     [0m
+[43m21/11/27 18:37:25 INFO Job:  map 100% reduce 62%                                                                                               [44m                                  [0m
+[43m21/11/27 18:37:26 INFO Job:  map 100% reduce 68%                                                                                                    [44m                             [0m
+[43m21/11/27 18:37:28 INFO Job:  map 100% reduce 71%                                                                                                       [44m                          [0m
+[43m21/11/27 18:37:29 INFO Job:  map 100% reduce 76%                                                                                                           [44m                      [0m
+[43m21/11/27 18:37:31 INFO Job:  map 100% reduce 79%                                                                                                              [44m                   [0m
+[43m21/11/27 18:37:32 INFO Job:  map 100% reduce 85%                                                                                                                   [44m              [0m
+[43m21/11/27 18:37:34 INFO Job:  map 100% reduce 88%                                                                                                                      [44m           [0m
+[43m21/11/27 18:37:35 INFO Job:  map 100% reduce 94%                                                                                                                           [44m      [0m
+[43m21/11/27 18:37:38 INFO Job:  map 100% reduce 99%                                                                                                                                [44m [0m
+[43m21/11/27 18:37:39 INFO Job:  map 100% reduce 100%              # faster 1 min!                                                                                                                  [44m[0m
+21/11/27 18:37:39 INFO Job: Job job_1635647904527_20706 completed successfully
+21/11/27 18:37:39 INFO Job: Counters: 55
+        File System Counters
+         FILE: Number of bytes read=5051185831
+         FILE: Number of bytes written=7422147415
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=370224728
+         HDFS: Number of bytes written=199583011
+         HDFS: Number of read operations=27
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=6
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=3
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=2768817
+         Total time spent by all reduces in occupied slots (ms)=1666620
+         Total time spent by all map tasks (ms)=922939
+         Total time spent by all reduce tasks (ms)=277770
+         Total vcore-milliseconds taken by all map tasks=922939
+         Total vcore-milliseconds taken by all reduce tasks=277770
+         Total megabyte-milliseconds taken by all map tasks=2835268608
+         Total megabyte-milliseconds taken by all reduce tasks=1706618880
+        Map-Reduce Framework
+         Map input records=100000
+         Map output records=213634370
+         Map output bytes=6462511002
+         Map output materialized bytes=2370762015
+         Input split bytes=486
+         Combine input records=268615604
+         Combine output records=102321934
+         Reduce input groups=293070
+         Reduce shuffle bytes=2370762015
+         Reduce input records=47340700
+         Reduce output records=5356324
+         Spilled Records=149662634
+         Shuffled Maps =9
+         Failed Shuffles=0
+         Merged Map outputs=9
+         GC time elapsed (ms)=10108
+         CPU time spent (ms)=1326820
+         Physical memory (bytes) snapshot=13340610560
+         Virtual memory (bytes) snapshot=36267483136
+         Total committed heap usage (bytes)=14172553216
+         Peak Map Physical memory (bytes)=2328444928
+         Peak Map Virtual memory (bytes)=4700307456
+         Peak Reduce Physical memory (bytes)=2383712256
+         Peak Reduce Virtual memory (bytes)=7416008704
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=370224242
+        File Output Format Counters
+         Bytes Written=199583011
+        org.apache.mahout.vectorizer.collocations.llr.CollocMapper$Count
+         NGRAM_TOTAL=48109080
+        org.apache.mahout.vectorizer.collocations.llr.CollocReducer$Skipped
+         LESS_THAN_MIN_SUPPORT=35448796
+21/11/27 18:37:39 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:37:39 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009755975, maxDate=16386145559...
+21/11/27 18:37:39 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:37:39 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:37:39 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:37:39 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:37:39 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20714
+21/11/27 18:37:39 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:37:39 INFO JobSubmitter: number of splits:3
+21/11/27 18:37:39 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20714
+21/11/27 18:37:39 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:37:40 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:37:40 INFO YarnClientImpl: Submitted application application_1635647904527_20714
+21/11/27 18:37:40 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20714/
+21/11/27 18:37:40 INFO Job: Running job: job_1635647904527_20714
+21/11/27 18:37:49 INFO Job: Job job_1635647904527_20714 running in uber mode : false
+[43m[44m21/11/27 18:37:49 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:38:03 INFO Job:  map 51% reduce 0[44m%                                                                                                                                   [0m
+[43m21/11/27 18:38:06 INFO Job:  map 67% reduce 0%             [44m                                                                                                                      [0m
+[43m21/11/27 18:38:09 INFO Job:  map 89% reduce 0%                                [44m                                                                                                   [0m
+[43m21/11/27 18:38:13 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:38:18 INFO Job:  map 100% reduce 33%                                                                     [44m                                                            [0m
+[43m21/11/27 18:38:21 INFO Job:  map 100% reduce 67%                                                                                                   [44m                              [0m
+[43m21/11/27 18:38:22 INFO Job:  map 100% reduce 100%                    # faster 20 s                                                                                                            [44m[0m
+21/11/27 18:38:22 INFO Job: Job job_1635647904527_20714 completed successfully
+21/11/27 18:38:22 INFO Job: Counters: 54
+        File System Counters
+         FILE: Number of bytes read=167405761
+         FILE: Number of bytes written=336299948
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=199583494
+         HDFS: Number of bytes written=48149406
+         HDFS: Number of read operations=27
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=6
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=3
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=172215
+         Total time spent by all reduces in occupied slots (ms)=164286
+         Total time spent by all map tasks (ms)=57405
+         Total time spent by all reduce tasks (ms)=27381
+         Total vcore-milliseconds taken by all map tasks=57405
+         Total vcore-milliseconds taken by all reduce tasks=27381
+         Total megabyte-milliseconds taken by all map tasks=176348160
+         Total megabyte-milliseconds taken by all reduce tasks=168228864
+        Map-Reduce Framework
+         Map input records=5356324
+         Map output records=5356324
+         Map output bytes=156693095
+         Map output materialized bytes=167405797
+         Input split bytes=483
+         Combine input records=0
+         Combine output records=0
+         Reduce input groups=2727007
+         Reduce shuffle bytes=167405797
+         Reduce input records=5356324
+         Reduce output records=1506277
+         Spilled Records=10712648
+         Shuffled Maps =9
+         Failed Shuffles=0
+         Merged Map outputs=9
+         GC time elapsed (ms)=3183
+         CPU time spent (ms)=124920
+         Physical memory (bytes) snapshot=8899985408
+         Virtual memory (bytes) snapshot=36238307328
+         Total committed heap usage (bytes)=9923723264
+         Peak Map Physical memory (bytes)=2288861184
+         Peak Map Virtual memory (bytes)=4688703488
+         Peak Reduce Physical memory (bytes)=687554560
+         Peak Reduce Virtual memory (bytes)=7394832384
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=199583011
+        File Output Format Counters
+         Bytes Written=48149406
+        org.apache.mahout.vectorizer.collocations.llr.LLRReducer$Skipped
+         LESS_THAN_MIN_LLR=1220730
+21/11/27 18:38:25 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:38:25 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009801654, maxDate=16386146016...
+21/11/27 18:38:25 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:38:25 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:38:25 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:38:25 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:38:25 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20715
+21/11/27 18:38:25 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:38:25 INFO JobSubmitter: number of splits:3
+21/11/27 18:38:25 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20715
+21/11/27 18:38:25 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:38:25 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:38:25 INFO YarnClientImpl: Submitted application application_1635647904527_20715
+21/11/27 18:38:25 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20715/
+21/11/27 18:38:25 INFO Job: Running job: job_1635647904527_20715
+21/11/27 18:38:35 INFO Job: Job job_1635647904527_20715 running in uber mode : false
+[43m[44m21/11/27 18:38:35 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:38:50 INFO Job:  map 58% reduce 0%     [44m                                                                                                                              [0m
+[43m21/11/27 18:38:51 INFO Job:  map 83% reduce 0%                           [44m                                                                                                        [0m
+[43m21/11/27 18:38:52 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:39:02 INFO Job:  map 100% reduce 22%                                                           [44m                                                                      [0m
+[43m21/11/27 18:39:06 INFO Job:  map 100% reduce 67%                                                                                                   [44m                              [0m
+[43m21/11/27 18:39:08 INFO Job:  map 100% reduce 68%                                                                                                    [44m                             [0m
+[43m21/11/27 18:39:11 INFO Job:  map 100% reduce 70%                                                                                                      [44m                           [0m
+[43m21/11/27 18:39:12 INFO Job:  map 100% reduce 75%                                                                                                          [44m                       [0m
+[43m21/11/27 18:39:14 INFO Job:  map 100% reduce 76%                                                                                                           [44m                      [0m
+[43m21/11/27 18:39:15 INFO Job:  map 100% reduce 78%                                                                                                             [44m                    [0m
+[43m21/11/27 18:39:18 INFO Job:  map 100% reduce 83%                                                                                                                 [44m                [0m
+[43m21/11/27 18:39:21 INFO Job:  map 100% reduce 86%                                                                                                                    [44m             [0m
+[43m21/11/27 18:39:24 INFO Job:  map 100% reduce 88%                                                                                                                      [44m           [0m
+[43m21/11/27 18:39:25 INFO Job:  map 100% reduce 90%                                                                                                                        [44m         [0m
+[43m21/11/27 18:39:27 INFO Job:  map 100% reduce 91%                                                                                                                         [44m        [0m
+[43m21/11/27 18:39:28 INFO Job:  map 100% reduce 94%                                                                                                                           [44m      [0m
+[43m21/11/27 18:39:30 INFO Job:  map 100% reduce 95%                                                                                                                            [44m     [0m
+[43m21/11/27 18:39:31 INFO Job:  map 100% reduce 98%                                                                                                                               [44m  [0m
+[43m21/11/27 18:39:32 INFO Job:  map 100% reduce 99%                                                                                                                                [44m [0m
+[43m21/11/27 18:39:34 INFO Job:  map 100% reduce 100%                          # 50s                                                                                                      [44m[0m
+21/11/27 18:39:35 INFO Job: Job job_1635647904527_20715 completed successfully
+21/11/27 18:39:35 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=369753013
+         FILE: Number of bytes written=741002613
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=496593665
+         HDFS: Number of bytes written=145710298
+         HDFS: Number of read operations=33
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=6
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=3
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=119631
+         Total time spent by all reduces in occupied slots (ms)=695544
+         Total time spent by all map tasks (ms)=39877
+         Total time spent by all reduce tasks (ms)=115924
+         Total vcore-milliseconds taken by all map tasks=39877
+         Total vcore-milliseconds taken by all reduce tasks=115924
+         Total megabyte-milliseconds taken by all map tasks=122502144
+         Total megabyte-milliseconds taken by all reduce tasks=712237056
+        Map-Reduce Framework
+         Map input records=100000
+         Map output records=100000
+         Map output bytes=369352995
+         Map output materialized bytes=369753049
+         Input split bytes=486
+         Combine input records=0
+         Combine output records=0
+         Reduce input groups=100
+         Reduce shuffle bytes=369753049
+         Reduce input records=100000
+         Reduce output records=100
+         Spilled Records=200000
+         Shuffled Maps =9
+         Failed Shuffles=0
+         Merged Map outputs=9
+         GC time elapsed (ms)=7691
+         CPU time spent (ms)=278080
+         Physical memory (bytes) snapshot=9591685120
+         Virtual memory (bytes) snapshot=36212404224
+         Total committed heap usage (bytes)=10252451840
+         Peak Map Physical memory (bytes)=2296061952
+         Peak Map Virtual memory (bytes)=4681895936
+         Peak Reduce Physical memory (bytes)=932438016
+         Peak Reduce Virtual memory (bytes)=7393341440
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=370224242
+        File Output Format Counters
+         Bytes Written=145710298
+21/11/27 18:39:35 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:39:35 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009871926, maxDate=16386146719...
+21/11/27 18:39:35 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:39:35 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:39:35 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:39:35 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:39:35 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20718
+21/11/27 18:39:35 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:39:35 INFO JobSubmitter: number of splits:3
+21/11/27 18:39:35 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20718
+21/11/27 18:39:35 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:39:35 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:39:36 INFO YarnClientImpl: Submitted application application_1635647904527_20718
+21/11/27 18:39:36 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20718/
+21/11/27 18:39:36 INFO Job: Running job: job_1635647904527_20718
+21/11/27 18:39:45 INFO Job: Job job_1635647904527_20718 running in uber mode : false
+[43m[44m21/11/27 18:39:45 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:39:57 INFO Job:  map 67% reduce 0%             [44m                                                                                                                      [0m
+[43m21/11/27 18:39:58 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:40:04 INFO Job:  map 100% reduce 67%                                                                                                   [44m                              [0m
+[43m21/11/27 18:40:08 INFO Job:  map 100% reduce 100%                                                                                                                                [44m[0m
+21/11/27 18:40:08 INFO Job: Job job_1635647904527_20718 completed successfully
+21/11/27 18:40:08 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=145707806
+         FILE: Number of bytes written=292903479
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=145710778
+         HDFS: Number of bytes written=145710298
+         HDFS: Number of read operations=27
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=6
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=3
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=86520
+         Total time spent by all reduces in occupied slots (ms)=113610
+         Total time spent by all map tasks (ms)=28840
+         Total time spent by all reduce tasks (ms)=18935
+         Total vcore-milliseconds taken by all map tasks=28840
+         Total vcore-milliseconds taken by all reduce tasks=18935
+         Total megabyte-milliseconds taken by all map tasks=88596480
+         Total megabyte-milliseconds taken by all reduce tasks=116336640
+        Map-Reduce Framework
+         Map input records=100
+         Map output records=100
+         Map output bytes=145707288
+         Map output materialized bytes=145707842
+         Input split bytes=480
+         Combine input records=0
+         Combine output records=0
+         Reduce input groups=100
+         Reduce shuffle bytes=145707842
+         Reduce input records=100
+         Reduce output records=100
+         Spilled Records=200
+         Shuffled Maps =9
+         Failed Shuffles=0
+         Merged Map outputs=9
+         GC time elapsed (ms)=2972
+         CPU time spent (ms)=65690
+         Physical memory (bytes) snapshot=8863137792
+         Virtual memory (bytes) snapshot=36186185728
+         Total committed heap usage (bytes)=9923198976
+         Peak Map Physical memory (bytes)=2293108736
+         Peak Map Virtual memory (bytes)=4677144576
+         Peak Reduce Physical memory (bytes)=684826624
+         Peak Reduce Virtual memory (bytes)=7386529792
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=145710298
+        File Output Format Counters
+         Bytes Written=145710298
+21/11/27 18:40:08 INFO HadoopUtil: Deleting hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/vectors/partial-vectors-0
+21/11/27 18:40:08 INFO SparseVectorsFromSequenceFiles: Calculating IDF
+21/11/27 18:40:08 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:40:08 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009905056, maxDate=16386147050...
+21/11/27 18:40:08 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:40:08 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:40:08 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:40:08 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:40:08 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20719
+21/11/27 18:40:08 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:40:08 INFO JobSubmitter: number of splits:3
+21/11/27 18:40:08 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20719
+21/11/27 18:40:08 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:40:08 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:40:09 INFO YarnClientImpl: Submitted application application_1635647904527_20719
+21/11/27 18:40:09 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20719/
+21/11/27 18:40:09 INFO Job: Running job: job_1635647904527_20719
+21/11/27 18:40:19 INFO Job: Job job_1635647904527_20719 running in uber mode : false
+[43m[44m21/11/27 18:40:19 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:40:33 INFO Job:  map 67% reduce 0%             [44m                                                                                                                      [0m
+[43m21/11/27 18:40:38 INFO Job:  map 78% reduce 0%                       [44m                                                                                                            [0m
+[43m21/11/27 18:40:40 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:40:48 INFO Job:  map 100% reduce 100%                            # 30s faster                                                                                                    [44m[0m
+21/11/27 18:40:48 INFO Job: Job job_1635647904527_20719 completed successfully
+21/11/27 18:40:48 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=43623054
+         FILE: Number of bytes written=88236265
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=145710781
+         HDFS: Number of bytes written=30131533
+         HDFS: Number of read operations=17
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=2
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=1
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=166797
+         Total time spent by all reduces in occupied slots (ms)=42102
+         Total time spent by all map tasks (ms)=55599
+         Total time spent by all reduce tasks (ms)=7017
+         Total vcore-milliseconds taken by all map tasks=55599
+         Total vcore-milliseconds taken by all reduce tasks=7017
+         Total megabyte-milliseconds taken by all map tasks=170800128
+         Total megabyte-milliseconds taken by all reduce tasks=43112448
+        Map-Reduce Framework
+         Map input records=100
+         Map output records=13366661
+         Map output bytes=160399932
+         Map output materialized bytes=43623066
+         Input split bytes=483
+         Combine input records=13366661
+         Combine output records=3115932
+         Reduce input groups=1506278
+         Reduce shuffle bytes=43623066
+         Reduce input records=3115932
+         Reduce output records=1506278
+         Spilled Records=6231864
+         Shuffled Maps =3
+         Failed Shuffles=0
+         Merged Map outputs=3
+         GC time elapsed (ms)=3187
+         CPU time spent (ms)=101540
+         Physical memory (bytes) snapshot=7449653248
+         Virtual memory (bytes) snapshot=21427023872
+         Total committed heap usage (bytes)=8359247872
+         Peak Map Physical memory (bytes)=2296786944
+         Peak Map Virtual memory (bytes)=4677451776
+         Peak Reduce Physical memory (bytes)=569643008
+         Peak Reduce Virtual memory (bytes)=7398969344
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=145710298
+        File Output Format Counters
+         Bytes Written=30131533
+21/11/27 18:40:50 INFO SparseVectorsFromSequenceFiles: Pruning
+21/11/27 18:40:50 INFO deprecation: mapred.input.dir is deprecated. Instead, use mapreduce.input.fileinputformat.inputdir
+21/11/27 18:40:50 INFO deprecation: mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
+21/11/27 18:40:50 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+21/11/27 18:40:50 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:40:50 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009947033, maxDate=16386147470...
+21/11/27 18:40:50 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:40:50 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:40:50 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:40:50 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:40:50 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20721
+21/11/27 18:40:50 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:40:50 INFO JobSubmitter: number of splits:3
+21/11/27 18:40:50 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20721
+21/11/27 18:40:50 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:40:50 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:40:51 INFO YarnClientImpl: Submitted application application_1635647904527_20721
+21/11/27 18:40:51 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20721/
+21/11/27 18:40:51 INFO Job: Running job: job_1635647904527_20721
+21/11/27 18:41:01 INFO Job: Job job_1635647904527_20721 running in uber mode : false
+[43m[44m21/11/27 18:41:01 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:41:16 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:41:30 INFO Job:  map 100% reduce 57%                                                                                          [44m                                       [0m
+[43m21/11/27 18:41:36 INFO Job:  map 100% reduce 79%                                                                                                              [44m                   [0m
+[43m21/11/27 18:41:39 INFO Job:  map 100% reduce 96%                                                                                                                             [44m    [0m
+[43m21/11/27 18:41:41 INFO Job:  map 100% reduce 100%                                                                                                                                [44m[0m
+21/11/27 18:41:41 INFO Job: Job job_1635647904527_20721 completed successfully
+21/11/27 18:41:41 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=80193488
+         FILE: Number of bytes written=101119983
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=145710781
+         HDFS: Number of bytes written=134191958
+         HDFS: Number of read operations=17
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=2
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=1
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=113544
+         Total time spent by all reduces in occupied slots (ms)=134562
+         Total time spent by all map tasks (ms)=37848
+         Total time spent by all reduce tasks (ms)=22427
+         Total vcore-milliseconds taken by all map tasks=37848
+         Total vcore-milliseconds taken by all reduce tasks=22427
+         Total megabyte-milliseconds taken by all map tasks=116269056
+         Total megabyte-milliseconds taken by all reduce tasks=137791488
+        Map-Reduce Framework
+         Map input records=100
+         Map output records=100
+         Map output bytes=145707288
+         Map output materialized bytes=50063148
+         Input split bytes=483
+         Combine input records=0
+         Combine output records=0
+         Reduce input groups=100
+         Reduce shuffle bytes=50063148
+         Reduce input records=100
+         Reduce output records=100
+         Spilled Records=200
+         Shuffled Maps =3
+         Failed Shuffles=0
+         Merged Map outputs=3
+         GC time elapsed (ms)=2881
+         CPU time spent (ms)=86030
+         Physical memory (bytes) snapshot=7922765824
+         Virtual memory (bytes) snapshot=21437480960
+         Total committed heap usage (bytes)=8824291328
+         Peak Map Physical memory (bytes)=2292830208
+         Peak Map Virtual memory (bytes)=4679090176
+         Peak Reduce Physical memory (bytes)=1055600640
+         Peak Reduce Virtual memory (bytes)=7404343296
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=145710298
+        File Output Format Counters
+         Bytes Written=134191958
+21/11/27 18:41:41 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:41:41 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638009998290, maxDate=16386147982...
+21/11/27 18:41:41 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:41:41 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:41:41 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:41:41 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:41:41 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20722
+21/11/27 18:41:42 INFO FileInputFormat: Total input files to process : 1
+21/11/27 18:41:42 INFO JobSubmitter: number of splits:1
+21/11/27 18:41:42 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20722
+21/11/27 18:41:42 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:41:42 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:41:42 INFO YarnClientImpl: Submitted application application_1635647904527_20722
+21/11/27 18:41:42 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20722/
+21/11/27 18:41:42 INFO Job: Running job: job_1635647904527_20722
+21/11/27 18:41:51 INFO Job: Job job_1635647904527_20722 running in uber mode : false
+[43m[44m21/11/27 18:41:51 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:42:05 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:42:16 INFO Job:  map 100% reduce 100%                                                                                                                                [44m[0m
+21/11/27 18:42:16 INFO Job: Job job_1635647904527_20722 completed successfully
+21/11/27 18:42:16 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=134189606
+         FILE: Number of bytes written=269369247
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=134192129
+         HDFS: Number of bytes written=134192098
+         HDFS: Number of read operations=19
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=6
+        Job Counters
+         Launched map tasks=1
+         Launched reduce tasks=3
+         Data-local map tasks=1
+         Total time spent by all maps in occupied slots (ms)=34953
+         Total time spent by all reduces in occupied slots (ms)=152598
+         Total time spent by all map tasks (ms)=11651
+         Total time spent by all reduce tasks (ms)=25433
+         Total vcore-milliseconds taken by all map tasks=11651
+         Total vcore-milliseconds taken by all reduce tasks=25433
+         Total megabyte-milliseconds taken by all map tasks=35791872
+         Total megabyte-milliseconds taken by all reduce tasks=156260352
+        Map-Reduce Framework
+         Map input records=100
+         Map output records=100
+         Map output bytes=134189088
+         Map output materialized bytes=134189606
+         Input split bytes=171
+         Combine input records=0
+         Combine output records=0
+         Reduce input groups=100
+         Reduce shuffle bytes=134189606
+         Reduce input records=100
+         Reduce output records=100
+         Spilled Records=200
+         Shuffled Maps =3
+         Failed Shuffles=0
+         Merged Map outputs=3
+         GC time elapsed (ms)=1285
+         CPU time spent (ms)=41460
+         Physical memory (bytes) snapshot=4029517824
+         Virtual memory (bytes) snapshot=26823909376
+         Total committed heap usage (bytes)=4843896832
+         Peak Map Physical memory (bytes)=2289745920
+         Peak Map Virtual memory (bytes)=4678451200
+         Peak Reduce Physical memory (bytes)=580648960
+         Peak Reduce Virtual memory (bytes)=7382851584
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=134191958
+        File Output Format Counters
+         Bytes Written=134192098
+21/11/27 18:42:16 INFO HadoopUtil: Deleting hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/vectors/tf-vectors-partial
+21/11/27 18:42:16 INFO HadoopUtil: Deleting hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/vectors/tf-vectors-toprune
+21/11/27 18:42:16 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:42:16 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638010033480, maxDate=16386148334...
+21/11/27 18:42:16 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:42:16 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:42:16 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:42:16 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:42:17 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20725
+21/11/27 18:42:17 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:42:17 INFO JobSubmitter: number of splits:3
+21/11/27 18:42:17 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20725
+21/11/27 18:42:17 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:42:17 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:42:17 INFO YarnClientImpl: Submitted application application_1635647904527_20725
+21/11/27 18:42:17 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20725/
+21/11/27 18:42:17 INFO Job: Running job: job_1635647904527_20725
+21/11/27 18:42:27 INFO Job: Job job_1635647904527_20725 running in uber mode : false
+[43m[44m21/11/27 18:42:27 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:42:39 INFO Job:  map 67% reduce 0%             [44m                                                                                                                      [0m
+[43m21/11/27 18:42:42 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:42:50 INFO Job:  map 100% reduce 67%                                                                                                   [44m                              [0m
+[43m21/11/27 18:42:56 INFO Job:  map 100% reduce 80%                                                                                                               [44m                  [0m
+[43m21/11/27 18:42:59 INFO Job:  map 100% reduce 91%                                                                                                                         [44m        [0m
+[43m21/11/27 18:43:02 INFO Job:  map 100% reduce 100%                                                                                                                                [44m[0m
+21/11/27 18:43:02 INFO Job: Job job_1635647904527_20725 completed successfully
+21/11/27 18:43:02 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=134189594
+         FILE: Number of bytes written=269376287
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=164324070
+         HDFS: Number of bytes written=134191958
+         HDFS: Number of read operations=19
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=2
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=1
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=96156
+         Total time spent by all reduces in occupied slots (ms)=126264
+         Total time spent by all map tasks (ms)=32052
+         Total time spent by all reduce tasks (ms)=21044
+         Total vcore-milliseconds taken by all map tasks=32052
+         Total vcore-milliseconds taken by all reduce tasks=21044
+         Total megabyte-milliseconds taken by all map tasks=98463744
+         Total megabyte-milliseconds taken by all reduce tasks=129294336
+        Map-Reduce Framework
+         Map input records=100
+         Map output records=100
+         Map output bytes=134189088
+         Map output materialized bytes=134189606
+         Input split bytes=459
+         Combine input records=0
+         Combine output records=0
+         Reduce input groups=100
+         Reduce shuffle bytes=134189606
+         Reduce input records=100
+         Reduce output records=100
+         Spilled Records=200
+         Shuffled Maps =3
+         Failed Shuffles=0
+         Merged Map outputs=3
+         GC time elapsed (ms)=3063
+         CPU time spent (ms)=82200
+         Physical memory (bytes) snapshot=7662157824
+         Virtual memory (bytes) snapshot=21421748224
+         Total committed heap usage (bytes)=8383365120
+         Peak Map Physical memory (bytes)=2290548736
+         Peak Map Virtual memory (bytes)=4678991872
+         Peak Reduce Physical memory (bytes)=810430464
+         Peak Reduce Virtual memory (bytes)=7393505280
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=134192098
+        File Output Format Counters
+         Bytes Written=134191958
+21/11/27 18:43:02 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:43:02 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638010078909, maxDate=16386148789...
+21/11/27 18:43:02 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:43:02 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:43:02 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:43:02 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:43:02 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20726
+21/11/27 18:43:02 INFO FileInputFormat: Total input files to process : 1
+21/11/27 18:43:02 INFO JobSubmitter: number of splits:1
+21/11/27 18:43:02 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20726
+21/11/27 18:43:02 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:43:02 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:43:03 INFO YarnClientImpl: Submitted application application_1635647904527_20726
+21/11/27 18:43:03 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20726/
+21/11/27 18:43:03 INFO Job: Running job: job_1635647904527_20726
+21/11/27 18:43:13 INFO Job: Job job_1635647904527_20726 running in uber mode : false
+[43m[44m21/11/27 18:43:13 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:43:27 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:43:35 INFO Job:  map 100% reduce 33%                                                                     [44m                                                            [0m
+[43m21/11/27 18:43:39 INFO Job:  map 100% reduce 100%                                                                                                                                [44m[0m
+21/11/27 18:43:39 INFO Job: Job job_1635647904527_20726 completed successfully
+21/11/27 18:43:39 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=134189606
+         FILE: Number of bytes written=269370971
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=134192118
+         HDFS: Number of bytes written=134192098
+         HDFS: Number of read operations=19
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=6
+        Job Counters
+         Launched map tasks=1
+         Launched reduce tasks=3
+         Data-local map tasks=1
+         Total time spent by all maps in occupied slots (ms)=36294
+         Total time spent by all reduces in occupied slots (ms)=134640
+         Total time spent by all map tasks (ms)=12098
+         Total time spent by all reduce tasks (ms)=22440
+         Total vcore-milliseconds taken by all map tasks=12098
+         Total vcore-milliseconds taken by all reduce tasks=22440
+         Total megabyte-milliseconds taken by all map tasks=37165056
+         Total megabyte-milliseconds taken by all reduce tasks=137871360
+        Map-Reduce Framework
+         Map input records=100
+         Map output records=100
+         Map output bytes=134189088
+         Map output materialized bytes=134189606
+         Input split bytes=160
+         Combine input records=0
+         Combine output records=0
+         Reduce input groups=100
+         Reduce shuffle bytes=134189606
+         Reduce input records=100
+         Reduce output records=100
+         Spilled Records=200
+         Shuffled Maps =3
+         Failed Shuffles=0
+         Merged Map outputs=3
+         GC time elapsed (ms)=1174
+         CPU time spent (ms)=39140
+         Physical memory (bytes) snapshot=4132163584
+         Virtual memory (bytes) snapshot=26859364352
+         Total committed heap usage (bytes)=4854906880
+         Peak Map Physical memory (bytes)=2289598464
+         Peak Map Virtual memory (bytes)=4678590464
+         Peak Reduce Physical memory (bytes)=643006464
+         Peak Reduce Virtual memory (bytes)=7414841344
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=134191958
+        File Output Format Counters
+         Bytes Written=134192098
+21/11/27 18:43:39 INFO HadoopUtil: Deleting hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/vectors/partial-vectors-0
+21/11/27 18:43:39 INFO MahoutDriver: Program took 761896 ms (Minutes: 12.698266666666667)
+
+MAHOUT_LOCAL is not set; adding HADOOP_CONF_DIR to classpath.
+Running on hadoop, using /usr/hdp/3.0.1.0-187/hadoop/bin/hadoop and HADOOP_CONF_DIR=/usr/hdp/3.0.1.0-187/hadoop/etc/hadoop
+MAHOUT-JOB: /home/account0/HiBench3/hadoopbench/mahout/target/apache-mahout-distribution-0.11.0/mahout-examples-0.11.0-job.jar
+21/11/27 18:43:45 WARN MahoutDriver: No trainnb.props found on classpath, will use command-line arguments only
+21/11/27 18:43:45 INFO AbstractJob: Command line arguments: {--alphaI=[1.0], --endPhase=[2147483647], --input=[hdfs://cuhkcluster/dataspace/team12/HiBench/Bayes/Output/vecto...
+21/11/27 18:43:48 INFO deprecation: mapred.input.dir is deprecated. Instead, use mapreduce.input.fileinputformat.inputdir
+21/11/27 18:43:48 INFO deprecation: mapred.compress.map.output is deprecated. Instead, use mapreduce.map.output.compress
+21/11/27 18:43:48 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+21/11/27 18:43:49 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:43:49 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638010125622, maxDate=16386149256...
+21/11/27 18:43:49 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:43:49 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:43:49 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:43:49 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:43:49 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20727
+21/11/27 18:43:49 INFO FileInputFormat: Total input files to process : 3
+21/11/27 18:43:49 INFO JobSubmitter: number of splits:3
+21/11/27 18:43:50 INFO deprecation: yarn.resourcemanager.zk-num-retries is deprecated. Instead, use hadoop.zk.num-retries
+21/11/27 18:43:50 INFO deprecation: yarn.resourcemanager.zk-address is deprecated. Instead, use hadoop.zk.address
+21/11/27 18:43:50 INFO deprecation: yarn.resourcemanager.zk-timeout-ms is deprecated. Instead, use hadoop.zk.timeout-ms
+21/11/27 18:43:50 INFO deprecation: yarn.resourcemanager.zk-acl is deprecated. Instead, use hadoop.zk.acl
+21/11/27 18:43:50 INFO deprecation: yarn.resourcemanager.zk-retry-interval-ms is deprecated. Instead, use hadoop.zk.retry-interval-ms
+21/11/27 18:43:50 INFO deprecation: yarn.resourcemanager.display.per-user-apps is deprecated. Instead, use yarn.webapp.filter-entity-list-by-user
+21/11/27 18:43:50 INFO deprecation: yarn.resourcemanager.system-metrics-publisher.enabled is deprecated. Instead, use yarn.system-metrics-publisher.enabled
+21/11/27 18:43:50 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20727
+21/11/27 18:43:50 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:43:50 INFO Configuration: found resource resource-types.xml at file:/usr/hdp/3.0.1.0-187/hadoop/conf/resource-types.xml
+21/11/27 18:43:50 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:43:50 INFO YarnClientImpl: Submitted application application_1635647904527_20727
+21/11/27 18:43:50 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20727/
+21/11/27 18:43:50 INFO Job: Running job: job_1635647904527_20727
+21/11/27 18:44:00 INFO Job: Job job_1635647904527_20727 running in uber mode : false
+[43m[44m21/11/27 18:44:00 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:44:14 INFO Job:  map 67% reduce 0%             [44m                                                                                                                      [0m
+[43m21/11/27 18:44:16 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:44:30 INFO Job:  map 100% reduce 58%                                                                                           [44m                                      [0m
+[43m21/11/27 18:44:36 INFO Job:  map 100% reduce 100%                                                                                                                                [44m[0m
+21/11/27 18:44:36 INFO Job: Job job_1635647904527_20727 completed successfully
+21/11/27 18:44:36 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=56721776
+         FILE: Number of bytes written=114433223
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=134192566
+         HDFS: Number of bytes written=134191475
+         HDFS: Number of read operations=17
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=2
+        Job Counters
+         Launched map tasks=3
+         Launched reduce tasks=1
+         Data-local map tasks=3
+         Total time spent by all maps in occupied slots (ms)=126210
+         Total time spent by all reduces in occupied slots (ms)=106578
+         Total time spent by all map tasks (ms)=42070
+         Total time spent by all reduce tasks (ms)=17763
+         Total vcore-milliseconds taken by all map tasks=42070
+         Total vcore-milliseconds taken by all reduce tasks=17763
+         Total megabyte-milliseconds taken by all map tasks=129239040
+         Total megabyte-milliseconds taken by all reduce tasks=109135872
+        Map-Reduce Framework
+         Map input records=100
+         Map output records=100
+         Map output bytes=134188598
+         Map output materialized bytes=56718627
+         Input split bytes=468
+         Combine input records=100
+         Combine output records=100
+         Reduce input groups=100
+         Reduce shuffle bytes=56718627
+         Reduce input records=100
+         Reduce output records=100
+         Spilled Records=200
+         Shuffled Maps =3
+         Failed Shuffles=0
+         Merged Map outputs=3
+         GC time elapsed (ms)=5051
+         CPU time spent (ms)=94100
+         Physical memory (bytes) snapshot=8074383360
+         Virtual memory (bytes) snapshot=21423501312
+         Total committed heap usage (bytes)=8882487296
+         Peak Map Physical memory (bytes)=2329034752
+         Peak Map Virtual memory (bytes)=4679401472
+         Peak Reduce Physical memory (bytes)=1094729728
+         Peak Reduce Virtual memory (bytes)=7387484160
+        Shuffle Errors
+         BAD_ID=0
+         CONNECTION=0
+         IO_ERROR=0
+         WRONG_LENGTH=0
+         WRONG_MAP=0
+         WRONG_REDUCE=0
+        File Input Format Counters
+         Bytes Read=134192098
+        File Output Format Counters
+         Bytes Written=134191475
+21/11/27 18:44:36 INFO AHSProxy: Connecting to Application History server at manager.cuhk.com/10.26.10.201:10200
+21/11/27 18:44:36 INFO DFSClient: Created token for team12: HDFS_DELEGATION_TOKEN owner=team12@BIGDATA, renewer=yarn, realUser=, issueDate=1638010173052, maxDate=16386149730...
+21/11/27 18:44:36 INFO KMSClientProvider: Getting new token from http://manager.cuhk.com:9292/kms/v1/, renewer:rm/master1.cuhk.com@BIGDATA
+21/11/27 18:44:36 INFO KMSClientProvider: New token received: (Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1638...
+21/11/27 18:44:36 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN ...
+21/11/27 18:44:36 INFO TokenCache: Got dt for hdfs://cuhkcluster; Kind: kms-dt, Service: 10.26.10.201:9292, Ident: (kms-dt owner=team12, renewer=yarn, realUser=, issueDate=1...
+21/11/27 18:44:36 INFO JobResourceUploader: Disabling Erasure Coding for path: /user/team12/.staging/job_1635647904527_20728
+21/11/27 18:44:36 INFO FileInputFormat: Total input files to process : 1
+21/11/27 18:44:36 INFO JobSubmitter: number of splits:1
+21/11/27 18:44:36 INFO deprecation: yarn.resourcemanager.zk-num-retries is deprecated. Instead, use hadoop.zk.num-retries
+21/11/27 18:44:36 INFO deprecation: yarn.resourcemanager.zk-address is deprecated. Instead, use hadoop.zk.address
+21/11/27 18:44:36 INFO deprecation: yarn.resourcemanager.zk-timeout-ms is deprecated. Instead, use hadoop.zk.timeout-ms
+21/11/27 18:44:36 INFO deprecation: yarn.resourcemanager.zk-acl is deprecated. Instead, use hadoop.zk.acl
+21/11/27 18:44:36 INFO deprecation: yarn.resourcemanager.zk-retry-interval-ms is deprecated. Instead, use hadoop.zk.retry-interval-ms
+21/11/27 18:44:36 INFO deprecation: yarn.resourcemanager.display.per-user-apps is deprecated. Instead, use yarn.webapp.filter-entity-list-by-user
+21/11/27 18:44:36 INFO deprecation: yarn.resourcemanager.system-metrics-publisher.enabled is deprecated. Instead, use yarn.system-metrics-publisher.enabled
+21/11/27 18:44:36 INFO JobSubmitter: Submitting tokens for job: job_1635647904527_20728
+21/11/27 18:44:36 INFO JobSubmitter: Executing with tokens: ind: HDFS_DELEGATION_TOKEN, Service: ha-hdfs:cuhkcluster, Ident: (token for team12: HDFS_DELEGATION_TOKEN owner...
+21/11/27 18:44:36 INFO TimelineClientImpl: Timeline service address: manager.cuhk.com:8188
+21/11/27 18:44:37 INFO YarnClientImpl: Submitted application application_1635647904527_20728
+21/11/27 18:44:37 INFO Job: The url to track the job: http://master1.cuhk.com:8088/proxy/application_1635647904527_20728/
+21/11/27 18:44:37 INFO Job: Running job: job_1635647904527_20728
+21/11/27 18:44:47 INFO Job: Job job_1635647904527_20728 running in uber mode : false
+[43m[44m21/11/27 18:44:47 INFO Job:  map 0% reduce 0%                                                                                                                                    [0m
+[43m21/11/27 18:45:01 INFO Job:  map 58% reduce 0%     [44m                                                                                                                              [0m
+[43m21/11/27 18:45:06 INFO Job:  map 67% reduce 0%             [44m                                                                                                                      [0m
+[43m21/11/27 18:45:07 INFO Job:  map 100% reduce 0%                                         [44m                                                                                         [0m
+[43m21/11/27 18:45:15 INFO Job:  map 100% reduce 100%                                                                                                                                [44m[0m
+21/11/27 18:45:15 INFO Job: Job job_1635647904527_20728 completed successfully
+21/11/27 18:45:15 INFO Job: Counters: 53
+        File System Counters
+         FILE: Number of bytes read=6871370
+         FILE: Number of bytes written=14242565
+         FILE: Number of read operations=0
+         FILE: Number of large read operations=0
+         FILE: Number of write operations=0
+         HDFS: Number of bytes read=134191633
+         HDFS: Number of bytes written=16438300
+         HDFS: Number of read operations=9
+         HDFS: Number of large read operations=0
+         HDFS: Number of write operations=2
+        Job Counters
+         Launched 
